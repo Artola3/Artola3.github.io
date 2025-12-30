@@ -1,438 +1,325 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>David Artola - Area Service Manager</title>
-    <style>
-        /* --- ESTILOS GLOBALES (Minimalist Design) --- */
-        :root {
-            --primary-color: #333;
-            --secondary-color: #666;
-            --accent-color: #000;
-            --bg-color: #f9f9f9;
-            --card-bg: #fff;
-            --hover-shadow: 0 4px 8px rgba(0,0,0,0.1);
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>David Artola - Area Service Manager</title>
+<style>
+/* --- ESTILOS GLOBALES (Minimalist Design) --- */
+:root {
+--primary-color: #333;
+--secondary-color: #666;
+--accent-color: #000;
+--bg-color: #f9f9f9;
+--card-bg: #fff;
+--hover-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
 
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: var(--primary-color);
-            background-color: var(--bg-color);
-            margin: 0;
-            padding: 0;
-        }
+body {
+font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+line-height: 1.6;
+color: var(--primary-color);
+background-color: var(--bg-color);
+margin: 0;
+padding: 0;
+}
 
-        /* Layout Principal */
-        .container {
-            max-width: 900px;
-            margin: 40px auto;
-            background: var(--card-bg);
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            padding: 40px;
-        }
+/* Layout Principal */
+.container {
+max-width: 900px;
+margin: 40px auto;
+background: var(--card-bg);
+box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+padding: 40px;
+}
 
-        /* --- HEADER --- */
-        header {
-            text-align: center;
-            border-bottom: 2px solid var(--primary-color);
-            padding-bottom: 20px;
-            margin-bottom: 30px;
-        }
+/* --- HEADER --- */
+header {
+text-align: center;
+border-bottom: 2px solid var(--primary-color);
+padding-bottom: 20px;
+margin-bottom: 30px;
+}
 
-        h1 {
-            font-size: 2.5rem;
-            margin: 0;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            color: var(--accent-color);
-        }
+h1 {
+font-size: 2.5rem;
+margin: 0;
+text-transform: uppercase;
+letter-spacing: 2px;
+color: var(--accent-color);
+}
 
-        .subtitle {
-            font-size: 1.2rem;
-            color: var(--secondary-color);
-            font-weight: 500;
-            margin-top: 5px;
-        }
+.subtitle {
+font-size: 1.2rem;
+color: var(--secondary-color);
+font-weight: 500;
+margin-top: 5px;
+}
 
-        .contact-info {
-            margin-top: 15px;
-            font-size: 0.9rem;
-        }
+.contact-info {
+margin-top: 15px;
+font-size: 0.9rem;
+}
 
-        .contact-info a {
-            color: var(--secondary-color);
-            text-decoration: none;
-            margin: 0 10px;
-        }
+.contact-info a {
+color: var(--secondary-color);
+text-decoration: none;
+margin: 0 10px;
+}
 
-        .contact-info a:hover {
-            text-decoration: underline;
-            color: var(--accent-color);
-        }
+.contact-info a:hover {
+text-decoration: underline;
+color: var(--accent-color);
+}
 
-        /* --- SECCIONES GENÉRICAS --- */
-        section {
-            margin-bottom: 40px; /* Más espacio entre secciones */
-        }
+/* --- SECCIONES GENÉRICAS --- */
+section {
+margin-bottom: 40px; /* Más espacio entre secciones */
+}
 
-        h2 {
-            border-left: 5px solid var(--accent-color);
-            padding-left: 15px;
-            font-size: 1.4rem;
-            text-transform: uppercase;
-            margin-bottom: 25px;
-            color: var(--primary-color);
-        }
+h2 {
+border-left: 5px solid var(--accent-color);
+padding-left: 15px;
+font-size: 1.4rem;
+text-transform: uppercase;
+margin-bottom: 25px;
+color: var(--primary-color);
+}
 
-        ul {
-            list-style-type: square;
-            margin-top: 10px;
-            padding-left: 20px;
-        }
+ul {
+list-style-type: square;
+margin-top: 10px;
+padding-left: 20px;
+}
 
-        li {
-            margin-bottom: 5px;
-        }
+li {
+margin-bottom: 5px;
+}
 
-        /* --- ESTILOS: HITOS Y LOGROS --- */
-        .achievements-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-            margin-top: 20px;
-        }
+/* --- ESTILOS: HITOS Y LOGROS (Mantenidos por si se reusan, aunque sección eliminada) --- */
+.achievements-grid {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+gap: 20px;
+margin-top: 20px;
+}
 
-        .achievement-card {
-            background: #fff;
-            border: 1px solid #eee;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-            text-align: center; /* Centrar contenido de hitos */
-        }
+.achievement-card {
+background: #fff;
+border: 1px solid #eee;
+padding: 20px;
+border-radius: 8px;
+box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+transition: transform 0.2s ease, box-shadow 0.2s ease;
+text-align: center;
+}
 
-        .achievement-card:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--hover-shadow);
-            border-color: #ddd;
-        }
+.achievement-card:hover {
+transform: translateY(-5px);
+box-shadow: var(--hover-shadow);
+border-color: #ddd;
+}
 
-        .metric {
-            font-size: 2rem;
-            font-weight: bold;
-            color: var(--accent-color);
-            display: block;
-            margin-bottom: 5px;
-        }
+.metric {
+font-size: 2rem;
+font-weight: bold;
+color: var(--accent-color);
+display: block;
+margin-bottom: 5px;
+}
 
-        .metric-label {
-            font-weight: bold;
-            color: #555;
-            text-transform: uppercase;
-            font-size: 0.8rem;
-            display: block;
-            margin-bottom: 10px;
-            letter-spacing: 1px;
-        }
+.metric-label {
+font-weight: bold;
+color: #555;
+text-transform: uppercase;
+font-size: 0.8rem;
+display: block;
+margin-bottom: 10px;
+letter-spacing: 1px;
+}
 
-        .metric-desc {
-            font-size: 0.9rem;
-            color: #666;
-            text-align: left; /* Descripción alineada a la izquierda para leer mejor */
-        }
+.metric-desc {
+font-size: 0.9rem;
+color: #666;
+text-align: left;
+}
 
-        /* --- ESTILOS: EXPERIENCIA Y EDUCACIÓN --- */
-        .job-item, .edu-item {
-            margin-bottom: 30px;
-        }
+/* --- ESTILOS: EXPERIENCIA Y EDUCACIÓN --- */
+.job-item, .edu-item {
+margin-bottom: 30px;
+}
 
-        .job-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: baseline;
-            flex-wrap: wrap;
-            border-bottom: 1px solid #eee;
-            padding-bottom: 5px;
-            margin-bottom: 10px;
-        }
+.job-header {
+display: flex;
+justify-content: space-between;
+align-items: baseline;
+flex-wrap: wrap;
+border-bottom: 1px solid #eee;
+padding-bottom: 5px;
+margin-bottom: 10px;
+}
 
-        .job-title {
-            font-weight: bold;
-            font-size: 1.1rem;
-            color: var(--primary-color);
-        }
+.job-title {
+font-weight: bold;
+font-size: 1.1rem;
+color: var(--primary-color);
+}
 
-        .company {
-            color: var(--secondary-color);
-            font-style: italic;
-        }
+.company {
+color: var(--secondary-color);
+font-style: italic;
+}
 
-        .date {
-            font-size: 0.9rem;
-            color: #888;
-        }
+.date {
+font-size: 0.9rem;
+color: #888;
+}
 
-        /* --- ESTILOS: HABILIDADES (GRID) --- */
-        .skills-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-        }
+/* --- ESTILOS: HABILIDADES (GRID) --- */
+.skills-grid {
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap: 40px;
+}
 
-        .skills-column h3 {
-            font-size: 1.1rem;
-            border-bottom: 1px solid #ddd;
-            padding-bottom: 10px;
-            margin-bottom: 15px;
-        }
+.skills-column h3 {
+font-size: 1.1rem;
+border-bottom: 1px solid #ddd;
+padding-bottom: 10px;
+margin-bottom: 15px;
+}
 
-        /* --- ESTILOS: REFERENCIAS --- */
-        .ref-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-        }
+/* --- ESTILOS: REFERENCIAS (Mantenidos por si se reusan) --- */
+.ref-container {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+gap: 20px;
+}
 
-        .ref-card {
-            background-color: #f8f8f8;
-            border-left: 4px solid var(--accent-color);
-            padding: 20px;
-            border-radius: 0 5px 5px 0;
-        }
+.ref-card {
+background-color: #f8f8f8;
+border-left: 4px solid var(--accent-color);
+padding: 20px;
+border-radius: 0 5px 5px 0;
+}
 
-        .ref-text {
-            font-style: italic;
-            color: #555;
-            margin-bottom: 15px;
-            font-size: 1rem;
-        }
+.ref-text {
+font-style: italic;
+color: #555;
+margin-bottom: 15px;
+font-size: 1rem;
+}
 
-        .ref-author strong {
-            display: block;
-            color: var(--primary-color);
-        }
+.ref-author strong {
+display: block;
+color: var(--primary-color);
+}
 
-        .ref-author span {
-            font-size: 0.85rem;
-            color: #777;
-        }
+.ref-author span {
+font-size: 0.85rem;
+color: #777;
+}
 
-        .ref-note {
-            margin-top: 25px;
-            font-size: 0.85rem;
-            color: #888;
-            text-align: center;
-            border-top: 1px solid #eee;
-            padding-top: 15px;
-        }
+.ref-note {
+margin-top: 25px;
+font-size: 0.85rem;
+color: #888;
+text-align: center;
+border-top: 1px solid #eee;
+padding-top: 15px;
+}
 
-        /* --- FOOTER --- */
-        .footer {
-            text-align: center;
-            font-size: 0.8rem;
-            color: #aaa;
-            margin-top: 60px;
-            border-top: 1px solid #eee;
-            padding-top: 20px;
-        }
+/* --- FOOTER --- */
+.footer {
+text-align: center;
+font-size: 0.8rem;
+color: #aaa;
+margin-top: 60px;
+border-top: 1px solid #eee;
+padding-top: 20px;
+}
 
-        /* --- RESPONSIVE --- */
-        @media (max-width: 700px) {
-            .skills-grid {
-                grid-template-columns: 1fr;
-                gap: 20px;
-            }
-            .job-header {
-                flex-direction: column;
-            }
-            .container {
-                padding: 20px;
-                margin: 0;
-            }
-        }
-    </style>
+/* --- RESPONSIVE --- */
+@media (max-width: 700px) {
+.skills-grid {
+grid-template-columns: 1fr;
+gap: 20px;
+}
+.job-header {
+flex-direction: column;
+}
+.container {
+padding: 20px;
+margin: 0;
+}
+}
+</style>
 </head>
 <body>
 
-    <div class="container">
-        <header>
-            <h1>David Artola</h1>
-            [cite_start]<div class="subtitle">AREA SERVICE MANAGER EN GROUPE ATLANTIC [cite: 1, 2]</div>
-            
-            <div class="contact-info">
-                [cite_start]<span>📱 +34 686805175 [cite: 16]</span> | 
-                [cite_start]<a href="mailto:dartola3@gmail.com">✉️ dartola3@gmail.com [cite: 17]</a> |
-                [cite_start]<a href="https://www.linkedin.com/in/david-a-b37a6413b/" target="_blank">🔗 LinkedIn [cite: 18]</a>
-            </div>
-        </header>
+<div class="container">
+<header>
+<h1>David Artola</h1>
+<div class="subtitle">AREA SERVICE MANAGER EN GROUPE ATLANTIC</div>
 
-        <section id="about">
-            <h2>Sobre Mí</h2>
-            <p>
-                [cite_start]Especialista en gestión de servicios de postventa y operaciones técnicas con más de 12 años de trayectoria[cite: 4]. 
-                [cite_start]Experto en la coordinación de Redes de Servicios Técnicos (SATs) y optimización de procesos operativos[cite: 5]. 
-                Con un enfoque resolutivo basado en datos (KPIs), cuento con amplia experiencia en el diseño de procedimientos 
-                [cite_start]para mejorar la eficiencia del servicio y la satisfacción del cliente final en entornos multinacionales[cite: 5].
-            </p>
-        </section>
+<div class="contact-info">
+<span>📱 +34 686805175</span> |
+<a href="mailto:dartola3@gmail.com">✉️ dartola3@gmail.com</a> |
+<a href="https://www.linkedin.com/in/david-a-b37a6413b/" target="_blank">🔗 LinkedIn</a>
+</div>
+</header>
 
-        <section id="achievements">
-            <h2>Hitos y Logros Clave</h2>
-            <div class="achievements-grid">
-                <div class="achievement-card">
-                    <span class="metric">-[XX]%</span>
-                    <span class="metric-label">Reducción de Costes</span>
-                    <p class="metric-desc">
-                        Optimización de rutas y negociación con la red SAT, logrando un ahorro operativo anual estimado de [XX.XXX]€.
-                    </p>
-                </div>
+<section id="about">
+<h2>Sobre Mí</h2>
+<p>
+Especialista en gestión de servicios de postventa y operaciones técnicas con más de 12 años de trayectoria.
+Experto en la coordinación de Redes de Servicios Técnicos (SATs) y optimización de procesos operativos.
+Con un enfoque resolutivo basado en datos (KPIs), cuento con amplia experiencia en el diseño de procedimientos
+para mejorar la eficiencia del servicio y la satisfacción del cliente final en entornos multinacionales.
+</p>
+</section>
 
-                <div class="achievement-card">
-                    <span class="metric">-[XX] hrs/mes</span>
-                    <span class="metric-label">Automatización (Power BI)</span>
-                    <p class="metric-desc">
-                        Implementación de dashboards dinámicos para KPIs, eliminando el reporte manual y agilizando la toma de decisiones estratégicas.
-                    </p>
-                </div>
+<section id="experience">
+<h2>Experiencia Laboral</h2>
 
-                <div class="achievement-card">
-                    <span class="metric">+[XX]%</span>
-                    <span class="metric-label">Satisfacción Cliente (NPS)</span>
-                    <p class="metric-desc">
-                        Aumento del índice de calidad percibida tras reestructurar los protocolos de atención y auditorías en la zona asignada.
-                    </p>
-                </div>
+<div class="job-item">
+<div class="job-header">
+<span class="job-title">Area Services Manager</span>
+<span class="company"> | Groupe Atlantic</span>
+<span class="date">Enero 2023 - Actualidad</span>
+</div>
+<ul>
+<li><strong>Coordinación de Red SAT (CATO's):</strong> Gestión integral de la red de asistencia técnica en Andorra, Cataluña, Valencia, Murcia, Baleares y Portugal.</li>
+<li><strong>Optimización de Procesos:</strong> Diseño de estrategias operativas para mejorar la atención técnica y flujos internos.</li>
+<li><strong>Análisis de Datos:</strong> Elaboración de dashboards dinámicos para seguimiento de KPIs y costes operativos.</li>
+<li><strong>Auditoría y Calidad:</strong> Realización de auditorías para asegurar cumplimiento de estándares de calidad.</li>
+<li><strong>Formación:</strong> Ejecución de planes de formación operativa sobre plataformas digitales en España y Portugal.</li>
+<li>Impulso de acciones comerciales y soporte en la venta de servicios postventa.</li>
+</ul>
+</div>
 
-                <div class="achievement-card">
-                    <span class="metric">[X] de [Y]</span>
-                    <span class="metric-label">Tasa de Resolución</span>
-                    <p class="metric-desc">
-                        Mejora en la tasa de resolución en primera visita (First Time Fix) gracias a los nuevos planes de formación técnica.
-                    </p>
-                </div>
-            </div>
-        </section>
+<div class="job-item">
+<div class="job-header">
+<span class="job-title">Jefe de Almacén / Analista de Garantías</span>
+<span class="company"> | EK Services (VGED)</span>
+<span class="date">Febrero 2012 - Diciembre 2022</span>
+</div>
+<ul>
+<li><strong>Gestión de Garantías:</strong> Análisis riguroso bajo protocolos del fabricante para asegurar criterios homogéneos.</li>
+<li><strong>Logística de Recambios:</strong> Gestión de stock, trazabilidad (QlikView) y logística inversa.</li>
+<li><strong>Liderazgo de Equipo:</strong> Coordinación de 8 personas, gestión de incidencias y control de productividad.</li>
+<li><strong>Reporting:</strong> Generación de informes de resultados para responsables de área y clientes clave.</li>
+</ul>
+</div>
+</section>
 
-        <section id="experience">
-            <h2>Experiencia Laboral</h2>
-
-            <div class="job-item">
-                <div class="job-header">
-                    <span class="job-title">Area Services Manager</span>
-                    <span class="company"> | Groupe Atlantic</span>
-                    [cite_start]<span class="date">Enero 2023 - Actualidad [cite: 8, 9]</span>
-                </div>
-                <ul>
-                    [cite_start]<li><strong>Coordinación de Red SAT (CATO's):</strong> Gestión integral de la red de asistencia técnica en Andorra, Cataluña, Valencia, Murcia, Baleares y Portugal[cite: 10].</li>
-                    [cite_start]<li><strong>Optimización de Procesos:</strong> Diseño de estrategias operativas para mejorar la atención técnica y flujos internos[cite: 11].</li>
-                    [cite_start]<li><strong>Análisis de Datos:</strong> Elaboración de dashboards dinámicos para seguimiento de KPIs y costes operativos[cite: 12].</li>
-                    [cite_start]<li><strong>Auditoría y Calidad:</strong> Realización de auditorías para asegurar cumplimiento de estándares de calidad[cite: 13].</li>
-                    [cite_start]<li><strong>Formación:</strong> Ejecución de planes de formación operativa sobre plataformas digitales en España y Portugal[cite: 14].</li>
-                    [cite_start]<li>Impulso de acciones comerciales y soporte en la venta de servicios postventa[cite: 15].</li>
-                </ul>
-            </div>
-
-            <div class="job-item">
-                <div class="job-header">
-                    <span class="job-title">Jefe de Almacén / Analista de Garantías</span>
-                    <span class="company"> | EK Services (VGED)</span>
-                    [cite_start]<span class="date">Febrero 2012 - Diciembre 2022 [cite: 33, 34]</span>
-                </div>
-                <ul>
-                    [cite_start]<li><strong>Gestión de Garantías:</strong> Análisis riguroso bajo protocolos del fabricante para asegurar criterios homogéneos[cite: 35].</li>
-                    [cite_start]<li><strong>Logística de Recambios:</strong> Gestión de stock, trazabilidad (QlikView) y logística inversa[cite: 36].</li>
-                    [cite_start]<li><strong>Liderazgo de Equipo:</strong> Coordinación de 8 personas, gestión de incidencias y control de productividad[cite: 37].</li>
-                    [cite_start]<li><strong>Reporting:</strong> Generación de informes de resultados para responsables de área y clientes clave[cite: 38].</li>
-                </ul>
-            </div>
-        </section>
-
-        <section id="skills">
-            <h2>Habilidades</h2>
-            <div class="skills-grid">
-                <div class="skills-column">
-                    <h3>Habilidades Técnicas (Hard Skills)</h3>
-                    <ul>
-                        [cite_start]<li>Análisis de Datos y Reporting (Power BI, Excel)[cite: 26].</li>
-                        [cite_start]<li>Automatización (Power Automate)[cite: 28].</li>
-                        [cite_start]<li>Gestión de Bases de Datos[cite: 29].</li>
-                        [cite_start]<li>Gestión de Logística y Recambios[cite: 31].</li>
-                        [cite_start]<li><strong>Idiomas:</strong> Español/Catalán (Nativo), Portugués (Prof. Completa), Inglés (Básico Prof.)[cite: 32].</li>
-                    </ul>
-                </div>
-                <div class="skills-column">
-                    <h3>Habilidades Blandas (Soft Skills)</h3>
-                    <ul>
-                        [cite_start]<li>Gestión y Resolución de Conflictos[cite: 20].</li>
-                        [cite_start]<li>Liderazgo y Coordinación Operativa[cite: 21].</li>
-                        [cite_start]<li>Toma de Decisiones[cite: 22].</li>
-                        [cite_start]<li>Capacidad Formativa[cite: 23].</li>
-                        [cite_start]<li>Comunicación y Colaboración Transversal[cite: 24].</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
-        <section id="certifications">
-            <h2>Certificaciones y Formación</h2>
-            <ul>
-                <li><strong>Microsoft Power BI - Data Analysis & Dashboards</strong> | [cite_start]Udemy (2024)[cite: 44].</li>
-                <li><strong>Master SQL Server</strong> | [cite_start]Udemy (2025)[cite: 44].</li>
-                <li><strong>Microsoft Power Automate - Automatización de procesos</strong> | [cite_start]Udemy (2025)[cite: 45].</li>
-                <li><strong>Gestión y Manejo de Conflictos</strong> | [cite_start]GoodHabitz (2024)[cite: 45].</li>
-                <li><strong>Creación y Diseño Web (HTML5, CSS, JS)</strong> | [cite_start]NtFor (2022)[cite: 46].</li>
-            </ul>
-        </section>
-
-        <section id="education">
-            <h2>Historial Académico</h2>
-            <div class="edu-item">
-                <strong>Grado Superior en Transporte y Logística</strong><br>
-                [cite_start]IFP Innovación en Formación Profesional (2018-2020)[cite: 40].<br>
-                [cite_start]<span class="date">Especialización en gestión de almacenamiento y procesos logísticos transversales[cite: 41].</span>
-            </div>
-            <div class="edu-item">
-                <strong>Grado Medio en Gestión Administrativa</strong><br>
-                [cite_start]La Salle BCN (2009-2010)[cite: 42].
-            </div>
-        </section>
-
-        <section id="references">
-            <h2>Referencias</h2>
-            <div class="ref-container">
-                <div class="ref-card">
-                    <p class="ref-text">
-                        "David ha demostrado una excepcional capacidad para optimizar los procesos de la red SAT, combinando visión técnica con un análisis de datos preciso."
-                    </p>
-                    <div class="ref-author">
-                        <strong>Director Regional / Service Manager</strong>
-                        <span>Groupe Atlantic</span>
-                    </div>
-                </div>
-
-                <div class="ref-card">
-                    <p class="ref-text">
-                        "Su gestión del almacén y garantías fue impecable durante una década, liderando al equipo con eficacia y cumpliendo rigurosamente los KPIs."
-                    </p>
-                    <div class="ref-author">
-                        <strong>Dirección de Operaciones</strong>
-                        <span>EK Services (VGED)</span>
-                    </div>
-                </div>
-            </div>
-            <p class="ref-note">
-                🔒 <em>Los datos de contacto de las referencias se facilitarán bajo petición por motivos de privacidad.</em>
-            </p>
-        </section>
-
-        <div class="footer">
-            <p>&copy; 2025 David Artola. CV Web Profesional.</p>
-        </div>
-    </div>
-
-</body>
-</html>
-
+<section id="skills">
+<h2>Habilidades</h2>
+<div class="skills-grid">
+<div class="skills-column">
+<h3>Habilidades Técnicas (Hard Skills)</h3>
+<ul>
+<li>Análisis de Datos y Reporting (Power BI, Excel).</li>
+<li>Automatización (Power Automate).</li>
+<li>Gestión de Bases de Datos.</li>
+<li>
