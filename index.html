@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>David Artola | Area Service Manager & Data Specialist</title>
+    <title>David Artola | Area Service Manager</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -11,7 +11,6 @@
         :root {
             --primary-dark: #0f172a;
             --accent-color: #3b82f6;
-            --text-gray: #64748b;
             --bg-light: #f8fafc;
         }
 
@@ -19,179 +18,36 @@
             font-family: 'Inter', sans-serif;
             background-color: var(--bg-light);
             color: var(--primary-dark);
+            line-height: 1.6;
         }
 
-        /* Hero Section con Glassmorphism */
         .hero {
             background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
             color: white;
-            padding: 100px 0 60px;
+            padding: 120px 0 80px;
             clip-path: polygon(0 0, 100% 0, 100% 90%, 0% 100%);
         }
 
         .profile-img {
             width: 180px;
             height: 180px;
-            border-radius: 20px; /* Cuadrado redondeado es más moderno que círculo puro */
+            border-radius: 24px;
             border: 4px solid rgba(255,255,255,0.1);
             object-fit: cover;
             box-shadow: 0 20px 25px -5px rgba(0,0,0,0.3);
         }
 
-        /* Tarjetas de Experiencia */
         .card {
             border: none;
             border-radius: 16px;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
             background: white;
             box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+            margin-bottom: 1.5rem;
+            transition: transform 0.2s;
         }
 
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
-        }
+        .card:hover { transform: translateY(-3px); }
 
-        .badge-tech {
-            background: rgba(59, 130, 246, 0.1);
-            color: var(--accent-color);
-            border: 1px solid rgba(59, 130, 246, 0.2);
-            font-weight: 600;
-            padding: 0.5rem 1rem;
-            border-radius: 8px;
-        }
-
-        /* KPI Highlights */
         .kpi-box {
             background: #eff6ff;
-            border-left: 4px solid var(--accent-color);
-            padding: 15px;
-            border-radius: 8px;
-            margin: 10px 0;
-        }
-
-        .kpi-value {
-            font-weight: 800;
-            color: var(--accent-color);
-            font-size: 1.2rem;
-        }
-
-        .nav-link {
-            font-weight: 600;
-            color: rgba(255,255,255,0.8) !important;
-        }
-
-        .nav-link:hover { color: white !important; }
-
-        .section-title {
-            font-weight: 800;
-            position: relative;
-            margin-bottom: 40px;
-        }
-
-        .section-title::after {
-            content: '';
-            width: 50px;
-            height: 4px;
-            background: var(--accent-color);
-            position: absolute;
-            bottom: -10px;
-            left: 0;
-        }
-    </style>
-</head>
-<body>
-
-    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" style="background: rgba(15, 23, 42, 0.9); backdrop-filter: blur(10px);">
-        <div class="container">
-            <a class="navbar-brand fw-bold" href="#">DA<span class="text-primary">.</span></a>
-            <div class="navbar-nav ms-auto">
-                <a class="nav-link" href="#experience">Experiencia</a>
-                <a class="nav-link" href="#skills">Habilidades</a>
-                <a class="nav-link" href="https://linkedin.com/in/davidartola" target="_blank"><i class="fab fa-linkedin"></i></a>
-            </div>
-        </div>
-    </nav>
-
-    <section class="hero d-flex align-items-center">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-md-3 text-center mb-4 mb-md-0">
-                    <img src="https://artola3.github.io/IMG_6037.jpg" alt="David Artola" class="profile-img">
-                </div>
-                <div class="col-md-9">
-                    <span class="badge bg-primary mb-2">Disponible en Cataluña</span>
-                    <h1 class="display-4 fw-800">David Artola</h1>
-                    <p class="lead opacity-75">Area Service Manager | Especialista en Análisis de Datos y Optimización de Operaciones</p>
-                    <div class="mt-4">
-                        <a href="mailto:davidartola@gmail.com" class="btn btn-primary btn-lg px-4 me-2">Contactar</a>
-                        <a href="#experience" class="btn btn-outline-light btn-lg px-4">Ver Proyectos</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <main class="container my-5 pt-4">
-        <section id="experience">
-            <h2 class="section-title">Experiencia Destacada</h2>
-            
-            <div class="card mb-4 p-4">
-                <div class="row">
-                    <div class="col-md-8">
-                        <h4 class="fw-bold mb-1">Area Service Manager (Cataluña, Baleares, Aragón)</h4>
-                        <p class="text-primary fw-600">Groupe Atlantic | 2021 - Actualidad</p>
-                        <p class="text-gray">Liderando la transformación digital del servicio técnico y optimizando la red de asistencia.</p>
-                        
-                        <div class="kpi-box">
-                            <span class="kpi-value">↓ 16.9%</span> en gasto anual de intervenciones externas mediante análisis de datos.
-                        </div>
-                    </div>
-                    <div class="col-md-4 border-start d-flex flex-wrap align-content-center gap-2">
-                        <span class="badge-tech">SQL</span>
-                        <span class="badge-tech">Power BI</span>
-                        <span class="badge-tech">Dynamics 365</span>
-                        <span class="badge-tech">Power Automate</span>
-                    </div>
-                </div>
-            </div>
-
-            </section>
-
-        <section id="skills" class="mt-5">
-            <h2 class="section-title">Stack Tecnológico</h2>
-            <div class="row g-3">
-                <div class="col-6 col-md-3 text-center">
-                    <div class="card p-3">
-                        <i class="fas fa-database fa-2x text-primary mb-2"></i>
-                        <p class="mb-0 fw-bold">SQL & Data</p>
-                    </div>
-                </div>
-                <div class="col-6 col-md-3 text-center">
-                    <div class="card p-3">
-                        <i class="fas fa-chart-bar fa-2x text-primary mb-2"></i>
-                        <p class="mb-0 fw-bold">Power BI</p>
-                    </div>
-                </div>
-                <div class="col-6 col-md-3 text-center">
-                    <div class="card p-3">
-                        <i class="fas fa-robot fa-2x text-primary mb-2"></i>
-                        <p class="mb-0 fw-bold">Power Automate</p>
-                    </div>
-                </div>
-                <div class="col-6 col-md-3 text-center">
-                    <div class="card p-3">
-                        <i class="fas fa-cogs fa-2x text-primary mb-2"></i>
-                        <p class="mb-0 fw-bold">Gestión SAT</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer class="py-5 bg-dark text-white text-center mt-5">
-        <p class="opacity-50">© 2025 David Artola. Cataluña, España.</p>
-    </footer>
-
-</body>
-</html>
+            border-
