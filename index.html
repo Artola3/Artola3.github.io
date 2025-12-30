@@ -15,8 +15,8 @@
     --bg-color: #f9f9f9;
     --card-bg: #fff;
     --hover-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    --header-bg: #0f172a; /* Nuevo: Fondo oscuro para header */
-    --header-text: #ffffff; /* Nuevo: Texto blanco para header */
+    --header-bg: #0f172a; 
+    --header-text: #ffffff; 
     --gmail-color: #EA4335;
 }
 
@@ -35,36 +35,42 @@ body {
     margin: 40px auto;
     background: var(--card-bg);
     box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-    /* MODIFICACIÓN: Quitamos padding global para que el header toque los bordes */
     padding: 0; 
     border-radius: 8px;
     position: relative;
-    overflow: hidden; /* Asegura que el header respete los bordes redondeados */
+    overflow: hidden; 
 }
 
-/* --- NUEVO HEADER (MODIFICADO CON FOTO) --- */
+/* --- HEADER --- */
 header {
     background-color: var(--header-bg);
     color: var(--header-text);
     padding: 50px 40px;
-    display: flex; /* Alineación lado a lado */
+    display: flex; 
     align-items: center;
-    gap: 30px; /* Espacio entre foto y texto */
-    text-align: left; /* Alineamos texto a la izquierda */
-    border-bottom: none; /* Quitamos el borde antiguo */
-    margin-bottom: 0; /* El margen lo manejará el content-padding */
+    gap: 30px; 
+    text-align: left; 
+    border-bottom: none; 
+    margin-bottom: 0; 
+}
+
+/* En pantallas pequeñas (móvil), cambiamos a columna */
+@media (max-width: 700px) {
+    header {
+        flex-direction: column;
+        text-align: center;
+        padding: 30px 20px;
+    }
 }
 
 .profile-img {
     width: 160px;
     height: 160px;
-    border-radius: 50%; /* Foto redonda */
+    border-radius: 50%;
     border: 4px solid rgba(255, 255, 255, 0.2);
     object-fit: cover;
     box-shadow: 0 10px 20px rgba(0,0,0,0.3);
     flex-shrink: 0;
-    /* Opcional: Ajustar la posición si la cara no queda centrada */
-    /* object-position: center top; */
 }
 
 .header-content h1 {
@@ -77,18 +83,24 @@ header {
 
 .header-content .subtitle {
     font-size: 1.1rem;
-    color: #cbd5e1; /* Gris claro para contraste */
+    color: #cbd5e1; 
     font-weight: 500;
     margin-top: 5px;
 }
 
-/* Botones de contacto actualizados para fondo oscuro */
+/* Botones de contacto */
 .contact-info {
     margin-top: 20px;
     display: flex;
     align-items: center;
     gap: 15px;
     flex-wrap: wrap;
+}
+
+@media (max-width: 700px) {
+    .contact-info {
+        justify-content: center;
+    }
 }
 
 .btn-contact {
@@ -119,13 +131,17 @@ header {
     opacity: 0.9;
 }
 
-/* --- CLASE DE RELLENO PARA EL CONTENIDO --- */
-/* Como quitamos el padding del container, lo añadimos aquí para el resto de secciones */
+/* --- CONTENIDO PRINCIPAL --- */
 .content-padding {
     padding: 40px;
 }
 
-/* --- SECCIONES GENÉRICAS --- */
+@media (max-width: 700px) {
+    .content-padding {
+        padding: 20px;
+    }
+}
+
 section {
     margin-bottom: 40px;
 }
@@ -149,7 +165,7 @@ li {
     margin-bottom: 5px;
 }
 
-/* --- ESTILOS: HITOS Y LOGROS --- */
+/* --- HITOS --- */
 .achievements-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -197,7 +213,7 @@ li {
     text-align: left;
 }
 
-/* --- ESTILOS: EXPERIENCIA Y EDUCACIÓN --- */
+/* --- EXPERIENCIA Y EDUCACIÓN --- */
 .job-item, .edu-item {
     margin-bottom: 30px;
 }
@@ -210,6 +226,12 @@ li {
     border-bottom: 1px solid #eee;
     padding-bottom: 5px;
     margin-bottom: 10px;
+}
+
+@media (max-width: 700px) {
+    .job-header {
+        flex-direction: column;
+    }
 }
 
 .job-title {
@@ -228,11 +250,18 @@ li {
     color: #888;
 }
 
-/* --- ESTILOS: HABILIDADES (GRID) --- */
+/* --- SKILLS --- */
 .skills-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 40px;
+}
+
+@media (max-width: 700px) {
+    .skills-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
 }
 
 .skills-column h3 {
@@ -242,7 +271,7 @@ li {
     margin-bottom: 15px;
 }
 
-/* --- ESTILOS: REFERENCIAS (CARRUSEL) --- */
+/* --- CARRUSEL --- */
 .carousel-wrapper {
     position: relative;
     display: flex;
@@ -277,6 +306,12 @@ li {
     flex-direction: column;
     align-items: center;
     text-align: center;
+}
+
+@media (max-width: 700px) {
+    .reference-card {
+        flex: 0 0 85%;
+    }
 }
 
 .ref-image {
@@ -332,11 +367,14 @@ li {
     flex-shrink: 0;
 }
 
+@media (max-width: 700px) {
+    .nav-btn { display: none; }
+}
+
 .nav-btn:hover { background-color: #000; }
 .nav-prev { margin-right: 10px; }
 .nav-next { margin-left: 10px; }
- 
-/* --- FOOTER --- */
+
 .footer {
     text-align: center;
     font-size: 0.8rem;
@@ -344,40 +382,6 @@ li {
     margin-top: 60px;
     border-top: 1px solid #eee;
     padding-top: 20px;
-}
-
-/* --- RESPONSIVE --- */
-@media (max-width: 700px) {
-    header {
-        flex-direction: column; /* Apilar foto y texto en móvil */
-        text-align: center;
-        padding: 30px 20px;
-    }
-    .contact-info {
-        justify-content: center;
-    }
-    .skills-grid {
-        grid-template-columns: 1fr;
-        gap: 20px;
-    }
-    .job-header {
-        flex-direction: column;
-    }
-    .container {
-        padding: 0;
-        margin: 0;
-        width: auto;
-        box-shadow: none;
-        border-radius: 0;
-    }
-    .content-padding {
-        padding: 20px; /* Reducir padding en móvil */
-    }
-    .reference-card {
-        flex: 0 0 85%;
-        scroll-snap-align: center;
-    }
-    .nav-btn { display: none; }
 }
 </style>
 </head>
@@ -393,4 +397,56 @@ li {
             <div class="subtitle">AREA SERVICE MANAGER EN GROUPE ATLANTIC</div>
 
             <div class="contact-info">
-                <a href="mailto:dartola3@gmail.com" class="btn-contact
+                <a href="mailto:dartola3@gmail.com" class="btn-contact btn-gmail">
+                    <i class="fas fa-envelope" style="margin-right: 8px;"></i> Contactar
+                </a>
+                
+                <a href="https://www.linkedin.com/in/david-a-b37a6413b/" target="_blank" class="btn-contact btn-linkedin">
+                    <i class="fab fa-linkedin" style="margin-right: 8px;"></i> LinkedIn
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <div class="content-padding">
+        
+        <section id="about">
+            <h2>Sobre Mí</h2>
+            <p>
+            Especialista en gestión de servicios de postventa y operaciones técnicas con más de 12 años de trayectoria.
+            Experto en la coordinación de Redes de Servicios Técnicos (SATs) y optimización de procesos operativos.
+            Con un enfoque resolutivo basado en datos (KPIs), cuento con amplia experiencia en el diseño de procedimientos
+            para mejorar la eficiencia del servicio y la satisfacción del cliente final en entornos multinacionales.
+            </p>
+        </section>
+
+        <section id="achievements">
+            <h2>Hitos y Logros Recientes</h2>
+            <div class="achievements-grid">
+                <div class="achievement-card">
+                    <span class="metric">-16,9%</span>
+                    <span class="metric-label">Gasto en Garantías</span>
+                    <p class="metric-desc">
+                    Reducción del gasto acumulado anual en la zona asignada, logrando un desacople positivo entre la bajada de actividad (-8,2%) y el ahorro total conseguido.
+                    </p>
+                </div>
+
+                <div class="achievement-card">
+                    <span class="metric">+9,5%</span>
+                    <span class="metric-label">Eficiencia Operativa</span>
+                    <p class="metric-desc">
+                    Mejora en la eficiencia económica del servicio (Coste Medio por Aviso), optimizando la gestión de recursos por intervención técnica.
+                    </p>
+                </div>
+
+                <div class="achievement-card">
+                    <span class="metric">-65,8%</span>
+                    <span class="metric-label">Pico de Contención</span>
+                    <p class="metric-desc">
+                    Récord de reducción de costes en periodos de alta exigencia (Noviembre) mediante la implementación de controles estrictos y auditoría.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section id="experience">
