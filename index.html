@@ -1,351 +1,129 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>David Artola | Area Service Manager & Data Specialist</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <style>
-        :root {
-            --primary-dark: #0f172a;
-            --accent-color: #3b82f6;
-            --text-gray: #64748b;
-            --bg-light: #f8fafc;
-            --gmail-color: #EA4335;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>David Artola - Area Service Manager</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--bg-light);
-            color: var(--primary-dark);
-            line-height: 1.6;
-        }
+<style>
+/* --- ESTILOS GLOBALES (Minimalist Design) --- */
+:root {
+    --primary-color: #333;
+    --secondary-color: #666;
+    --accent-color: #000;
+    --bg-color: #f9f9f9;
+    --card-bg: #fff;
+    --hover-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    --gmail-color: #EA4335;
+    /* Nuevo color para el header moderno */
+    --header-bg: #0f172a; 
+    --header-text: #ffffff;
+}
 
-        /* --- HERO SECTION --- */
-        .hero {
-            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
-            color: white;
-            padding: 120px 0 80px;
-            clip-path: polygon(0 0, 100% 0, 100% 90%, 0% 100%);
-        }
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: var(--primary-color);
+    background-color: var(--bg-color);
+    margin: 0;
+    padding: 0;
+}
 
-        .profile-img {
-            width: 160px;
-            height: 160px;
-            border-radius: 24px;
-            border: 4px solid rgba(255,255,255,0.1);
-            object-fit: cover;
-            box-shadow: 0 20px 25px -5px rgba(0,0,0,0.3);
-        }
+/* Layout Principal */
+.container {
+    max-width: 900px;
+    margin: 40px auto;
+    background: var(--card-bg);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    padding: 0; /* Quitamos padding global para que el header toque los bordes */
+    border-radius: 8px; /* Redondeamos el contenedor principal */
+    position: relative;
+    overflow: hidden; /* Para que el header no se salga de las esquinas redondeadas */
+}
 
-        /* --- CARDS & COMPONENTES --- */
-        .card {
-            border: none;
-            border-radius: 16px;
-            background: white;
-            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
-            transition: all 0.3s ease;
-        }
+/* --- NUEVO HEADER (MODIFICACIÓN FOTOS) --- */
+header {
+    background-color: var(--header-bg);
+    color: var(--header-text);
+    padding: 50px 40px;
+    display: flex;
+    align-items: center; /* Centrar verticalmente foto y texto */
+    gap: 30px; /* Espacio entre foto y texto */
+    text-align: left;
+    margin-bottom: 40px;
+}
 
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
-        }
+/* Estilo de la Foto de Perfil */
+.profile-img {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%; /* Circular */
+    border: 4px solid rgba(255, 255, 255, 0.2); /* Borde sutil */
+    object-fit: cover;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+    flex-shrink: 0; /* Evita que la foto se aplaste */
+}
 
-        .section-title {
-            font-weight: 800;
-            position: relative;
-            margin-bottom: 40px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            font-size: 1.5rem;
-        }
+.header-content h1 {
+    font-size: 2.5rem;
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #fff; /* Texto blanco forzado en fondo oscuro */
+}
 
-        .section-title::after {
-            content: '';
-            width: 50px;
-            height: 4px;
-            background: var(--accent-color);
-            position: absolute;
-            bottom: -10px;
-            left: 0;
-        }
+.header-content .subtitle {
+    font-size: 1.1rem;
+    color: #cbd5e1; /* Gris claro para subtítulo */
+    font-weight: 500;
+    margin-top: 5px;
+    margin-bottom: 20px;
+}
 
-        /* --- HITOS / KPI BOXES --- */
-        .metric-card {
-            text-align: center;
-            padding: 25px;
-            border-bottom: 4px solid var(--accent-color);
-        }
+.contact-info {
+    margin-top: 15px;
+    display: flex;
+    justify-content: flex-start; /* Alinear botones a la izquierda */
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
 
-        .metric-value {
-            font-size: 2.2rem;
-            font-weight: 800;
-            color: var(--accent-color);
-            display: block;
-        }
+/* ESTILO BOTÓN GMAIL */
+.gmail-btn {
+    display: inline-flex;
+    align-items: center;
+    background-color: var(--gmail-color);
+    color: white !important;
+    padding: 10px 24px;
+    border-radius: 50px;
+    text-decoration: none !important;
+    font-weight: bold;
+    font-size: 0.95rem;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+    transition: transform 0.2s ease, background-color 0.2s;
+    border: none;
+}
 
-        .metric-label {
-            font-weight: 700;
-            text-transform: uppercase;
-            font-size: 0.75rem;
-            letter-spacing: 1px;
-            margin-bottom: 10px;
-            display: block;
-        }
+.gmail-btn:hover {
+    transform: translateY(-2px);
+    background-color: #d33828;
+}
 
-        /* --- BADGES --- */
-        .badge-tech {
-            background: rgba(59, 130, 246, 0.1);
-            color: var(--accent-color);
-            font-weight: 600;
-            padding: 0.4rem 0.8rem;
-            border-radius: 8px;
-            font-size: 0.85rem;
-        }
+.gmail-icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+    fill: white;
+}
 
-        /* --- CARRUSEL --- */
-        .carousel-container {
-            display: flex;
-            overflow-x: auto;
-            scroll-snap-type: x mandatory;
-            gap: 20px;
-            padding: 20px 5px;
-            scrollbar-width: none;
-            scroll-behavior: smooth;
-        }
-        .carousel-container::-webkit-scrollbar { display: none; }
-
-        .reference-card {
-            flex: 0 0 320px;
-            scroll-snap-align: center;
-            padding: 25px;
-            background: white;
-            border-radius: 16px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-            text-align: center;
-        }
-
-        .ref-image {
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            margin-bottom: 15px;
-        }
-
-        .nav-btn {
-            background: var(--primary-dark);
-            color: white;
-            border: none;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            cursor: pointer;
-            transition: 0.3s;
-        }
-        .nav-btn:hover { background: var(--accent-color); }
-
-        /* --- CONTACT BUTTONS --- */
-        .gmail-btn {
-            background-color: var(--gmail-color);
-            color: white !important;
-            padding: 10px 24px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 700;
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            transition: 0.3s;
-        }
-        .gmail-btn:hover { background-color: #c53023; transform: scale(1.05); }
-
-    </style>
-</head>
-<body>
-
-    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" style="background: rgba(15, 23, 42, 0.9); backdrop-filter: blur(10px);">
-        <div class="container">
-            <a class="navbar-brand fw-bold" href="#">DAVID ARTOLA<span class="text-primary">.</span></a>
-            <div class="navbar-nav ms-auto d-none d-md-flex">
-                <a class="nav-link px-3" href="#about">Sobre Mí</a>
-                <a class="nav-link px-3" href="#experience">Trayectoria</a>
-                <a class="nav-link px-3" href="#references">Reseñas</a>
-            </div>
-        </div>
-    </nav>
-
-    <header class="hero">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-md-3 text-center mb-4 mb-md-0">
-                    <img src="https://artola3.github.io/IMG_6037.jpg" alt="David Artola" class="profile-img">
-                </div>
-                <div class="col-md-9">
-                    <h1 class="display-4 fw-800 mb-0">David Artola</h1>
-                    <p class="subtitle opacity-75 fs-4 mb-4 text-uppercase">Area Service Manager en Groupe Atlantic</p>
-                    <div class="d-flex gap-3 flex-wrap">
-                        <a href="mailto:dartola3@gmail.com" class="gmail-btn">
-                            <i class="fas fa-envelope"></i> Contactar por Email
-                        </a>
-                        <a href="https://www.linkedin.com/in/david-a-b37a6413b/" target="_blank" class="btn btn-outline-light rounded-pill px-4">
-                            <i class="fab fa-linkedin"></i> LinkedIn
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </header>
-
-    <main class="container my-5">
-        
-        <section id="about" class="mb-5">
-            <h2 class="section-title">Sobre Mí</h2>
-            <div class="card p-4">
-                <p class="lead mb-0">
-                    Especialista en gestión de servicios de postventa y operaciones técnicas con más de 12 años de trayectoria. 
-                    Experto en la coordinación de Redes de Servicios Técnicos (SATs) y optimización de procesos operativos con un enfoque resolutivo basado en datos (KPIs).
-                </p>
-            </div>
-        </section>
-
-        <section id="achievements" class="mb-5">
-            <h2 class="section-title">Hitos y Logros</h2>
-            <div class="row g-4">
-                <div class="col-md-4">
-                    <div class="card metric-card h-100">
-                        <span class="metric-value">-16,9%</span>
-                        <span class="metric-label">Gasto en Garantías</span>
-                        <p class="small text-muted mb-0">Reducción del gasto anual logrando un desacople positivo frente a la actividad.</p>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card metric-card h-100">
-                        <span class="metric-value">+9,5%</span>
-                        <span class="metric-label">Eficiencia Operativa</span>
-                        <p class="small text-muted mb-0">Mejora en el coste medio por aviso mediante optimización de recursos.</p>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card metric-card h-100">
-                        <span class="metric-value">-65,8%</span>
-                        <span class="metric-label">Pico de Contención</span>
-                        <p class="small text-muted mb-0">Récord de ahorro en periodos de alta demanda mediante auditoría estricta.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="experience" class="mb-5">
-            <h2 class="section-title">Trayectoria Profesional</h2>
-
-            <div class="card p-4 mb-4">
-                <div class="d-flex justify-content-between align-items-start mb-3">
-                    <div>
-                        <h4 class="fw-bold mb-0">Area Services Manager</h4>
-                        <span class="text-primary fw-600">Groupe Atlantic</span>
-                    </div>
-                    <span class="badge bg-light text-dark">2023 - Actualidad</span>
-                </div>
-                <ul class="text-muted small">
-                    <li><strong>Coordinación Red SAT:</strong> Gestión integral en Andorra, Cataluña, Valencia, Murcia, Baleares y Portugal.</li>
-                    <li><strong>Análisis de Datos:</strong> Dashboards dinámicos para KPIs y costes operativos.</li>
-                    <li><strong>Formación:</strong> Ejecución de planes operativos en España y Portugal.</li>
-                </ul>
-            </div>
-
-            <div class="card p-4 mb-4">
-                <div class="d-flex justify-content-between align-items-start mb-3">
-                    <div>
-                        <h4 class="fw-bold mb-0">Jefe de Almacén / Analista de Garantías</h4>
-                        <span class="text-primary fw-600">EK Services (VGED)</span>
-                    </div>
-                    <span class="badge bg-light text-dark">2012 - 2022</span>
-                </div>
-                <ul class="text-muted small">
-                    <li><strong>Gestión de Garantías:</strong> Análisis bajo protocolos de fabricante.</li>
-                    <li><strong>Logística:</strong> Gestión de stock y trazabilidad con QlikView.</li>
-                    <li><strong>Liderazgo:</strong> Coordinación de equipo de 8 personas.</li>
-                </ul>
-            </div>
-        </section>
-
-        <div class="row">
-            <div class="col-md-6 mb-5">
-                <h2 class="section-title">Habilidades</h2>
-                <div class="card p-4 h-100">
-                    <div class="mb-3">
-                        <h6><strong>Hard Skills</strong></h6>
-                        <div class="d-flex flex-wrap gap-2 mt-2">
-                            <span class="badge-tech">Power BI</span> <span class="badge-tech">SQL Server</span>
-                            <span class="badge-tech">Power Automate</span> <span class="badge-tech">Logística</span>
-                        </div>
-                    </div>
-                    <div class="mt-3">
-                        <h6><strong>Idiomas</strong></h6>
-                        <p class="small text-muted mb-0">Español/Catalán (Nativo), Portugués (C1), Inglés (B1).</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 mb-5">
-                <h2 class="section-title">Certificaciones</h2>
-                <div class="card p-4 h-100">
-                    <ul class="list-unstyled small">
-                        <li class="mb-2"><strong>Power BI Data Analysis</strong> | Udemy (2024)</li>
-                        <li class="mb-2"><strong>Master SQL Server</strong> | Udemy (2025)</li>
-                        <li class="mb-2"><strong>Grado Sup. Transporte y Logística</strong> | IFP (2020)</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-        <section id="references" class="mb-5">
-            <h2 class="section-title">Feedback de Clientes</h2>
-            <div class="d-flex align-items-center gap-3">
-                <button class="nav-btn" id="prevBtn"><i class="fas fa-chevron-left"></i></button>
-                <div class="carousel-container" id="carousel">
-                    <div class="reference-card">
-                        <img src="https://ui-avatars.com/api/?name=IsaBel+Ros&background=3b82f6&color=fff" class="ref-image">
-                        <div class="text-warning mb-2">★★★★★</div>
-                        <p class="small fst-italic">"Grácias por tu gestión, implicación y amabilidad, servicio post venta de 10."</p>
-                        <h6 class="mb-0 fw-bold">IsaBel Ros</h6>
-                    </div>
-                    <div class="reference-card">
-                        <img src="https://ui-avatars.com/api/?name=Carlos+C&background=10b981&color=fff" class="ref-image">
-                        <div class="text-warning mb-2">★★★★★</div>
-                        <p class="small fst-italic">"Su interés personal y su paciencia me confirmaron que había tomado la decisión correcta."</p>
-                        <h6 class="mb-0 fw-bold">Carlos C</h6>
-                    </div>
-                    <div class="reference-card">
-                        <img src="https://ui-avatars.com/api/?name=Pedro+F&background=f59e0b&color=fff" class="ref-image">
-                        <div class="text-warning mb-2">★★★★★</div>
-                        <p class="small fst-italic">"Sempre disponível para tirar dúvidas... demonstra grande conhecimento técnico."</p>
-                        <h6 class="mb-0 fw-bold">Pedro Ferreirinha</h6>
-                    </div>
-                </div>
-                <button class="nav-btn" id="nextBtn"><i class="fas fa-chevron-right"></i></button>
-            </div>
-        </section>
-
-    </main>
-
-    <footer class="py-4 bg-white text-center border-top">
-        <p class="text-muted small mb-0">&copy; 2025 David Artola | Management & Data Especialist</p>
-    </footer>
-
-    <script>
-        const carousel = document.getElementById('carousel');
-        const scrollAmount = 340;
-
-        document.getElementById('nextBtn').addEventListener('click', () => {
-            carousel.scrollBy({ left: scrollAmount, behavior: 'smooth' });
-        });
-
-        document.getElementById('prevBtn').addEventListener('click', () => {
-            carousel.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
-        });
-    </script>
-</body>
-</html>
+/* Estilo Enlace LinkedIn (Adaptado a fondo oscuro) */
+.linkedin-link {
+    color: #fff;
+    text-decoration: none;
+    font-size: 0.95rem;
+    display: inline-flex;
+    align-items: center;
+    padding: 8px 18px;
+    border: 1px solid rgba(255,255
