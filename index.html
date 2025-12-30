@@ -4,6 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>David Artola - Area Service Manager</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
 <style>
 /* --- ESTILOS GLOBALES (Minimalist Design) --- */
 :root {
@@ -13,6 +15,9 @@
     --bg-color: #f9f9f9;
     --card-bg: #fff;
     --hover-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    --header-bg: #0f172a; /* Nuevo: Fondo oscuro para header */
+    --header-text: #ffffff; /* Nuevo: Texto blanco para header */
+    --gmail-color: #EA4335;
 }
 
 body {
@@ -30,47 +35,92 @@ body {
     margin: 40px auto;
     background: var(--card-bg);
     box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-    padding: 40px;
+    /* MODIFICACIÓN: Quitamos padding global para que el header toque los bordes */
+    padding: 0; 
+    border-radius: 8px;
     position: relative;
+    overflow: hidden; /* Asegura que el header respete los bordes redondeados */
 }
 
-/* --- HEADER --- */
+/* --- NUEVO HEADER (MODIFICADO CON FOTO) --- */
 header {
-    text-align: center;
-    border-bottom: 2px solid var(--primary-color);
-    padding-bottom: 20px;
-    margin-bottom: 30px;
+    background-color: var(--header-bg);
+    color: var(--header-text);
+    padding: 50px 40px;
+    display: flex; /* Alineación lado a lado */
+    align-items: center;
+    gap: 30px; /* Espacio entre foto y texto */
+    text-align: left; /* Alineamos texto a la izquierda */
+    border-bottom: none; /* Quitamos el borde antiguo */
+    margin-bottom: 0; /* El margen lo manejará el content-padding */
 }
 
-h1 {
+.profile-img {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%; /* Foto redonda */
+    border: 4px solid rgba(255, 255, 255, 0.2);
+    object-fit: cover;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+    flex-shrink: 0;
+}
+
+.header-content h1 {
     font-size: 2.5rem;
     margin: 0;
     text-transform: uppercase;
     letter-spacing: 2px;
-    color: var(--accent-color);
+    color: #fff;
 }
 
-.subtitle {
-    font-size: 1.2rem;
-    color: var(--secondary-color);
+.header-content .subtitle {
+    font-size: 1.1rem;
+    color: #cbd5e1; /* Gris claro para contraste */
     font-weight: 500;
     margin-top: 5px;
 }
 
+/* Botones de contacto actualizados para fondo oscuro */
 .contact-info {
-    margin-top: 15px;
-    font-size: 0.9rem;
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
 }
 
-.contact-info a {
-    color: var(--secondary-color);
+.btn-contact {
+    display: inline-flex;
+    align-items: center;
+    padding: 10px 20px;
+    border-radius: 50px;
     text-decoration: none;
-    margin: 0 10px;
+    font-weight: bold;
+    font-size: 0.9rem;
+    transition: transform 0.2s;
 }
 
-.contact-info a:hover {
-    text-decoration: underline;
-    color: var(--accent-color);
+.btn-gmail {
+    background-color: var(--gmail-color);
+    color: white;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+}
+
+.btn-linkedin {
+    background-color: rgba(255,255,255,0.1);
+    color: white;
+    border: 1px solid rgba(255,255,255,0.3);
+}
+
+.btn-contact:hover {
+    transform: translateY(-2px);
+    opacity: 0.9;
+}
+
+/* --- CLASE DE RELLENO PARA EL CONTENIDO --- */
+/* Como quitamos el padding del container, lo añadimos aquí para el resto de secciones */
+.content-padding {
+    padding: 40px;
 }
 
 /* --- SECCIONES GENÉRICAS --- */
@@ -190,7 +240,7 @@ li {
     margin-bottom: 15px;
 }
 
-/* --- ESTILOS: REFERENCIAS (CARRUSEL CON FLECHAS) --- */
+/* --- ESTILOS: REFERENCIAS (CARRUSEL) --- */
 .carousel-wrapper {
     position: relative;
     display: flex;
@@ -203,14 +253,14 @@ li {
     scroll-snap-type: x mandatory;
     gap: 20px;
     padding: 20px 5px;
-    scrollbar-width: none; /* Firefox */
-    -ms-overflow-style: none;  /* IE */
+    scrollbar-width: none;
+    -ms-overflow-style: none; 
     width: 100%;
     scroll-behavior: smooth;
 }
 
 .carousel-container::-webkit-scrollbar {
-    display: none; /* Chrome Safari */
+    display: none;
 }
 
 .reference-card {
@@ -263,7 +313,6 @@ li {
     width: 100%;
 }
 
-/* Botones de navegación */
 .nav-btn {
     background-color: rgba(0,0,0,0.7);
     color: white;
@@ -281,17 +330,9 @@ li {
     flex-shrink: 0;
 }
 
-.nav-btn:hover {
-    background-color: #000;
-}
-
-.nav-prev {
-    margin-right: 10px;
-}
-
-.nav-next {
-    margin-left: 10px;
-}
+.nav-btn:hover { background-color: #000; }
+.nav-prev { margin-right: 10px; }
+.nav-next { margin-left: 10px; }
 
 /* --- FOOTER --- */
 .footer {
@@ -305,6 +346,14 @@ li {
 
 /* --- RESPONSIVE --- */
 @media (max-width: 700px) {
+    header {
+        flex-direction: column; /* Apilar foto y texto en móvil */
+        text-align: center;
+        padding: 30px 20px;
+    }
+    .contact-info {
+        justify-content: center;
+    }
     .skills-grid {
         grid-template-columns: 1fr;
         gap: 20px;
@@ -313,212 +362,227 @@ li {
         flex-direction: column;
     }
     .container {
-        padding: 20px;
+        padding: 0;
         margin: 0;
         width: auto;
         box-shadow: none;
+        border-radius: 0;
+    }
+    .content-padding {
+        padding: 20px; /* Reducir padding en móvil */
     }
     .reference-card {
         flex: 0 0 85%;
         scroll-snap-align: center;
     }
-    .nav-btn {
-        display: none; /* En móvil se desliza con el dedo */
-    }
+    .nav-btn { display: none; }
 }
 </style>
 </head>
 <body>
 
 <div class="container">
+    
     <header>
-        <h1>David Artola</h1>
-        <div class="subtitle">AREA SERVICE MANAGER EN GROUPE ATLANTIC</div>
+        <img src="https://artola3.github.io/IMG_6037.jpg" alt="David Artola" class="profile-img">
+        
+        <div class="header-content">
+            <h1>David Artola</h1>
+            <div class="subtitle">AREA SERVICE MANAGER EN GROUPE ATLANTIC</div>
 
-        <div class="contact-info">
-            <a href="mailto:dartola3@gmail.com">✉️ dartola3@gmail.com</a> |
-            <a href="https://www.linkedin.com/in/david-a-b37a6413b/" target="_blank">🔗 LinkedIn</a>
+            <div class="contact-info">
+                <a href="mailto:dartola3@gmail.com" class="btn-contact btn-gmail">
+                    <i class="fas fa-envelope" style="margin-right: 8px;"></i> Contactar
+                </a>
+                
+                <a href="https://www.linkedin.com/in/david-a-b37a6413b/" target="_blank" class="btn-contact btn-linkedin">
+                    <i class="fab fa-linkedin" style="margin-right: 8px;"></i> LinkedIn
+                </a>
+            </div>
         </div>
     </header>
 
-    <section id="about">
-        <h2>Sobre Mí</h2>
-        <p>
-        Especialista en gestión de servicios de postventa y operaciones técnicas con más de 12 años de trayectoria.
-        Experto en la coordinación de Redes de Servicios Técnicos (SATs) y optimización de procesos operativos.
-        Con un enfoque resolutivo basado en datos (KPIs), cuento con amplia experiencia en el diseño de procedimientos
-        para mejorar la eficiencia del servicio y la satisfacción del cliente final en entornos multinacionales.
-        </p>
-    </section>
-
-    <section id="achievements">
-        <h2>Hitos y Logros Recientes</h2>
-        <div class="achievements-grid">
-            <div class="achievement-card">
-                <span class="metric">-16,9%</span>
-                <span class="metric-label">Gasto en Garantías</span>
-                <p class="metric-desc">
-                Reducción del gasto acumulado anual en la zona asignada, logrando un desacople positivo entre la bajada de actividad (-8,2%) y el ahorro total conseguido.
-                </p>
-            </div>
-
-            <div class="achievement-card">
-                <span class="metric">+9,5%</span>
-                <span class="metric-label">Eficiencia Operativa</span>
-                <p class="metric-desc">
-                Mejora en la eficiencia económica del servicio (Coste Medio por Aviso), optimizando la gestión de recursos por intervención técnica.
-                </p>
-            </div>
-
-            <div class="achievement-card">
-                <span class="metric">-65,8%</span>
-                <span class="metric-label">Pico de Contención</span>
-                <p class="metric-desc">
-                Récord de reducción de costes en periodos de alta exigencia (Noviembre) mediante la implementación de controles estrictos y auditoría.
-                </p>
-            </div>
-        </div>
-    </section>
-
-    <section id="experience">
-        <h2>Experiencia Laboral</h2>
-
-        <div class="job-item">
-            <div class="job-header">
-                <span class="job-title">Area Services Manager</span>
-                <span class="company"> | Groupe Atlantic</span>
-                <span class="date">Enero 2023 - Actualidad</span>
-            </div>
-            <ul>
-                <li><strong>Coordinación de Red SAT (CATO's):</strong> Gestión integral de la red de asistencia técnica en Andorra, Cataluña, Valencia, Murcia, Baleares y Portugal.</li>
-                <li><strong>Optimización de Procesos:</strong> Diseño de estrategias operativas para mejorar la atención técnica y flujos internos.</li>
-                <li><strong>Análisis de Datos:</strong> Elaboración de dashboards dinámicos para seguimiento de KPIs y costes operativos.</li>
-                <li><strong>Auditoría y Calidad:</strong> Realización de auditorías para asegurar cumplimiento de estándares de calidad.</li>
-                <li><strong>Formación:</strong> Ejecución de planes de formación operativa sobre plataformas digitales en España y Portugal.</li>
-                <li>Impulso de acciones comerciales y soporte en la venta de servicios postventa.</li>
-            </ul>
-        </div>
-
-        <div class="job-item">
-            <div class="job-header">
-                <span class="job-title">Jefe de Almacén / Analista de Garantías</span>
-                <span class="company"> | EK Services (VGED)</span>
-                <span class="date">Febrero 2012 - Diciembre 2022</span>
-            </div>
-            <ul>
-                <li><strong>Gestión de Garantías:</strong> Análisis riguroso bajo protocolos del fabricante para asegurar criterios homogéneos.</li>
-                <li><strong>Logística de Recambios:</strong> Gestión de stock, trazabilidad (QlikView) y logística inversa.</li>
-                <li><strong>Liderazgo de Equipo:</strong> Coordinación de 8 personas, gestión de incidencias y control de productividad.</li>
-                <li><strong>Reporting:</strong> Generación de informes de resultados para responsables de área y clientes clave.</li>
-            </ul>
-        </div>
-    </section>
-
-    <section id="skills">
-        <h2>Habilidades</h2>
-        <div class="skills-grid">
-            <div class="skills-column">
-                <h3>Habilidades Técnicas (Hard Skills)</h3>
-                <ul>
-                    <li>Análisis de Datos y Reporting (Power BI, Excel).</li>
-                    <li>Automatización (Power Automate).</li>
-                    <li>Gestión de Bases de Datos.</li>
-                    <li>Gestión de Logística y Recambios.</li>
-                    <li><strong>Idiomas:</strong> Español/Catalán (Nativo), Portugués (Prof. Completa), Inglés (Básico Prof.).</li>
-                </ul>
-            </div>
-            <div class="skills-column">
-                <h3>Habilidades Blandas (Soft Skills)</h3>
-                <ul>
-                    <li>Gestión y Resolución de Conflictos.</li>
-                    <li>Liderazgo y Coordinación Operativa.</li>
-                    <li>Toma de Decisiones.</li>
-                    <li>Capacidad Formativa.</li>
-                    <li>Comunicación y Colaboración Transversal.</li>
-                </ul>
-            </div>
-        </div>
-    </section>
-
-    <section id="certifications">
-        <h2>Certificaciones y Formación</h2>
-        <ul>
-            <li><strong>Microsoft Power BI - Data Analysis & Dashboards</strong> | Udemy (2024).</li>
-            <li><strong>Master SQL Server</strong> | Udemy (2025).</li>
-            <li><strong>Microsoft Power Automate - Automatización de procesos</strong> | Udemy (2025).</li>
-            <li><strong>Gestión y Manejo de Conflictos</strong> | GoodHabitz (2024).</li>
-            <li><strong>Creación y Diseño Web (HTML5, CSS, JS)</strong> | NtFor (2022).</li>
-        </ul>
-    </section>
-
-    <section id="education">
-        <h2>Historial Académico</h2>
-        <div class="edu-item">
-            <strong>Grado Superior en Transporte y Logística</strong><br>
-            IFP Innovación en Formación Profesional (2018-2020).<br>
-            <span class="date">Especialización en gestión de almacenamiento y procesos logísticos transversales.</span>
-        </div>
-        <div class="edu-item">
-            <strong>Grado Medio en Gestión Administrativa</strong><br>
-            La Salle BCN (2009-2010).
-        </div>
-    </section>
-
-    <section id="references">
-        <h2>Lo que dicen los clientes (Google Reviews)</h2>
+    <div class="content-padding">
         
-        <div class="carousel-wrapper">
-            <button class="nav-btn nav-prev" id="prevBtn">&#10094;</button>
+        <section id="about">
+            <h2>Sobre Mí</h2>
+            <p>
+            Especialista en gestión de servicios de postventa y operaciones técnicas con más de 12 años de trayectoria.
+            Experto en la coordinación de Redes de Servicios Técnicos (SATs) y optimización de procesos operativos.
+            Con un enfoque resolutivo basado en datos (KPIs), cuento con amplia experiencia en el diseño de procedimientos
+            para mejorar la eficiencia del servicio y la satisfacción del cliente final en entornos multinacionales.
+            </p>
+        </section>
+
+        <section id="achievements">
+            <h2>Hitos y Logros Recientes</h2>
+            <div class="achievements-grid">
+                <div class="achievement-card">
+                    <span class="metric">-16,9%</span>
+                    <span class="metric-label">Gasto en Garantías</span>
+                    <p class="metric-desc">
+                    Reducción del gasto acumulado anual en la zona asignada, logrando un desacople positivo entre la bajada de actividad (-8,2%) y el ahorro total conseguido.
+                    </p>
+                </div>
+
+                <div class="achievement-card">
+                    <span class="metric">+9,5%</span>
+                    <span class="metric-label">Eficiencia Operativa</span>
+                    <p class="metric-desc">
+                    Mejora en la eficiencia económica del servicio (Coste Medio por Aviso), optimizando la gestión de recursos por intervención técnica.
+                    </p>
+                </div>
+
+                <div class="achievement-card">
+                    <span class="metric">-65,8%</span>
+                    <span class="metric-label">Pico de Contención</span>
+                    <p class="metric-desc">
+                    Récord de reducción de costes en periodos de alta exigencia (Noviembre) mediante la implementación de controles estrictos y auditoría.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section id="experience">
+            <h2>Experiencia Laboral</h2>
+
+            <div class="job-item">
+                <div class="job-header">
+                    <span class="job-title">Area Services Manager</span>
+                    <span class="company"> | Groupe Atlantic</span>
+                    <span class="date">Enero 2023 - Actualidad</span>
+                </div>
+                <ul>
+                    <li><strong>Coordinación de Red SAT (CATO's):</strong> Gestión integral de la red de asistencia técnica en Andorra, Cataluña, Valencia, Murcia, Baleares y Portugal.</li>
+                    <li><strong>Optimización de Procesos:</strong> Diseño de estrategias operativas para mejorar la atención técnica y flujos internos.</li>
+                    <li><strong>Análisis de Datos:</strong> Elaboración de dashboards dinámicos para seguimiento de KPIs y costes operativos.</li>
+                    <li><strong>Auditoría y Calidad:</strong> Realización de auditorías para asegurar cumplimiento de estándares de calidad.</li>
+                    <li><strong>Formación:</strong> Ejecución de planes de formación operativa sobre plataformas digitales en España y Portugal.</li>
+                    <li>Impulso de acciones comerciales y soporte en la venta de servicios postventa.</li>
+                </ul>
+            </div>
+
+            <div class="job-item">
+                <div class="job-header">
+                    <span class="job-title">Jefe de Almacén / Analista de Garantías</span>
+                    <span class="company"> | EK Services (VGED)</span>
+                    <span class="date">Febrero 2012 - Diciembre 2022</span>
+                </div>
+                <ul>
+                    <li><strong>Gestión de Garantías:</strong> Análisis riguroso bajo protocolos del fabricante para asegurar criterios homogéneos.</li>
+                    <li><strong>Logística de Recambios:</strong> Gestión de stock, trazabilidad (QlikView) y logística inversa.</li>
+                    <li><strong>Liderazgo de Equipo:</strong> Coordinación de 8 personas, gestión de incidencias y control de productividad.</li>
+                    <li><strong>Reporting:</strong> Generación de informes de resultados para responsables de área y clientes clave.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="skills">
+            <h2>Habilidades</h2>
+            <div class="skills-grid">
+                <div class="skills-column">
+                    <h3>Habilidades Técnicas (Hard Skills)</h3>
+                    <ul>
+                        <li>Análisis de Datos y Reporting (Power BI, Excel).</li>
+                        <li>Automatización (Power Automate).</li>
+                        <li>Gestión de Bases de Datos.</li>
+                        <li>Gestión de Logística y Recambios.</li>
+                        <li><strong>Idiomas:</strong> Español/Catalán (Nativo), Portugués (Prof. Completa), Inglés (Básico Prof.).</li>
+                    </ul>
+                </div>
+                <div class="skills-column">
+                    <h3>Habilidades Blandas (Soft Skills)</h3>
+                    <ul>
+                        <li>Gestión y Resolución de Conflictos.</li>
+                        <li>Liderazgo y Coordinación Operativa.</li>
+                        <li>Toma de Decisiones.</li>
+                        <li>Capacidad Formativa.</li>
+                        <li>Comunicación y Colaboración Transversal.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="certifications">
+            <h2>Certificaciones y Formación</h2>
+            <ul>
+                <li><strong>Microsoft Power BI - Data Analysis & Dashboards</strong> | Udemy (2024).</li>
+                <li><strong>Master SQL Server</strong> | Udemy (2025).</li>
+                <li><strong>Microsoft Power Automate - Automatización de procesos</strong> | Udemy (2025).</li>
+                <li><strong>Gestión y Manejo de Conflictos</strong> | GoodHabitz (2024).</li>
+                <li><strong>Creación y Diseño Web (HTML5, CSS, JS)</strong> | NtFor (2022).</li>
+            </ul>
+        </section>
+
+        <section id="education">
+            <h2>Historial Académico</h2>
+            <div class="edu-item">
+                <strong>Grado Superior en Transporte y Logística</strong><br>
+                IFP Innovación en Formación Profesional (2018-2020).<br>
+                <span class="date">Especialización en gestión de almacenamiento y procesos logísticos transversales.</span>
+            </div>
+            <div class="edu-item">
+                <strong>Grado Medio en Gestión Administrativa</strong><br>
+                La Salle BCN (2009-2010).
+            </div>
+        </section>
+
+        <section id="references">
+            <h2>Lo que dicen los clientes (Google Reviews)</h2>
             
-            <div class="carousel-container" id="carousel">
+            <div class="carousel-wrapper">
+                <button class="nav-btn nav-prev" id="prevBtn">&#10094;</button>
                 
-                <div class="reference-card">
-                    <img src="https://ui-avatars.com/api/?name=IsaBel+Ros&background=random&color=fff&size=128" alt="IsaBel Ros" class="ref-image">
-                    <div class="ref-stars">★★★★★</div>
-                    <p class="ref-text">"Esta reseña va para David Artola, grácias por tu gestión, por tu ayuda, tu implicación y amabilidad, servicio post venta de 10 un gran profesional."</p>
-                    <span class="ref-author">IsaBel Ros</span>
+                <div class="carousel-container" id="carousel">
+                    
+                    <div class="reference-card">
+                        <img src="https://ui-avatars.com/api/?name=IsaBel+Ros&background=random&color=fff&size=128" alt="IsaBel Ros" class="ref-image">
+                        <div class="ref-stars">★★★★★</div>
+                        <p class="ref-text">"Esta reseña va para David Artola, grácias por tu gestión, por tu ayuda, tu implicación y amabilidad, servicio post venta de 10 un gran profesional."</p>
+                        <span class="ref-author">IsaBel Ros</span>
+                    </div>
+
+                    <div class="reference-card">
+                        <img src="https://ui-avatars.com/api/?name=Carlos+C&background=random&color=fff&size=128" alt="Carlos C" class="ref-image">
+                        <div class="ref-stars">★★★★★</div>
+                        <p class="ref-text">"Hoy tuve el placer de ser atendido por David... Tenía varias preguntas sobre los diferentes planes de mantenimiento... Su interés personal y su paciencia me confirmaron que había tomado la decisión correcta."</p>
+                        <span class="ref-author">Carlos C</span>
+                    </div>
+
+                    <div class="reference-card">
+                        <img src="https://ui-avatars.com/api/?name=Pedro+Ferreirinha&background=random&color=fff&size=128" alt="Pedro Ferreirinha" class="ref-image">
+                        <div class="ref-stars">★★★★★</div>
+                        <p class="ref-text">"Gostaria de agradecer e elogiar o David pelo excelente atendimento! Ele está sempre disponível para tirar todas as minhas dúvidas... É muito atencioso, prestativo e demonstra grande conhecimento técnico."</p>
+                        <span class="ref-author">Pedro Ferreirinha</span>
+                    </div>
+
+                     <div class="reference-card">
+                        <img src="https://ui-avatars.com/api/?name=Daniel+Magalhães&background=random&color=fff&size=128" alt="Daniel Magalhães" class="ref-image">
+                        <div class="ref-stars">★★★★★</div>
+                        <p class="ref-text">"Recentemente solicitei ajuda após venda e fui atendido pelo David. Super prestável e feedback imediato. Recomendo."</p>
+                        <span class="ref-author">Daniel Magalhães</span>
+                    </div>
+
+                    <div class="reference-card">
+                        <img src="https://ui-avatars.com/api/?name=Javier+Palacios&background=random&color=fff&size=128" alt="Javier Palacios Muñoz" class="ref-image">
+                        <div class="ref-stars">★★★★★</div>
+                        <p class="ref-text">"Agradezco a David Artola como responsable, la comprensión y su disposición a resolver el problema. Una buena marca es la que sigue tratando bien al cliente después de la instalación."</p>
+                        <span class="ref-author">Javier Palacios Muñoz</span>
+                    </div>
+
                 </div>
 
-                <div class="reference-card">
-                    <img src="https://ui-avatars.com/api/?name=Carlos+C&background=random&color=fff&size=128" alt="Carlos C" class="ref-image">
-                    <div class="ref-stars">★★★★★</div>
-                    <p class="ref-text">"Hoy tuve el placer de ser atendido por David... Tenía varias preguntas sobre los diferentes planes de mantenimiento... Su interés personal y su paciencia me confirmaron que había tomado la decisión correcta."</p>
-                    <span class="ref-author">Carlos C</span>
-                </div>
-
-                <div class="reference-card">
-                    <img src="https://ui-avatars.com/api/?name=Pedro+Ferreirinha&background=random&color=fff&size=128" alt="Pedro Ferreirinha" class="ref-image">
-                    <div class="ref-stars">★★★★★</div>
-                    <p class="ref-text">"Gostaria de agradecer e elogiar o David pelo excelente atendimento! Ele está sempre disponível para tirar todas as minhas dúvidas... É muito atencioso, prestativo e demonstra grande conhecimento técnico."</p>
-                    <span class="ref-author">Pedro Ferreirinha</span>
-                </div>
-
-                 <div class="reference-card">
-                    <img src="https://ui-avatars.com/api/?name=Daniel+Magalhães&background=random&color=fff&size=128" alt="Daniel Magalhães" class="ref-image">
-                    <div class="ref-stars">★★★★★</div>
-                    <p class="ref-text">"Recentemente solicitei ajuda após venda e fui atendido pelo David. Super prestável e feedback imediato. Recomendo."</p>
-                    <span class="ref-author">Daniel Magalhães</span>
-                </div>
-
-                <div class="reference-card">
-                    <img src="https://ui-avatars.com/api/?name=Javier+Palacios&background=random&color=fff&size=128" alt="Javier Palacios Muñoz" class="ref-image">
-                    <div class="ref-stars">★★★★★</div>
-                    <p class="ref-text">"Agradezco a David Artola como responsable, la comprensión y su disposición a resolver el problema. Una buena marca es la que sigue tratando bien al cliente después de la instalación."</p>
-                    <span class="ref-author">Javier Palacios Muñoz</span>
-                </div>
-
+                <button class="nav-btn nav-next" id="nextBtn">&#10095;</button>
             </div>
+            
+            <p style="text-align: center; font-size: 0.8rem; color: #999; margin-top: 10px;">(Desliza para ver más reseñas)</p>
+        </section>
 
-            <button class="nav-btn nav-next" id="nextBtn">&#10095;</button>
+        <div class="footer">
+            <p>&copy; 2025 David Artola. CV Web Profesional.</p>
         </div>
         
-        <p style="text-align: center; font-size: 0.8rem; color: #999; margin-top: 10px;">(Desliza para ver más reseñas)</p>
-    </section>
-
-    <div class="footer">
-        <p>&copy; 2025 David Artola. CV Web Profesional.</p>
-    </div>
-</div>
+    </div> </div>
 
 <script>
     // Script simple para hacer funcionar las flechas
