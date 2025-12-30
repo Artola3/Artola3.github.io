@@ -7,7 +7,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
 <style>
-/* --- ESTILOS GLOBALES (Minimalist Design) --- */
+/* --- ESTILOS GLOBALES --- */
 :root {
     --primary-color: #333;
     --secondary-color: #666;
@@ -54,7 +54,6 @@ header {
     margin-bottom: 0; 
 }
 
-/* En pantallas pequeñas (móvil), cambiamos a columna */
 @media (max-width: 700px) {
     header {
         flex-direction: column;
@@ -269,6 +268,24 @@ li {
     border-bottom: 1px solid #ddd;
     padding-bottom: 10px;
     margin-bottom: 15px;
+}
+
+/* --- ESTILOS CERTIFICADOS (LINKS) --- */
+.cert-link {
+    display: block;
+    padding: 12px;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    text-decoration: none;
+    color: #333;
+    background: #fff;
+    transition: all 0.2s ease;
+}
+
+.cert-link:hover {
+    border-color: #ccc;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    transform: translateX(5px); /* Pequeño desplazamiento a la derecha */
 }
 
 /* --- CARRUSEL --- */
@@ -511,12 +528,47 @@ li {
 
         <section id="certifications">
             <h2>Certificaciones y Formación</h2>
-            <ul>
-                <li><strong>Microsoft Power BI - Data Analysis & Dashboards</strong> | Udemy (2024).</li>
-                <li><strong>Master SQL Server</strong> | Udemy (2025).</li>
-                <li><strong>Microsoft Power Automate - Automatización de procesos</strong> | Udemy (2025).</li>
-                <li><strong>Gestión y Manejo de Conflictos</strong> | GoodHabitz (2024).</li>
-                <li><strong>Creación y Diseño Web (HTML5, CSS, JS)</strong> | NtFor (2022).</li>
+            <ul style="list-style: none; padding-left: 0;">
+                
+                <li style="margin-bottom: 15px;">
+                    <a href="https://media.licdn.com/dms/image/v2/D4E2DAQHSIJu-dnKcJA/profile-treasury-image-shrink_800_800/profile-treasury-image-shrink_800_800/0/1723474085265?e=1767729600&v=beta&t=R5N9aND0aFaIbGanGA52MBmLJpOou44fUT9ajOhH9O0" target="_blank" class="cert-link">
+                        <i class="fas fa-chart-bar" style="color: #EA4335; margin-right: 10px;"></i>
+                        <strong>Microsoft Power BI - Data Analysis & Dashboards</strong> | Udemy (2024)
+                        <i class="fas fa-external-link-alt" style="float: right; color: #999; font-size: 0.8rem;"></i>
+                    </a>
+                </li>
+
+                <li style="margin-bottom: 15px;">
+                    <a href="https://media.licdn.com/dms/image/v2/D4D2DAQEeCc_woTletQ/profile-treasury-image-shrink_800_800/B4DZXUGr3GG4Ac-/0/1743020277940?e=1767729600&v=beta&t=attnqhkgT_Ym2vyI5TbXNrHBLtVtMciwP_lqJpz4Qwo" target="_blank" class="cert-link">
+                        <i class="fas fa-database" style="color: #EA4335; margin-right: 10px;"></i>
+                        <strong>Master SQL Server</strong> | Udemy (2025)
+                        <i class="fas fa-external-link-alt" style="float: right; color: #999; font-size: 0.8rem;"></i>
+                    </a>
+                </li>
+
+                <li style="margin-bottom: 15px;">
+                    <a href="https://media.licdn.com/dms/image/v2/D4D2DAQHpD3hT7hUe_g/profile-treasury-image-shrink_800_800/B4DZaK.RY6H4AY-/0/1746088302916?e=1767729600&v=beta&t=qJnsSpHVFjYoPBuX3FmhAt0RuLq_C7-sROR-zV3xNuY" target="_blank" class="cert-link">
+                        <i class="fas fa-robot" style="color: #EA4335; margin-right: 10px;"></i>
+                        <strong>Microsoft Power Automate - Automatización de procesos</strong> | Udemy (2025)
+                        <i class="fas fa-external-link-alt" style="float: right; color: #999; font-size: 0.8rem;"></i>
+                    </a>
+                </li>
+
+                <li style="margin-bottom: 15px;">
+                    <a href="https://media.licdn.com/dms/image/v2/D4D2DAQEMUbV7Jfd8ZA/profile-treasury-image-shrink_1920_1920/profile-treasury-image-shrink_1920_1920/0/1733733727410?e=1767729600&v=beta&t=JOzkY3FqF1ARqCOU0hFyUt7Gj8ESesuC15WIGvx-lW8" target="_blank" class="cert-link">
+                        <i class="fas fa-users" style="color: #EA4335; margin-right: 10px;"></i>
+                        <strong>Gestión y Manejo de Conflictos</strong> | GoodHabitz (2024)
+                        <i class="fas fa-external-link-alt" style="float: right; color: #999; font-size: 0.8rem;"></i>
+                    </a>
+                </li>
+
+                <li style="margin-bottom: 15px;">
+                     <a href="https://media.licdn.com/dms/image/v2/D4D2DAQFUKKyQ-4TYAA/profile-treasury-image-shrink_1280_1280/profile-treasury-image-shrink_1280_1280/0/1703840306593?e=1767729600&v=beta&t=YNKu2Q7MMbn-9GWAsU28UpFfKW16Fm5fMBygGEU4ltU" target="_blank" class="cert-link">
+                        <i class="fas fa-code" style="color: #EA4335; margin-right: 10px;"></i>
+                        <strong>Creación y Diseño Web (HTML5, CSS, JS)</strong> | NtFor (2022)
+                        <i class="fas fa-external-link-alt" style="float: right; color: #999; font-size: 0.8rem;"></i>
+                     </a>
+                </li>
             </ul>
         </section>
 
