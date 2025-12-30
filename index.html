@@ -96,7 +96,7 @@ li {
 margin-bottom: 5px;
 }
 
-/* --- ESTILOS: HITOS Y LOGROS (Mantenidos por si se reusan, aunque sección eliminada) --- */
+/* --- ESTILOS: HITOS Y LOGROS --- */
 .achievements-grid {
 display: grid;
 grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -111,7 +111,7 @@ padding: 20px;
 border-radius: 8px;
 box-shadow: 0 2px 4px rgba(0,0,0,0.05);
 transition: transform 0.2s ease, box-shadow 0.2s ease;
-text-align: center;
+text-align: center; 
 }
 
 .achievement-card:hover {
@@ -141,7 +141,7 @@ letter-spacing: 1px;
 .metric-desc {
 font-size: 0.9rem;
 color: #666;
-text-align: left;
+text-align: left; /* Descripción alineada a la izquierda para leer mejor */
 }
 
 /* --- ESTILOS: EXPERIENCIA Y EDUCACIÓN --- */
@@ -189,46 +189,6 @@ padding-bottom: 10px;
 margin-bottom: 15px;
 }
 
-/* --- ESTILOS: REFERENCIAS (Mantenidos por si se reusan) --- */
-.ref-container {
-display: grid;
-grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-gap: 20px;
-}
-
-.ref-card {
-background-color: #f8f8f8;
-border-left: 4px solid var(--accent-color);
-padding: 20px;
-border-radius: 0 5px 5px 0;
-}
-
-.ref-text {
-font-style: italic;
-color: #555;
-margin-bottom: 15px;
-font-size: 1rem;
-}
-
-.ref-author strong {
-display: block;
-color: var(--primary-color);
-}
-
-.ref-author span {
-font-size: 0.85rem;
-color: #777;
-}
-
-.ref-note {
-margin-top: 25px;
-font-size: 0.85rem;
-color: #888;
-text-align: center;
-border-top: 1px solid #eee;
-padding-top: 15px;
-}
-
 /* --- FOOTER --- */
 .footer {
 text-align: center;
@@ -263,7 +223,6 @@ margin: 0;
 <div class="subtitle">AREA SERVICE MANAGER EN GROUPE ATLANTIC</div>
 
 <div class="contact-info">
-<span>📱 +34 686805175</span> |
 <a href="mailto:dartola3@gmail.com">✉️ dartola3@gmail.com</a> |
 <a href="https://www.linkedin.com/in/david-a-b37a6413b/" target="_blank">🔗 LinkedIn</a>
 </div>
@@ -277,6 +236,35 @@ Experto en la coordinación de Redes de Servicios Técnicos (SATs) y optimizaci�
 Con un enfoque resolutivo basado en datos (KPIs), cuento con amplia experiencia en el diseño de procedimientos
 para mejorar la eficiencia del servicio y la satisfacción del cliente final en entornos multinacionales.
 </p>
+</section>
+
+<section id="achievements">
+<h2>Hitos y Logros Recientes</h2>
+<div class="achievements-grid">
+<div class="achievement-card">
+<span class="metric">-16,9%</span>
+<span class="metric-label">Gasto en Garantías</span>
+<p class="metric-desc">
+[cite_start]Reducción del gasto acumulado anual en la zona asignada, logrando un desacople positivo entre la bajada de actividad (-8,2%) y el ahorro total conseguido[cite: 396, 414].
+</p>
+</div>
+
+<div class="achievement-card">
+<span class="metric">+9,5%</span>
+<span class="metric-label">Eficiencia Operativa</span>
+<p class="metric-desc">
+[cite_start]Mejora en la eficiencia económica del servicio (Coste Medio por Aviso), optimizando la gestión de recursos por intervención técnica[cite: 413].
+</p>
+</div>
+
+<div class="achievement-card">
+<span class="metric">-65,8%</span>
+<span class="metric-label">Pico de Contención</span>
+<p class="metric-desc">
+[cite_start]Récord de reducción de costes en periodos de alta exigencia (Noviembre) mediante la implementación de controles estrictos y auditoría[cite: 397, 416].
+</p>
+</div>
+</div>
 </section>
 
 <section id="experience">
