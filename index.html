@@ -31,6 +31,7 @@ margin: 40px auto;
 background: var(--card-bg);
 box-shadow: 0 4px 6px rgba(0,0,0,0.1);
 padding: 40px;
+/* overflow: hidden; Prevent double scrollbars */
 }
 
 /* --- HEADER --- */
@@ -141,7 +142,7 @@ letter-spacing: 1px;
 .metric-desc {
 font-size: 0.9rem;
 color: #666;
-text-align: left; /* Descripción alineada a la izquierda para leer mejor */
+text-align: left;
 }
 
 /* --- ESTILOS: EXPERIENCIA Y EDUCACIÓN --- */
@@ -189,6 +190,77 @@ padding-bottom: 10px;
 margin-bottom: 15px;
 }
 
+/* --- ESTILOS: REFERENCIAS (CARRUSEL DESLIZABLE) --- */
+#references {
+    /* Asegura que el carrusel no rompa el ancho del contenedor padre */
+    max-width: 100%;
+}
+
+.carousel-container {
+    display: flex;
+    overflow-x: auto; /* Permite scroll horizontal */
+    scroll-snap-type: x mandatory; /* Efecto de "imán" al hacer scroll */
+    gap: 20px;
+    padding: 20px 5px; /* Padding para que se vea la sombra inferior */
+    /* Ocultar barra de scroll para un look más limpio (opcional) */
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none;  /* IE 10+ */
+}
+
+.carousel-container::-webkit-scrollbar {
+    display: none; /* Chrome Safari */
+}
+
+.reference-card {
+    flex: 0 0 280px; /* Ancho fijo para las tarjetas del carrusel */
+    scroll-snap-align: start; /* Alineación del snap */
+    background: var(--card-bg);
+    border: 1px solid #eee;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.08);
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.ref-image {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%; /* Foto circular */
+    background-color: #e0e0e0; /* Color de fondo si no carga imagen */
+    margin-bottom: 15px;
+    object-fit: cover; /* Asegura que la foto llene el círculo sin deformarse */
+    border: 3px solid var(--bg-color);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.ref-stars {
+    color: #FFD700; /* Color dorado para estrellas */
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+    letter-spacing: 2px;
+}
+
+.ref-text {
+    font-style: italic;
+    font-size: 0.95rem;
+    color: #555;
+    margin-bottom: 20px;
+    flex-grow: 1; /* Permite que el texto ocupe espacio si las alturas varían */
+    line-height: 1.5;
+}
+
+.ref-author {
+    font-weight: 700;
+    color: var(--primary-color);
+    font-size: 0.9rem;
+    border-top: 1px solid #eee;
+    padding-top: 10px;
+    width: 100%;
+}
+
 /* --- FOOTER --- */
 .footer {
 text-align: center;
@@ -211,6 +283,12 @@ flex-direction: column;
 .container {
 padding: 20px;
 margin: 0;
+width: auto;
+box-shadow: none;
+}
+/* Ajuste carrusel en móvil */
+.reference-card {
+    flex: 0 0 85%; /* Las tarjetas ocupan más ancho en móvil */
 }
 }
 </style>
@@ -245,7 +323,7 @@ para mejorar la eficiencia del servicio y la satisfacción del cliente final en 
 <span class="metric">-16,9%</span>
 <span class="metric-label">Gasto en Garantías</span>
 <p class="metric-desc">
-[cite_start]Reducción del gasto acumulado anual en la zona asignada, logrando un desacople positivo entre la bajada de actividad (-8,2%) y el ahorro total conseguido[cite: 396, 414].
+Reducción del gasto acumulado anual en la zona asignada, logrando un desacople positivo entre la bajada de actividad (-8,2%) y el ahorro total conseguido.
 </p>
 </div>
 
@@ -253,7 +331,7 @@ para mejorar la eficiencia del servicio y la satisfacción del cliente final en 
 <span class="metric">+9,5%</span>
 <span class="metric-label">Eficiencia Operativa</span>
 <p class="metric-desc">
-[cite_start]Mejora en la eficiencia económica del servicio (Coste Medio por Aviso), optimizando la gestión de recursos por intervención técnica[cite: 413].
+Mejora en la eficiencia económica del servicio (Coste Medio por Aviso), optimizando la gestión de recursos por intervención técnica.
 </p>
 </div>
 
@@ -261,7 +339,7 @@ para mejorar la eficiencia del servicio y la satisfacción del cliente final en 
 <span class="metric">-65,8%</span>
 <span class="metric-label">Pico de Contención</span>
 <p class="metric-desc">
-[cite_start]Récord de reducción de costes en periodos de alta exigencia (Noviembre) mediante la implementación de controles estrictos y auditoría[cite: 397, 416].
+Récord de reducción de costes en periodos de alta exigencia (Noviembre) mediante la implementación de controles estrictos y auditoría.
 </p>
 </div>
 </div>
@@ -349,6 +427,41 @@ IFP Innovación en Formación Profesional (2018-2020).<br>
 <strong>Grado Medio en Gestión Administrativa</strong><br>
 La Salle BCN (2009-2010).
 </div>
+</section>
+
+<section id="references">
+<h2>Referencias (Google Maps)</h2>
+<div class="carousel-container">
+    
+    <div class="reference-card">
+        <img src="https://via.placeholder.com/80/cccccc/666666?text=Foto+1" alt="Foto Reseña 1" class="ref-image">
+        <div class="ref-stars">★★★★★</div>
+        <p class="ref-text">"David demostró una capacidad excepcional para resolver un problema técnico complejo que llevaba meses enquistado. Su coordinación con el equipo fue impecable."</p>
+        <span class="ref-author">Carlos M. - Director de Operaciones</span>
+    </div>
+
+    <div class="reference-card">
+        <img src="https://via.placeholder.com/80/cccccc/666666?text=Foto+2" alt="Foto Reseña 2" class="ref-image">
+        <div class="ref-stars">★★★★★</div>
+        <p class="ref-text">"Excelente gestión de la postventa. Gracias a su análisis de datos pudimos identificar un fallo recurrente y ahorrar costes significativos. Muy profesional."</p>
+        <span class="ref-author">Laura G. - Gerente Regional</span>
+    </div>
+
+    <div class="reference-card">
+        <img src="https://via.placeholder.com/80/cccccc/666666?text=Foto+3" alt="Foto Reseña 3" class="ref-image">
+        <div class="ref-stars">★★★★☆</div>
+        <p class="ref-text">"Trato cercano y muy resolutivo. Se nota su experiencia en la gestión de conflictos y en la optimización de recursos. Un placer trabajar con él."</p>
+        <span class="ref-author">Javier R. - Cliente Final</span>
+    </div>
+
+     <div class="reference-card">
+        <img src="https://via.placeholder.com/80/cccccc/666666?text=Foto+4" alt="Foto Reseña 4" class="ref-image">
+        <div class="ref-stars">★★★★★</div>
+        <p class="ref-text">"Gran liderazgo en la coordinación del SAT durante la campaña de invierno. Eficiencia y claridad en la comunicación en todo momento."</p>
+        <span class="ref-author">Ana P. - Coordinadora Técnica</span>
+    </div>
+</div>
+<p style="text-align: center; font-size: 0.8rem; color: #999; margin-top: 10px;">(Desliza horizontalmente para ver más reseñas)</p>
 </section>
 
 <div class="footer">
