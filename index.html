@@ -50,4 +50,174 @@
 
         .kpi-box {
             background: #eff6ff;
-            border-
+            border-left: 4px solid var(--accent-color);
+            padding: 12px 18px;
+            border-radius: 8px;
+            margin: 10px 0;
+            font-size: 0.95rem;
+        }
+
+        .kpi-highlight {
+            font-weight: 800;
+            color: var(--accent-color);
+        }
+
+        .badge-tech {
+            background: rgba(59, 130, 246, 0.1);
+            color: var(--accent-color);
+            font-weight: 600;
+            padding: 0.4rem 0.8rem;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            display: inline-block;
+            margin: 2px;
+        }
+
+        .section-title {
+            font-weight: 800;
+            margin-bottom: 30px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            width: 40%;
+            height: 4px;
+            background: var(--accent-color);
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+        }
+
+        .nav-link { font-weight: 600; color: rgba(255,255,255,0.8) !important; }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" style="background: rgba(15, 23, 42, 0.9); backdrop-filter: blur(10px);">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="#">DAVID ARTOLA</a>
+            <div class="navbar-nav ms-auto">
+                <a class="nav-link" href="https://linkedin.com/in/davidartola" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-3 text-center mb-4">
+                    <img src="https://artola3.github.io/IMG_6037.jpg" alt="David Artola" class="profile-img">
+                </div>
+                <div class="col-md-9">
+                    <h1 class="display-4 fw-800">David Artola</h1>
+                    <p class="lead opacity-75">Area Service Manager | Especialista en Análisis de Datos y Optimización SAT</p>
+                    <div class="d-flex gap-2 flex-wrap mt-3">
+                        <span class="badge-tech" style="background:rgba(255,255,255,0.1); color:white;">Cataluña, Baleares, Aragón</span>
+                        <a href="mailto:davidartola@gmail.com" class="btn btn-primary">Contactar</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container my-5">
+        
+        <section class="mb-5">
+            <h2 class="section-title">Perfil Profesional</h2>
+            <p class="lead">Profesional con amplia trayectoria en la gestión de servicios postventa y redes SAT, especializado en la optimización de procesos operativos y la implementación de soluciones basadas en datos.</p>
+        </section>
+
+        <section id="experience">
+            <h2 class="section-title">Trayectoria</h2>
+
+            <div class="card p-4">
+                <div class="row">
+                    <div class="col-md-9">
+                        <h4 class="fw-bold">Area Service Manager</h4>
+                        <p class="text-primary fw-600 mb-2">Groupe Atlantic | 2021 - Actualidad</p>
+                        <ul class="text-muted">
+                            <li>Gestión técnica y comercial de la Red de Servicios Técnicos Oficiales (Cataluña, Baleares, Aragón).</li>
+                            <li>Responsable del cumplimiento de KPIs de calidad y eficiencia.</li>
+                            <li>Implementación de Power Automate para digitalización de procesos.</li>
+                        </ul>
+                        <div class="kpi-box">
+                            <i class="fas fa-chart-line me-2"></i> Reducción del <span class="kpi-highlight">16.9%</span> en el gasto anual de intervenciones mediante análisis avanzado en Power BI.
+                        </div>
+                    </div>
+                    <div class="col-md-3 border-start text-center">
+                        <div class="d-flex flex-wrap justify-content-center gap-1">
+                            <span class="badge-tech">SQL</span>
+                            <span class="badge-tech">Power BI</span>
+                            <span class="badge-tech">Dynamics 365</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card p-4">
+                <div class="row">
+                    <div class="col-md-9">
+                        <h4 class="fw-bold">Responsable de Recambios y Logística SAT</h4>
+                        <p class="text-primary fw-600 mb-2">Manaut (Biasi) | 2015 - 2021</p>
+                        <ul class="text-muted">
+                            <li>Gestión integral del almacén de recambios y logística nacional para la red SAT.</li>
+                            <li>Control de stock y aprovisionamiento internacional (Italia-España).</li>
+                            <li>Soporte técnico y gestión de garantías.</li>
+                        </ul>
+                    </div>
+                    <div class="col-md-3 border-start text-center">
+                        <span class="badge-tech">ERP SAP</span>
+                        <span class="badge-tech">Logística</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card p-4">
+                <h4 class="fw-bold">Soporte Técnico y Gestión SAT</h4>
+                <p class="text-primary fw-600 mb-0">Servoclima (2013-2015) | Junkers (2011-2013)</p>
+                <p class="small text-muted mt-2">Especialización en climatización industrial y doméstica, puestas en marcha y atención directa a instaladores.</p>
+            </div>
+        </section>
+
+        <section id="skills" class="mt-5">
+            <h2 class="section-title">Habilidades Clave</h2>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="card p-3 text-center h-100">
+                        <i class="fas fa-microchip fa-2x text-primary mb-3"></i>
+                        <h5>Tecnología & Datos</h5>
+                        <p class="small">SQL Server, Power BI, Power Automate, ERP (Dynamics/SAP).</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card p-3 text-center h-100">
+                        <i class="fas fa-users fa-2x text-primary mb-3"></i>
+                        <h5>Gestión de Redes</h5>
+                        <p class="small">Auditoría de SATs, formación técnica, control de calidad y SLAs.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card p-3 text-center h-100">
+                        <i class="fas fa-language fa-2x text-primary mb-3"></i>
+                        <h5>Idiomas</h5>
+                        <p class="small">Castellano, Catalán (Nativo), Inglés (Técnico).</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="py-5 bg-dark text-white text-center">
+        <div class="container">
+            <p class="mb-0">David Artola | 2025</p>
+            <div class="mt-2">
+                <a href="https://linkedin.com/in/davidartola" class="text-white me-3"><i class="fab fa-linkedin fa-lg"></i></a>
+                <a href="mailto:davidartola@gmail.com" class="text-white"><i class="fas fa-envelope fa-lg"></i></a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
