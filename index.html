@@ -13,6 +13,7 @@
     --bg-color: #f9f9f9;
     --card-bg: #fff;
     --hover-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    --gmail-color: #EA4335; /* Color Oficial Gmail */
 }
 
 body {
@@ -58,19 +59,59 @@ h1 {
 }
 
 .contact-info {
-    margin-top: 15px;
-    font-size: 0.9rem;
+    margin-top: 25px; /* Un poco más de espacio para el botón */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px; /* Espacio entre el botón y LinkedIn */
+    flex-wrap: wrap;
 }
 
-.contact-info a {
+/* ESTILO BOTÓN GMAIL */
+.gmail-btn {
+    display: inline-flex;
+    align-items: center;
+    background-color: var(--gmail-color);
+    color: white !important; /* Forzar texto blanco */
+    padding: 10px 20px;
+    border-radius: 50px; /* Bordes redondeados estilo 'pill' */
+    text-decoration: none !important;
+    font-weight: bold;
+    font-size: 0.95rem;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s;
+}
+
+.gmail-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(234, 67, 53, 0.4);
+    background-color: #d33828; /* Un rojo un poco más oscuro al pasar el mouse */
+}
+
+.gmail-icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+    fill: white; /* Icono blanco */
+}
+
+/* Estilo Enlace LinkedIn (para que combine bien) */
+.linkedin-link {
     color: var(--secondary-color);
     text-decoration: none;
-    margin: 0 10px;
+    font-size: 0.95rem;
+    display: inline-flex;
+    align-items: center;
+    padding: 10px 15px;
+    border: 1px solid #eee;
+    border-radius: 50px;
+    transition: all 0.2s ease;
 }
 
-.contact-info a:hover {
-    text-decoration: underline;
-    color: var(--accent-color);
+.linkedin-link:hover {
+    color: #0077b5; /* Azul LinkedIn */
+    border-color: #0077b5;
+    background-color: #f0f7fa;
 }
 
 /* --- SECCIONES GENÉRICAS --- */
@@ -325,6 +366,10 @@ li {
     .nav-btn {
         display: none; /* En móvil se desliza con el dedo */
     }
+    .contact-info {
+        flex-direction: column;
+        gap: 15px;
+    }
 }
 </style>
 </head>
@@ -336,8 +381,16 @@ li {
         <div class="subtitle">AREA SERVICE MANAGER EN GROUPE ATLANTIC</div>
 
         <div class="contact-info">
-            <a href="mailto:dartola3@gmail.com">✉️ dartola3@gmail.com</a> |
-            <a href="https://www.linkedin.com/in/david-a-b37a6413b/" target="_blank">🔗 LinkedIn</a>
+            <a href="mailto:dartola3@gmail.com" class="gmail-btn" title="Enviar correo electrónico">
+                <svg class="gmail-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                </svg>
+                Contactar por Email
+            </a>
+            
+            <a href="https://www.linkedin.com/in/david-a-b37a6413b/" target="_blank" class="linkedin-link">
+                🔗 Ver Perfil en LinkedIn
+            </a>
         </div>
     </header>
 
