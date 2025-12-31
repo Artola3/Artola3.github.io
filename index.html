@@ -11,13 +11,24 @@
 :root {
     --primary-color: #333;
     --secondary-color: #666;
-    --accent-color: #000;
-    --bg-color: #f9f9f9;
+    --accent-color: #0f172a; /* Azul oscuro elegante para acentos */
+    --bg-color: #f8fafc; /* Gris azulado muy suave de fondo */
     --card-bg: #fff;
-    --hover-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    --hover-shadow: 0 10px 25px rgba(0,0,0,0.06);
     --header-bg: #0f172a; 
     --header-text: #ffffff; 
     --gmail-color: #EA4335;
+    --transition-speed: 0.3s;
+}
+
+/* Animación de Entrada Suave */
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+html {
+    scroll-behavior: smooth;
 }
 
 body {
@@ -33,12 +44,11 @@ body {
 .container {
     max-width: 900px;
     margin: 40px auto;
-    background: var(--card-bg);
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    background: transparent; /* Fondo transparente para dejar respirar las tarjetas */
     padding: 0; 
-    border-radius: 8px;
     position: relative;
-    overflow: hidden; 
+    /* Aplicamos la animación de entrada */
+    animation: fadeInUp 0.8s ease-out forwards;
 }
 
 /* --- HEADER --- */
@@ -50,8 +60,9 @@ header {
     align-items: center;
     gap: 30px; 
     text-align: left; 
-    border-bottom: none; 
-    margin-bottom: 0; 
+    border-radius: 12px; /* Redondeamos el header */
+    box-shadow: var(--hover-shadow);
+    margin-bottom: 40px;
 }
 
 @media (max-width: 700px) {
@@ -59,6 +70,8 @@ header {
         flex-direction: column;
         text-align: center;
         padding: 30px 20px;
+        border-radius: 0; /* En móvil quitamos bordes para ocupar todo */
+        margin-top: -40px; /* Ajuste para móvil */
     }
 }
 
@@ -70,6 +83,11 @@ header {
     object-fit: cover;
     box-shadow: 0 10px 20px rgba(0,0,0,0.3);
     flex-shrink: 0;
+    transition: transform 0.4s ease;
+}
+
+.profile-img:hover {
+    transform: scale(1.05);
 }
 
 .header-content h1 {
@@ -78,6 +96,7 @@ header {
     text-transform: uppercase;
     letter-spacing: 2px;
     color: #fff;
+    font-weight: 700;
 }
 
 .header-content .subtitle {
@@ -105,116 +124,161 @@ header {
 .btn-contact {
     display: inline-flex;
     align-items: center;
-    padding: 10px 20px;
+    padding: 10px 24px;
     border-radius: 50px;
     text-decoration: none;
-    font-weight: bold;
+    font-weight: 600;
     font-size: 0.9rem;
-    transition: transform 0.2s;
+    transition: all var(--transition-speed);
 }
 
 .btn-gmail {
     background-color: var(--gmail-color);
     color: white;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+    box-shadow: 0 4px 10px rgba(234, 67, 53, 0.3);
 }
 
 .btn-linkedin {
     background-color: rgba(255,255,255,0.1);
     color: white;
     border: 1px solid rgba(255,255,255,0.3);
+    backdrop-filter: blur(5px);
 }
 
 .btn-contact:hover {
-    transform: translateY(-2px);
-    opacity: 0.9;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.2);
 }
 
 /* --- CONTENIDO PRINCIPAL --- */
 .content-padding {
-    padding: 40px;
-}
-
-@media (max-width: 700px) {
-    .content-padding {
-        padding: 20px;
-    }
+    padding: 0 20px; /* Padding lateral */
 }
 
 section {
-    margin-bottom: 40px;
+    margin-bottom: 50px;
 }
 
 h2 {
-    border-left: 5px solid var(--accent-color);
+    display: inline-block;
+    border-left: 5px solid var(--header-bg);
     padding-left: 15px;
-    font-size: 1.4rem;
+    font-size: 1.5rem;
     text-transform: uppercase;
-    margin-bottom: 25px;
-    color: var(--primary-color);
+    margin-bottom: 30px;
+    color: var(--header-bg);
+    letter-spacing: 1px;
+    font-weight: 700;
 }
 
+/* Listas generales */
 ul {
-    list-style-type: square;
-    margin-top: 10px;
-    padding-left: 20px;
+    list-style-type: none; /* Quitamos puntos por defecto para estilizarlos mejor */
+    padding-left: 0;
 }
 
-li {
-    margin-bottom: 5px;
-}
-
-/* --- HITOS --- */
+/* --- HITOS (Tarjetas) --- */
 .achievements-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 25px;
     margin-top: 20px;
 }
 
 .achievement-card {
     background: #fff;
-    border: 1px solid #eee;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    border: none;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+    transition: all var(--transition-speed);
     text-align: center; 
+    border-top: 4px solid transparent; /* Preparado para hover */
 }
 
 .achievement-card:hover {
-    transform: translateY(-5px);
+    transform: translateY(-7px);
     box-shadow: var(--hover-shadow);
-    border-color: #ddd;
+    border-top: 4px solid var(--header-bg); /* Detalle de color al pasar ratón */
 }
 
 .metric {
-    font-size: 2rem;
-    font-weight: bold;
-    color: var(--accent-color);
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: var(--header-bg);
     display: block;
     margin-bottom: 5px;
 }
 
 .metric-label {
-    font-weight: bold;
-    color: #555;
+    font-weight: 700;
+    color: #64748b;
     text-transform: uppercase;
-    font-size: 0.8rem;
+    font-size: 0.85rem;
     display: block;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
     letter-spacing: 1px;
 }
 
 .metric-desc {
-    font-size: 0.9rem;
+    font-size: 0.95rem;
     color: #666;
     text-align: left;
+    line-height: 1.5;
 }
 
-/* --- EXPERIENCIA Y EDUCACIÓN --- */
+/* Nota estratégica estilizada */
+.strategic-note {
+    margin-top: 30px; 
+    padding: 25px; 
+    background-color: #fff; 
+    border-left: 5px solid var(--header-bg); 
+    border-radius: 0 8px 8px 0;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+    position: relative;
+}
+
+.strategic-note p {
+    margin: 0; 
+    font-size: 1rem; 
+    color: #475569; 
+    font-style: italic; 
+    line-height: 1.7;
+}
+
+/* --- EXPERIENCIA Y EDUCACIÓN (Enmarcadas como tarjetas) --- */
 .job-item, .edu-item {
+    background: #fff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+    border: 1px solid rgba(0,0,0,0.03);
     margin-bottom: 30px;
+    transition: all var(--transition-speed);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Detalle elegante: borde lateral al hacer hover */
+.job-item::before, .edu-item::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 4px;
+    background: var(--header-bg);
+    opacity: 0.3;
+    transition: opacity 0.3s;
+}
+
+.job-item:hover, .edu-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+}
+
+.job-item:hover::before, .edu-item:hover::before {
+    opacity: 1;
 }
 
 .job-header {
@@ -222,31 +286,50 @@ li {
     justify-content: space-between;
     align-items: baseline;
     flex-wrap: wrap;
-    border-bottom: 1px solid #eee;
-    padding-bottom: 5px;
-    margin-bottom: 10px;
+    border-bottom: 1px solid #f1f5f9;
+    padding-bottom: 15px;
+    margin-bottom: 15px;
 }
 
 @media (max-width: 700px) {
     .job-header {
         flex-direction: column;
+        gap: 5px;
     }
 }
 
 .job-title {
-    font-weight: bold;
-    font-size: 1.1rem;
-    color: var(--primary-color);
+    font-weight: 700;
+    font-size: 1.2rem;
+    color: var(--header-bg);
 }
 
 .company {
-    color: var(--secondary-color);
-    font-style: italic;
+    color: #64748b;
+    font-weight: 600;
 }
 
 .date {
     font-size: 0.9rem;
-    color: #888;
+    color: #94a3b8;
+    background: #f1f5f9;
+    padding: 2px 10px;
+    border-radius: 20px;
+}
+
+/* Listas dentro de experiencia */
+.job-item ul li, .edu-item ul li {
+    position: relative;
+    padding-left: 20px;
+    margin-bottom: 8px;
+}
+
+.job-item ul li::before, .edu-item ul li::before {
+    content: '•';
+    color: var(--header-bg);
+    font-weight: bold;
+    position: absolute;
+    left: 0;
 }
 
 /* --- SKILLS --- */
@@ -265,27 +348,47 @@ li {
 
 .skills-column h3 {
     font-size: 1.1rem;
-    border-bottom: 1px solid #ddd;
+    border-bottom: 2px solid #e2e8f0;
     padding-bottom: 10px;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
+    color: #64748b;
+}
+
+/* Estilo de items de habilidades */
+.skills-column ul li {
+    background: #fff;
+    padding: 10px 15px;
+    margin-bottom: 8px;
+    border-radius: 6px;
+    border: 1px solid #f1f5f9;
+    font-size: 0.95rem;
+    transition: all 0.2s;
+}
+
+.skills-column ul li:hover {
+    border-color: #cbd5e1;
+    transform: translateX(5px);
 }
 
 /* --- ESTILOS CERTIFICADOS (LINKS) --- */
 .cert-link {
-    display: block;
-    padding: 12px;
-    border: 1px solid #eee;
-    border-radius: 8px;
+    display: flex;
+    align-items: center; /* Alinear icono y texto */
+    padding: 15px 20px;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
     text-decoration: none;
     color: #333;
     background: #fff;
-    transition: all 0.2s ease;
+    transition: all 0.3s ease;
+    margin-bottom: 15px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.01);
 }
 
 .cert-link:hover {
-    border-color: #ccc;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-    transform: translateX(5px); /* Pequeño desplazamiento a la derecha */
+    border-color: #cbd5e1;
+    box-shadow: 0 8px 15px rgba(0,0,0,0.05);
+    transform: translateY(-2px); 
 }
 
 /* --- CARRUSEL --- */
@@ -312,17 +415,23 @@ li {
 }
 
 .reference-card {
-    flex: 0 0 300px;
+    flex: 0 0 320px;
     scroll-snap-align: center;
-    background: var(--card-bg);
-    border: 1px solid #eee;
+    background: #fff;
+    border: none;
     border-radius: 12px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.08);
-    padding: 25px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+    padding: 30px;
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
+    transition: transform 0.3s;
+}
+
+.reference-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.06);
 }
 
 @media (max-width: 700px) {
@@ -338,8 +447,8 @@ li {
     background-color: #f0f0f0;
     margin-bottom: 15px;
     object-fit: cover;
-    border: 2px solid #fff;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    border: 3px solid #fff;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
 
 .ref-stars {
@@ -351,54 +460,59 @@ li {
 
 .ref-text {
     font-style: italic;
-    font-size: 0.9rem;
+    font-size: 0.95rem;
     color: #555;
     margin-bottom: 20px;
     flex-grow: 1;
-    line-height: 1.5;
+    line-height: 1.6;
 }
 
 .ref-author {
     font-weight: 700;
-    color: var(--primary-color);
-    font-size: 0.9rem;
-    border-top: 1px solid #eee;
-    padding-top: 10px;
+    color: var(--header-bg);
+    font-size: 0.95rem;
+    border-top: 1px solid #f1f5f9;
+    padding-top: 15px;
     width: 100%;
 }
 
 .nav-btn {
-    background-color: rgba(0,0,0,0.7);
+    background-color: rgba(15, 23, 42, 0.8);
     color: white;
     border: none;
     border-radius: 50%;
-    width: 40px;
-    height: 40px;
+    width: 45px;
+    height: 45px;
     cursor: pointer;
     z-index: 10;
     font-size: 1.2rem;
     display: flex;
     justify-content: center;
     align-items: center;
-    transition: background 0.3s;
+    transition: all 0.3s;
     flex-shrink: 0;
+    backdrop-filter: blur(4px);
 }
 
 @media (max-width: 700px) {
     .nav-btn { display: none; }
 }
 
-.nav-btn:hover { background-color: #000; }
-.nav-prev { margin-right: 10px; }
-.nav-next { margin-left: 10px; }
+.nav-btn:hover { 
+    background-color: #0f172a; 
+    transform: scale(1.1);
+}
+.nav-prev { margin-right: 15px; }
+.nav-next { margin-left: 15px; }
 
 .footer {
     text-align: center;
-    font-size: 0.8rem;
-    color: #aaa;
-    margin-top: 60px;
-    border-top: 1px solid #eee;
-    padding-top: 20px;
+    font-size: 0.9rem;
+    color: #94a3b8;
+    margin-top: 80px;
+    border-top: 1px solid #e2e8f0;
+    padding-top: 30px;
+    padding-bottom: 30px;
 }
 </style>
 </head>
@@ -429,7 +543,7 @@ li {
         
         <section id="about">
             <h2>Sobre Mí</h2>
-            <p>
+            <p style="font-size: 1.05rem; color: #475569;">
             Especialista en gestión de servicios de postventa y operaciones técnicas con más de 12 años de trayectoria.
             Experto en la coordinación de Redes de Servicios Técnicos (SATs) y optimización de procesos operativos.
             Con un enfoque resolutivo basado en datos (KPIs), cuento con amplia experiencia en el diseño de procedimientos
@@ -438,7 +552,7 @@ li {
         </section>
 
         <section id="achievements">
-            <h2>Hitos y Logros Recientes</h2>
+            <h2>Hitos y Logros</h2>
             <div class="achievements-grid">
                 <div class="achievement-card">
                     <span class="metric">-16,9%</span>
@@ -463,6 +577,12 @@ li {
                     Récord de reducción de costes en periodos de alta exigencia (Noviembre) mediante la implementación de controles estrictos y auditoría.
                     </p>
                 </div>
+            </div>
+            
+            <div class="strategic-note">
+                <p>
+                    "La clave de estos resultados radica en el <strong>análisis granular de los datos</strong> para identificar fugas de eficiencia y optimizar el gasto. Mediante un seguimiento exhaustivo y garantizando la <strong>trazabilidad completa de la operativa</strong>, convertimos la información en decisiones estratégicas de alto impacto."
+                </p>
             </div>
         </section>
 
@@ -510,7 +630,7 @@ li {
                         <li>Automatización (Power Automate).</li>
                         <li>Gestión de Bases de Datos.</li>
                         <li>Gestión de Logística y Recambios.</li>
-                        <li><strong>Idiomas:</strong> Español/Catalán (Nativo), Portugués (Prof. Completa), Inglés (Básico Prof.).</li>
+                        <li><strong>Idiomas:</strong> Español/Catalán (Nativo), Portugués (Prof. Completa), Inglés (Técnico).</li>
                     </ul>
                 </div>
                 <div class="skills-column">
@@ -528,45 +648,45 @@ li {
 
         <section id="certifications">
             <h2>Certificaciones y Formación</h2>
-            <ul style="list-style: none; padding-left: 0;">
+            <ul style="padding-left: 0;">
                 
-                <li style="margin-bottom: 15px;">
+                <li>
                     <a href="https://media.licdn.com/dms/image/v2/D4E2DAQHSIJu-dnKcJA/profile-treasury-image-shrink_800_800/profile-treasury-image-shrink_800_800/0/1723474085265?e=1767729600&v=beta&t=R5N9aND0aFaIbGanGA52MBmLJpOou44fUT9ajOhH9O0" target="_blank" class="cert-link">
-                        <i class="fas fa-chart-bar" style="color: #EA4335; margin-right: 10px;"></i>
-                        <strong>Microsoft Power BI - Data Analysis & Dashboards</strong> | Udemy (2024)
-                        <i class="fas fa-external-link-alt" style="float: right; color: #999; font-size: 0.8rem;"></i>
+                        <i class="fas fa-chart-bar" style="color: #EA4335; margin-right: 15px; font-size: 1.2rem;"></i>
+                        <span style="flex-grow: 1;"><strong>Microsoft Power BI - Data Analysis & Dashboards</strong> | Udemy (2024)</span>
+                        <i class="fas fa-external-link-alt" style="color: #cbd5e1; font-size: 0.9rem;"></i>
                     </a>
                 </li>
 
-                <li style="margin-bottom: 15px;">
+                <li>
                     <a href="https://media.licdn.com/dms/image/v2/D4D2DAQEeCc_woTletQ/profile-treasury-image-shrink_800_800/B4DZXUGr3GG4Ac-/0/1743020277940?e=1767729600&v=beta&t=attnqhkgT_Ym2vyI5TbXNrHBLtVtMciwP_lqJpz4Qwo" target="_blank" class="cert-link">
-                        <i class="fas fa-database" style="color: #EA4335; margin-right: 10px;"></i>
-                        <strong>Master SQL Server</strong> | Udemy (2025)
-                        <i class="fas fa-external-link-alt" style="float: right; color: #999; font-size: 0.8rem;"></i>
+                        <i class="fas fa-database" style="color: #EA4335; margin-right: 15px; font-size: 1.2rem;"></i>
+                        <span style="flex-grow: 1;"><strong>Master SQL Server</strong> | Udemy (2025)</span>
+                        <i class="fas fa-external-link-alt" style="color: #cbd5e1; font-size: 0.9rem;"></i>
                     </a>
                 </li>
 
-                <li style="margin-bottom: 15px;">
+                <li>
                     <a href="https://media.licdn.com/dms/image/v2/D4D2DAQHpD3hT7hUe_g/profile-treasury-image-shrink_800_800/B4DZaK.RY6H4AY-/0/1746088302916?e=1767729600&v=beta&t=qJnsSpHVFjYoPBuX3FmhAt0RuLq_C7-sROR-zV3xNuY" target="_blank" class="cert-link">
-                        <i class="fas fa-robot" style="color: #EA4335; margin-right: 10px;"></i>
-                        <strong>Microsoft Power Automate - Automatización de procesos</strong> | Udemy (2025)
-                        <i class="fas fa-external-link-alt" style="float: right; color: #999; font-size: 0.8rem;"></i>
+                        <i class="fas fa-robot" style="color: #EA4335; margin-right: 15px; font-size: 1.2rem;"></i>
+                        <span style="flex-grow: 1;"><strong>Microsoft Power Automate - Automatización de procesos</strong> | Udemy (2025)</span>
+                        <i class="fas fa-external-link-alt" style="color: #cbd5e1; font-size: 0.9rem;"></i>
                     </a>
                 </li>
 
-                <li style="margin-bottom: 15px;">
+                <li>
                     <a href="https://media.licdn.com/dms/image/v2/D4D2DAQEMUbV7Jfd8ZA/profile-treasury-image-shrink_1920_1920/profile-treasury-image-shrink_1920_1920/0/1733733727410?e=1767729600&v=beta&t=JOzkY3FqF1ARqCOU0hFyUt7Gj8ESesuC15WIGvx-lW8" target="_blank" class="cert-link">
-                        <i class="fas fa-users" style="color: #EA4335; margin-right: 10px;"></i>
-                        <strong>Gestión y Manejo de Conflictos</strong> | GoodHabitz (2024)
-                        <i class="fas fa-external-link-alt" style="float: right; color: #999; font-size: 0.8rem;"></i>
+                        <i class="fas fa-users" style="color: #EA4335; margin-right: 15px; font-size: 1.2rem;"></i>
+                        <span style="flex-grow: 1;"><strong>Gestión y Manejo de Conflictos</strong> | GoodHabitz (2024)</span>
+                        <i class="fas fa-external-link-alt" style="color: #cbd5e1; font-size: 0.9rem;"></i>
                     </a>
                 </li>
 
-                <li style="margin-bottom: 15px;">
+                <li>
                      <a href="https://media.licdn.com/dms/image/v2/D4D2DAQFUKKyQ-4TYAA/profile-treasury-image-shrink_1280_1280/profile-treasury-image-shrink_1280_1280/0/1703840306593?e=1767729600&v=beta&t=YNKu2Q7MMbn-9GWAsU28UpFfKW16Fm5fMBygGEU4ltU" target="_blank" class="cert-link">
-                        <i class="fas fa-code" style="color: #EA4335; margin-right: 10px;"></i>
-                        <strong>Creación y Diseño Web (HTML5, CSS, JS)</strong> | NtFor (2022)
-                        <i class="fas fa-external-link-alt" style="float: right; color: #999; font-size: 0.8rem;"></i>
+                        <i class="fas fa-code" style="color: #EA4335; margin-right: 15px; font-size: 1.2rem;"></i>
+                        <span style="flex-grow: 1;"><strong>Creación y Diseño Web (HTML5, CSS, JS)</strong> | NtFor (2022)</span>
+                        <i class="fas fa-external-link-alt" style="color: #cbd5e1; font-size: 0.9rem;"></i>
                      </a>
                 </li>
             </ul>
@@ -575,13 +695,13 @@ li {
         <section id="education">
             <h2>Historial Académico</h2>
             <div class="edu-item">
-                <strong>Grado Superior en Transporte y Logística</strong><br>
-                IFP Innovación en Formación Profesional (2018-2020).<br>
-                <span class="date">Especialización en gestión de almacenamiento y procesos logísticos transversales.</span>
+                <div style="font-weight: 700; color: #0f172a; margin-bottom: 5px;">Grado Superior en Transporte y Logística</div>
+                <div>IFP Innovación en Formación Profesional (2018-2020).</div>
+                <div class="date" style="margin-top: 5px; display:inline-block;">Especialización en gestión de almacenamiento y procesos logísticos transversales.</div>
             </div>
             <div class="edu-item">
-                <strong>Grado Medio en Gestión Administrativa</strong><br>
-                La Salle BCN (2009-2010).
+                <div style="font-weight: 700; color: #0f172a; margin-bottom: 5px;">Grado Medio en Gestión Administrativa</div>
+                <div>La Salle BCN (2009-2010).</div>
             </div>
         </section>
 
