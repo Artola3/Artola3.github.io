@@ -11,8 +11,8 @@
 :root {
     --primary-color: #333;
     --secondary-color: #666;
-    --accent-color: #0f172a; /* Azul oscuro elegante para acentos */
-    --bg-color: #f8fafc; /* Gris azulado muy suave de fondo */
+    --accent-color: #0f172a; 
+    --bg-color: #f8fafc; 
     --card-bg: #fff;
     --hover-shadow: 0 10px 25px rgba(0,0,0,0.06);
     --header-bg: #0f172a; 
@@ -44,10 +44,9 @@ body {
 .container {
     max-width: 900px;
     margin: 40px auto;
-    background: transparent; /* Fondo transparente para dejar respirar las tarjetas */
+    background: transparent; 
     padding: 0; 
     position: relative;
-    /* Aplicamos la animación de entrada */
     animation: fadeInUp 0.8s ease-out forwards;
 }
 
@@ -60,7 +59,7 @@ header {
     align-items: center;
     gap: 30px; 
     text-align: left; 
-    border-radius: 12px; /* Redondeamos el header */
+    border-radius: 12px; 
     box-shadow: var(--hover-shadow);
     margin-bottom: 40px;
 }
@@ -70,8 +69,8 @@ header {
         flex-direction: column;
         text-align: center;
         padding: 30px 20px;
-        border-radius: 0; /* En móvil quitamos bordes para ocupar todo */
-        margin-top: -40px; /* Ajuste para móvil */
+        border-radius: 0; 
+        margin-top: -40px; 
     }
 }
 
@@ -152,7 +151,7 @@ header {
 
 /* --- CONTENIDO PRINCIPAL --- */
 .content-padding {
-    padding: 0 20px; /* Padding lateral */
+    padding: 0 20px; 
 }
 
 section {
@@ -173,7 +172,7 @@ h2 {
 
 /* Listas generales */
 ul {
-    list-style-type: none; /* Quitamos puntos por defecto para estilizarlos mejor */
+    list-style-type: none; 
     padding-left: 0;
 }
 
@@ -193,13 +192,13 @@ ul {
     box-shadow: 0 4px 6px rgba(0,0,0,0.02);
     transition: all var(--transition-speed);
     text-align: center; 
-    border-top: 4px solid transparent; /* Preparado para hover */
+    border-top: 4px solid transparent; 
 }
 
 .achievement-card:hover {
     transform: translateY(-7px);
     box-shadow: var(--hover-shadow);
-    border-top: 4px solid var(--header-bg); /* Detalle de color al pasar ratón */
+    border-top: 4px solid var(--header-bg); 
 }
 
 .metric {
@@ -259,7 +258,6 @@ ul {
     overflow: hidden;
 }
 
-/* Detalle elegante: borde lateral al hacer hover */
 .job-item::before, .edu-item::before {
     content: '';
     position: absolute;
@@ -332,7 +330,7 @@ ul {
     left: 0;
 }
 
-/* --- SKILLS --- */
+/* --- SKILLS CON ICONOS INTERACTIVOS (NUEVO) --- */
 .skills-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -354,26 +352,49 @@ ul {
     color: #64748b;
 }
 
-/* Estilo de items de habilidades */
+/* Estilo Base de la lista de Habilidades */
 .skills-column ul li {
     background: #fff;
-    padding: 10px 15px;
-    margin-bottom: 8px;
-    border-radius: 6px;
+    padding: 12px 15px;
+    margin-bottom: 10px;
+    border-radius: 8px;
     border: 1px solid #f1f5f9;
     font-size: 0.95rem;
-    transition: all 0.2s;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); /* Transición suave */
+    display: flex; /* Flex para alinear icono y texto */
+    align-items: center;
+    cursor: default; /* El cursor no cambia a mano, es informativo */
+    overflow: hidden; /* Para que el icono no se salga */
 }
 
+/* El Icono Escondido */
+.skill-icon {
+    font-size: 1.2rem;
+    margin-right: 0px; /* Empieza sin margen */
+    width: 0; /* Empieza sin ocupar espacio */
+    opacity: 0; /* Invisible */
+    transform: translateX(-20px) scale(0.5); /* Desplazado a la izquierda y pequeño */
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Efecto rebote suave */
+}
+
+/* EFECTO HOVER */
 .skills-column ul li:hover {
     border-color: #cbd5e1;
     transform: translateX(5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.skills-column ul li:hover .skill-icon {
+    width: 30px; /* Recupera su espacio */
+    margin-right: 10px; /* Recupera su margen */
+    opacity: 1; /* Visible */
+    transform: translateX(0) scale(1.1); /* En su sitio y un poco más grande */
 }
 
 /* --- ESTILOS CERTIFICADOS (LINKS) --- */
 .cert-link {
     display: flex;
-    align-items: center; /* Alinear icono y texto */
+    align-items: center; 
     padding: 15px 20px;
     border: 1px solid #e2e8f0;
     border-radius: 10px;
@@ -626,21 +647,51 @@ ul {
                 <div class="skills-column">
                     <h3>Habilidades Técnicas (Hard Skills)</h3>
                     <ul>
-                        <li>Análisis de Datos y Reporting (Power BI, Excel).</li>
-                        <li>Automatización (Power Automate).</li>
-                        <li>Gestión de Bases de Datos.</li>
-                        <li>Gestión de Logística y Recambios.</li>
-                        <li><strong>Idiomas:</strong> Español/Catalán (Nativo), Portugués (Prof. Completa), Inglés (Técnico).</li>
+                        <li>
+                            <i class="fas fa-chart-pie skill-icon" style="color: #F2C811;"></i>
+                            Análisis de Datos y Reporting (Power BI, Excel).
+                        </li>
+                        <li>
+                            <i class="fas fa-robot skill-icon" style="color: #0066FF;"></i>
+                            Automatización (Power Automate).
+                        </li>
+                        <li>
+                            <i class="fas fa-server skill-icon" style="color: #707B7C;"></i>
+                            Gestión de Bases de Datos.
+                        </li>
+                        <li>
+                            <i class="fas fa-boxes skill-icon" style="color: #A04000;"></i>
+                            Gestión de Logística y Recambios.
+                        </li>
+                        <li>
+                            <i class="fas fa-globe-europe skill-icon" style="color: #1ABC9C;"></i>
+                            <strong>Idiomas:</strong> Español/Catalán, Portugués, Inglés (Téc.).
+                        </li>
                     </ul>
                 </div>
                 <div class="skills-column">
                     <h3>Habilidades Blandas (Soft Skills)</h3>
                     <ul>
-                        <li>Gestión y Resolución de Conflictos.</li>
-                        <li>Liderazgo y Coordinación Operativa.</li>
-                        <li>Toma de Decisiones.</li>
-                        <li>Capacidad Formativa.</li>
-                        <li>Comunicación y Colaboración Transversal.</li>
+                        <li>
+                            <i class="fas fa-handshake skill-icon" style="color: #27AE60;"></i>
+                            Gestión y Resolución de Conflictos.
+                        </li>
+                        <li>
+                            <i class="fas fa-user-tie skill-icon" style="color: #2C3E50;"></i>
+                            Liderazgo y Coordinación Operativa.
+                        </li>
+                        <li>
+                            <i class="fas fa-chess-knight skill-icon" style="color: #8E44AD;"></i>
+                            Toma de Decisiones.
+                        </li>
+                        <li>
+                            <i class="fas fa-chalkboard-teacher skill-icon" style="color: #E67E22;"></i>
+                            Capacidad Formativa.
+                        </li>
+                        <li>
+                            <i class="fas fa-comments skill-icon" style="color: #16A085;"></i>
+                            Comunicación y Colaboración Transversal.
+                        </li>
                     </ul>
                 </div>
             </div>
