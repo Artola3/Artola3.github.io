@@ -330,7 +330,7 @@ ul {
     left: 0;
 }
 
-/* --- SKILLS CON ICONOS INTERACTIVOS (NUEVO) --- */
+/* --- SKILLS CON ICONOS INTERACTIVOS (CSS) --- */
 .skills-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -360,21 +360,21 @@ ul {
     border-radius: 8px;
     border: 1px solid #f1f5f9;
     font-size: 0.95rem;
-    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); /* Transición suave */
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
     display: flex; /* Flex para alinear icono y texto */
     align-items: center;
-    cursor: default; /* El cursor no cambia a mano, es informativo */
-    overflow: hidden; /* Para que el icono no se salga */
+    cursor: default; 
+    overflow: hidden; 
 }
 
-/* El Icono Escondido */
+/* El Icono Escondido (CSS) */
 .skill-icon {
     font-size: 1.2rem;
-    margin-right: 0px; /* Empieza sin margen */
-    width: 0; /* Empieza sin ocupar espacio */
-    opacity: 0; /* Invisible */
-    transform: translateX(-20px) scale(0.5); /* Desplazado a la izquierda y pequeño */
-    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Efecto rebote suave */
+    margin-right: 0px; 
+    width: 0; 
+    opacity: 0; 
+    transform: translateX(-20px) scale(0.5); 
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
 }
 
 /* EFECTO HOVER */
@@ -385,10 +385,10 @@ ul {
 }
 
 .skills-column ul li:hover .skill-icon {
-    width: 30px; /* Recupera su espacio */
-    margin-right: 10px; /* Recupera su margen */
-    opacity: 1; /* Visible */
-    transform: translateX(0) scale(1.1); /* En su sitio y un poco más grande */
+    width: 30px; 
+    margin-right: 10px; 
+    opacity: 1; 
+    transform: translateX(0) scale(1.1); 
 }
 
 /* --- ESTILOS CERTIFICADOS (LINKS) --- */
@@ -665,7 +665,7 @@ ul {
                         </li>
                         <li>
                             <i class="fas fa-globe-europe skill-icon" style="color: #1ABC9C;"></i>
-                            <strong>Idiomas:</strong> Español/Catalán, Portugués, Inglés (Téc.).
+                            <strong>Idiomas:</strong> Español/Catalán (Nativo), Portugués, Inglés (Técnico).
                         </li>
                     </ul>
                 </div>
