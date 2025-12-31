@@ -18,6 +18,8 @@
     --header-bg: #0f172a; 
     --header-text: #ffffff; 
     --gmail-color: #EA4335;
+    /* Tono cálido para acentos */
+    --warm-accent: #d97706; 
     --transition-speed: 0.3s;
 }
 
@@ -176,6 +178,28 @@ ul {
     padding-left: 0;
 }
 
+/* --- ESTILO SOBRE MÍ (CÁLIDO) --- */
+.about-card {
+    /* Degradado sutil cálido */
+    background: linear-gradient(135deg, #ffffff 0%, #fffbf2 100%);
+    padding: 30px;
+    border-radius: 12px;
+    /* Borde lateral cálido (ámbar) */
+    border-left: 5px solid var(--warm-accent); 
+    box-shadow: 0 4px 15px rgba(217, 119, 6, 0.08);
+    transition: transform 0.3s ease;
+}
+
+.about-card:hover {
+    transform: translateY(-3px);
+}
+
+.about-text {
+    font-size: 1.05rem;
+    color: #475569;
+    line-height: 1.8;
+}
+
 /* --- HITOS (Tarjetas) --- */
 .achievements-grid {
     display: grid;
@@ -245,7 +269,7 @@ ul {
     line-height: 1.7;
 }
 
-/* --- EXPERIENCIA Y EDUCACIÓN (Enmarcadas como tarjetas) --- */
+/* --- EXPERIENCIA Y EDUCACIÓN --- */
 .job-item, .edu-item {
     background: #fff;
     padding: 30px;
@@ -315,7 +339,6 @@ ul {
     border-radius: 20px;
 }
 
-/* Listas dentro de experiencia */
 .job-item ul li, .edu-item ul li {
     position: relative;
     padding-left: 20px;
@@ -330,7 +353,7 @@ ul {
     left: 0;
 }
 
-/* --- SKILLS CON ICONOS INTERACTIVOS (CSS) --- */
+/* --- SKILLS --- */
 .skills-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -352,7 +375,6 @@ ul {
     color: #64748b;
 }
 
-/* Estilo Base de la lista de Habilidades */
 .skills-column ul li {
     background: #fff;
     padding: 12px 15px;
@@ -361,13 +383,12 @@ ul {
     border: 1px solid #f1f5f9;
     font-size: 0.95rem;
     transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-    display: flex; /* Flex para alinear icono y texto */
+    display: flex; 
     align-items: center;
     cursor: default; 
     overflow: hidden; 
 }
 
-/* El Icono Escondido (CSS) */
 .skill-icon {
     font-size: 1.2rem;
     margin-right: 0px; 
@@ -377,7 +398,6 @@ ul {
     transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
 }
 
-/* EFECTO HOVER */
 .skills-column ul li:hover {
     border-color: #cbd5e1;
     transform: translateX(5px);
@@ -391,7 +411,52 @@ ul {
     transform: translateX(0) scale(1.1); 
 }
 
-/* --- ESTILOS CERTIFICADOS (LINKS) --- */
+/* --- NUEVA SECCIÓN IDIOMAS --- */
+.languages-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.lang-card {
+    background: #fff;
+    padding: 25px;
+    border-radius: 12px;
+    text-align: center;
+    border: 1px solid #eee;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Efecto hover cálido para idiomas */
+.lang-card:hover {
+    border-color: var(--warm-accent); /* Borde cálido */
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(217, 119, 6, 0.1);
+}
+
+.flag {
+    font-size: 2.5rem;
+    display: block;
+    margin-bottom: 10px;
+    filter: drop-shadow(0 2px 3px rgba(0,0,0,0.2));
+}
+
+.lang-name {
+    display: block;
+    font-weight: 700;
+    color: var(--header-bg);
+    margin-bottom: 5px;
+}
+
+.lang-level {
+    font-size: 0.85rem;
+    color: #64748b;
+    font-style: italic;
+}
+
+/* --- CERTIFICADOS --- */
 .cert-link {
     display: flex;
     align-items: center; 
@@ -564,12 +629,11 @@ ul {
         
         <section id="about">
             <h2>Sobre Mí</h2>
-            <p style="font-size: 1.05rem; color: #475569;">
-            Especialista en gestión de servicios de postventa y operaciones técnicas con más de 12 años de trayectoria.
-            Experto en la coordinación de Redes de Servicios Técnicos (SATs) y optimización de procesos operativos.
-            Con un enfoque resolutivo basado en datos (KPIs), cuento con amplia experiencia en el diseño de procedimientos
-            para mejorar la eficiencia del servicio y la satisfacción del cliente final en entornos multinacionales.
-            </p>
+            <div class="about-card">
+                <p class="about-text">
+                    Especialista en gestión de posventa para los mercados de <strong>España y Portugal</strong>, fusiono mi experiencia operativa con un fuerte interés por la <strong>Inteligencia Artificial y el Análisis de Datos</strong> para optimizar procesos. Me desenvuelvo con naturalidad en entornos de trabajo en equipo, facilitando la comunicación transversal entre departamentos para impulsar soluciones eficientes.
+                </p>
+            </div>
         </section>
 
         <section id="achievements">
@@ -664,8 +728,8 @@ ul {
                             Gestión de Logística y Recambios.
                         </li>
                         <li>
-                            <i class="fas fa-globe-europe skill-icon" style="color: #1ABC9C;"></i>
-                            <strong>Idiomas:</strong> Español/Catalán (Nativo), Portugués, Inglés (Técnico).
+                            <i class="fas fa-network-wired skill-icon" style="color: #008B8B;"></i>
+                            Digitalización de Procesos SAT.
                         </li>
                     </ul>
                 </div>
@@ -693,6 +757,29 @@ ul {
                             Comunicación y Colaboración Transversal.
                         </li>
                     </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="languages">
+            <h2>Idiomas</h2>
+            <div class="languages-grid">
+                <div class="lang-card">
+                    <span class="flag">🇪🇸</span>
+                    <span class="lang-name">Español / Catalán</span>
+                    <span class="lang-level">Nativo / Bilingüe</span>
+                </div>
+                
+                <div class="lang-card">
+                    <span class="flag">🇵🇹</span>
+                    <span class="lang-name">Portugués</span>
+                    <span class="lang-level">Competencia Profesional Completa</span>
+                </div>
+
+                <div class="lang-card">
+                    <span class="flag">🇬🇧</span>
+                    <span class="lang-name">Inglés</span>
+                    <span class="lang-level">Competencia Técnica Profesional</span>
                 </div>
             </div>
         </section>
