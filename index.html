@@ -244,8 +244,8 @@ ul { list-style-type: none; padding-left: 0; }
 .lang-card { background: #fff; padding: 25px; border-radius: 12px; text-align: center; border: 1px solid #eee; transition: all 0.3s ease; position: relative; overflow: hidden; }
 .lang-card:hover { border-color: var(--warm-accent); transform: translateY(-5px); box-shadow: 0 8px 20px rgba(217, 119, 6, 0.15); }
 
-/* Estilo para las banderas SVG robustas */
-.flag-img { width: 40px; height: 30px; object-fit: cover; border-radius: 4px; margin: 0 auto 10px auto; display: block; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+/* SOLUCIÓN BANDERAS: Uso de imágenes vectoriales SVG infalibles */
+.flag-img { width: 40px; height: 30px; object-fit: cover; border-radius: 4px; margin: 0 auto 10px auto; display: block; box-shadow: 0 2px 4px rgba(0,0,0,0.1); border: 1px solid #f1f5f9; }
 
 .flag-ct {
     display: inline-flex; justify-content: center; align-items: center; width: 40px; height: 30px; background: #FFD700; color: #e30613;
@@ -355,7 +355,7 @@ ul { list-style-type: none; padding-left: 0; }
                 </div>
                 
                 <div class="project-body">
-                    <div class="job-header" style="border-bottom: none; margin-bottom: 10px;">
+                    <div class="job-header" style="border-bottom: none; margin-bottom: 15px; flex-direction: column; align-items: flex-start; gap: 8px;">
                         <span class="job-title" style="font-size: 1.4rem;">HVAC Service 360º - Business Intelligence Dashboard</span>
                         <span class="date">Power BI + DAX + Star Schema</span>
                     </div>
@@ -378,7 +378,7 @@ ul { list-style-type: none; padding-left: 0; }
                 </div>
                 
                 <div class="project-body">
-                    <div class="job-header" style="border-bottom: none; margin-bottom: 10px;">
+                    <div class="job-header" style="border-bottom: none; margin-bottom: 15px; flex-direction: column; align-items: flex-start; gap: 8px;">
                         <span class="job-title" style="font-size: 1.4rem;">EcoTransition Builder PRO - Calculadora de Aerotermia</span>
                         <span class="date">HTML + CSS + JavaScript</span>
                     </div>
@@ -496,7 +496,7 @@ ul { list-style-type: none; padding-left: 0; }
             <div class="languages-grid">
                 
                 <div class="lang-card">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/8/89/Bandera_de_Espa%C3%B1a.svg" alt="Bandera España" class="flag-img">
+                    <img src="https://flagcdn.com/es.svg" alt="Bandera España" class="flag-img">
                     <span class="lang-name">Español</span>
                     <span class="lang-level">Nativo</span>
                 </div>
@@ -508,13 +508,13 @@ ul { list-style-type: none; padding-left: 0; }
                 </div>
                 
                 <div class="lang-card">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/5/5c/Flag_of_Portugal.svg" alt="Bandera Portugal" class="flag-img">
+                    <img src="https://flagcdn.com/pt.svg" alt="Bandera Portugal" class="flag-img">
                     <span class="lang-name">Portugués</span>
                     <span class="lang-level">Competencia Profesional</span>
                 </div>
 
                 <div class="lang-card">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Flag_of_the_United_Kingdom_%281-2%29.svg" alt="Bandera Reino Unido" class="flag-img">
+                    <img src="https://flagcdn.com/gb.svg" alt="Bandera Reino Unido" class="flag-img">
                     <span class="lang-name">Inglés</span>
                     <span class="lang-level">Competencia Técnica</span>
                 </div>
