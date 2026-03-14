@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>David Artola - Area Service Manager</title>
+<title data-i18n="title">David Artola - Area Service Manager</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
 <style>
@@ -275,6 +275,46 @@ ul { list-style-type: none; padding-left: 0; }
 .nav-next { margin-left: 15px; }
 
 .footer { text-align: center; font-size: 0.9rem; color: #94a3b8; margin-top: 80px; border-top: 1px solid #e2e8f0; padding-top: 30px; padding-bottom: 30px; }
+
+/* --- LANGUAGE SELECTOR --- */
+.language-selector {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 20;
+}
+
+.language-selector select {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 8px 12px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    backdrop-filter: blur(5px);
+    outline: none;
+    transition: all var(--transition-speed);
+}
+
+.language-selector select option {
+    color: var(--primary-color);
+    background: white;
+}
+
+.language-selector select:hover {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: white;
+}
+
+@media (max-width: 700px) {
+    .language-selector {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+    }
+}
 </style>
 </head>
 <body>
@@ -282,19 +322,26 @@ ul { list-style-type: none; padding-left: 0; }
 <div class="container">
     
     <header>
+        <div class="language-selector">
+            <select id="language-select">
+                <option value="es">Español</option>
+                <option value="en">English</option>
+                <option value="pt">Português</option>
+            </select>
+        </div>
         <img src="image_4.png" alt="David Artola" class="profile-img">
         
         <div class="header-content">
-            <h1>David Artola</h1>
-            <div class="subtitle">AREA SERVICE MANAGER EN GROUPE ATLANTIC</div>
+            <h1 data-i18n="name">David Artola</h1>
+            <div class="subtitle" data-i18n="subtitle">AREA SERVICE MANAGER EN GROUPE ATLANTIC</div>
 
             <div class="contact-info">
                 <a href="mailto:dartola3@gmail.com" class="btn-contact btn-gmail">
-                    <i class="fas fa-envelope" style="margin-right: 8px;"></i> Contactar
+                    <i class="fas fa-envelope" style="margin-right: 8px;"></i> <span data-i18n="contact">Contactar</span>
                 </a>
                 
-                <a href="https://www.linkedin.com/in/david-a-b37a6413b/" target="_blank" class="btn-contact btn-linkedin">
-                    <i class="fab fa-linkedin" style="margin-right: 8px;"></i> LinkedIn
+                <a href="https://www.linkedin.com/in/david-a-b37a6413b/" target="_blank" rel="noopener noreferrer" class="btn-contact btn-linkedin">
+                    <i class="fab fa-linkedin" style="margin-right: 8px;"></i> <span data-i18n="linkedin">LinkedIn</span>
                 </a>
             </div>
         </div>
@@ -303,51 +350,51 @@ ul { list-style-type: none; padding-left: 0; }
     <div class="content-padding">
         
         <section id="about">
-            <h2>Sobre Mí</h2>
+            <h2 data-i18n="aboutTitle">Sobre Mí</h2>
             <div class="about-card">
-                <p class="about-text">
+                <p class="about-text" data-i18n="aboutText">
                     Especialista en gestión de posventa para los mercados de <strong>España y Portugal</strong>, fusiono mi experiencia operativa con un fuerte interés por la <strong>Inteligencia Artificial y el Análisis de Datos</strong> para optimizar procesos. Me desenvuelvo con naturalidad en entornos de trabajo en equipo, facilitando la comunicación transversal entre departamentos para impulsar soluciones eficientes.
                 </p>
             </div>
         </section>
 
         <section id="achievements">
-            <h2>Hitos y Logros</h2>
+            <h2 data-i18n="achievementsTitle">Hitos y Logros</h2>
             <div class="achievements-grid">
                 <div class="achievement-card">
-                    <span class="metric">-16,9%</span>
-                    <span class="metric-label">Gasto en Garantías</span>
-                    <p class="metric-desc">
+                    <span class="metric" data-i18n="metric1">-16,9%</span>
+                    <span class="metric-label" data-i18n="metric1Label">Gasto en Garantías</span>
+                    <p class="metric-desc" data-i18n="metric1Desc">
                     Reducción del gasto acumulado anual en la zona asignada, logrando un desacople positivo entre la bajada de actividad (-8,2%) y el ahorro total conseguido.
                     </p>
                 </div>
 
                 <div class="achievement-card">
-                    <span class="metric">+9,5%</span>
-                    <span class="metric-label">Eficiencia Operativa</span>
-                    <p class="metric-desc">
+                    <span class="metric" data-i18n="metric2">+9,5%</span>
+                    <span class="metric-label" data-i18n="metric2Label">Eficiencia Operativa</span>
+                    <p class="metric-desc" data-i18n="metric2Desc">
                     Mejora en la eficiencia económica del servicio (Coste Medio por Aviso), optimizando la gestión de recursos por intervención técnica.
                     </p>
                 </div>
 
                 <div class="achievement-card">
-                    <span class="metric">-65,8%</span>
-                    <span class="metric-label">Pico de Contención</span>
-                    <p class="metric-desc">
+                    <span class="metric" data-i18n="metric3">-65,8%</span>
+                    <span class="metric-label" data-i18n="metric3Label">Pico de Contención</span>
+                    <p class="metric-desc" data-i18n="metric3Desc">
                     Récord de reducción de costes en periodos de alta exigencia (Noviembre) mediante la implementación de controles estrictos y auditoría.
                     </p>
                 </div>
             </div>
             
         <div class="strategic-note">
-                <p>
+                <p data-i18n="strategicNote">
                     "Para mejorar la eficiencia, hay que entender qué nos dicen los números y, sobre todo, saber traducirlos en soluciones reales. No se trata solo de ver dónde sube el gasto, sino de identificar si el problema es un cuello de botella o un proceso mal diseñado que está mermando nuestros resultados."
                 </p>
             </div>
         </section>
 
         <section id="portfolio">
-            <h2>Portafolio de Proyectos</h2>
+            <h2 data-i18n="portfolioTitle">Portafolio de Proyectos</h2>
             
             <div class="project-card">
                 <div class="project-header">
@@ -356,18 +403,18 @@ ul { list-style-type: none; padding-left: 0; }
                 
                 <div class="project-body">
                     <div class="job-header" style="border-bottom: none; margin-bottom: 15px; flex-direction: column; align-items: flex-start; gap: 8px;">
-                        <span class="job-title" style="font-size: 1.4rem;">HVAC Service 360º - Business Intelligence Dashboard</span>
-                        <span class="date">Power BI + DAX + Star Schema</span>
+                        <span class="job-title" style="font-size: 1.4rem;" data-i18n="project1Title">HVAC Service 360º - Business Intelligence Dashboard</span>
+                        <span class="date" data-i18n="project1Subtitle">Power BI + DAX + Star Schema</span>
                     </div>
                     
-                    <p style="color: #475569; margin-bottom: 25px;">
+                    <p style="color: #475569; margin-bottom: 25px;" data-i18n="project1Desc">
                         Sistema integral de BI diseñado para auditar y optimizar la gestión de 2.000 órdenes de trabajo anuales. 
                         Integra un modelo de datos avanzado para analizar la evolución del <strong>Gasto en Garantías (vs Año Anterior)</strong>, 
                         la productividad técnica mediante la <strong>Tasa de First Time Fix (FTF)</strong> y la saturación operativa por zonas.
                     </p>
 
-                    <a href="https://github.com/Artola3/HVAC-PowerBI-Portfolio" target="_blank" class="btn-contact" style="background: #0f172a; color: white; padding: 12px 30px;">
-                        <i class="fab fa-github" style="margin-right: 10px;"></i> Ver Proyecto Completo
+                    <a href="https://github.com/Artola3/HVAC-PowerBI-Portfolio" target="_blank" rel="noopener noreferrer" class="btn-contact" style="background: #0f172a; color: white; padding: 12px 30px;">
+                        <i class="fab fa-github" style="margin-right: 10px;"></i> <span data-i18n="project1Btn">Ver Proyecto Completo</span>
                     </a>
                 </div>
             </div>
@@ -379,40 +426,40 @@ ul { list-style-type: none; padding-left: 0; }
                 
                 <div class="project-body">
                     <div class="job-header" style="border-bottom: none; margin-bottom: 15px; flex-direction: column; align-items: flex-start; gap: 8px;">
-                        <span class="job-title" style="font-size: 1.4rem;">EcoTransition Builder PRO - Calculadora de Aerotermia</span>
-                        <span class="date">HTML + CSS + JavaScript</span>
+                        <span class="job-title" style="font-size: 1.4rem;" data-i18n="project2Title">EcoTransition Builder PRO - Calculadora de Aerotermia</span>
+                        <span class="date" data-i18n="project2Subtitle">HTML + CSS + JavaScript</span>
                     </div>
                     
-                    <p style="color: #475569; margin-bottom: 25px;">
+                    <p style="color: #475569; margin-bottom: 25px;" data-i18n="project2Desc">
                         Aplicación web interactiva desarrollada para simular y calcular la eficiencia energética, el ahorro de costes y el retorno de inversión (ROI) en la transición a sistemas de climatización por aerotermia. Diseñada como una herramienta ágil para facilitar la consultoría técnica y operativa.
                     </p>
 
-                    <a href="https://artola3.github.io/calculadora_eficiencia_ahorro/" target="_blank" class="btn-contact" style="background: #27AE60; color: white; padding: 12px 30px;">
-                        <i class="fas fa-calculator" style="margin-right: 10px;"></i> Probar Calculadora
+                    <a href="https://artola3.github.io/calculadora_eficiencia_ahorro/" target="_blank" rel="noopener noreferrer" class="btn-contact" style="background: #27AE60; color: white; padding: 12px 30px;">
+                        <i class="fas fa-calculator" style="margin-right: 10px;"></i> <span data-i18n="project2Btn">Probar Calculadora</span>
                     </a>
                 </div>
             </div>
         </section>
 
         <section id="experience">
-            <h2>Experiencia Laboral</h2>
+            <h2 data-i18n="experienceTitle">Experiencia Laboral</h2>
 
             <div class="job-item">
                 <div class="job-header">
                     <img src="ga.png" class="company-logo" alt="Groupe Atlantic">
                     <div class="job-info">
-                        <span class="job-title">Area Services Manager</span>
-                        <span class="company">Groupe Atlantic</span>
+                        <span class="job-title" data-i18n="job1Title">Area Services Manager</span>
+                        <span class="company" data-i18n="job1Company">Groupe Atlantic</span>
                     </div>
-                    <span class="date">Enero 2023 - Actualidad</span>
+                    <span class="date" data-i18n="job1Date">Enero 2023 - Actualidad</span>
                 </div>
                 <ul>
-                    <li><strong>Coordinación de Red SAT (CATO's):</strong> Gestión integral de la red de asistencia técnica en Andorra, Cataluña, Valencia, Murcia, Baleares y Portugal.</li>
-                    <li><strong>Optimización de Procesos:</strong> Diseño de estrategias operativas para mejorar la atención técnica y flujos internos.</li>
-                    <li><strong>Análisis de Datos:</strong> Elaboración de dashboards dinámicos para seguimiento de KPIs y costes operativos.</li>
-                    <li><strong>Auditoría y Calidad:</strong> Realización de auditorías para asegurar cumplimiento de estándares de calidad.</li>
-                    <li><strong>Formación:</strong> Ejecución de planes de formación operativa sobre plataformas digitales en España y Portugal.</li>
-                    <li>Impulso de acciones comerciales y soporte en la venta de servicios postventa.</li>
+                    <li data-i18n="job1Desc1"><strong>Coordinación de Red SAT (CATO's):</strong> Gestión integral de la red de asistencia técnica en Andorra, Cataluña, Valencia, Murcia, Baleares y Portugal.</li>
+                    <li data-i18n="job1Desc2"><strong>Optimización de Procesos:</strong> Diseño de estrategias operativas para mejorar la atención técnica y flujos internos.</li>
+                    <li data-i18n="job1Desc3"><strong>Análisis de Datos:</strong> Elaboración de dashboards dinámicos para seguimiento de KPIs y costes operativos.</li>
+                    <li data-i18n="job1Desc4"><strong>Auditoría y Calidad:</strong> Realización de auditorías para asegurar cumplimiento de estándares de calidad.</li>
+                    <li data-i18n="job1Desc5"><strong>Formación:</strong> Ejecución de planes de formación operativa sobre plataformas digitales en España y Portugal.</li>
+                    <li data-i18n="job1Desc6">Impulso de acciones comerciales y soporte en la venta de servicios postventa.</li>
                 </ul>
             </div>
 
@@ -420,70 +467,70 @@ ul { list-style-type: none; padding-left: 0; }
                 <div class="job-header">
                     <img src="eks.jpg">
                     <div class="job-info">
-                        <span class="job-title">Jefe de Almacén / Analista de Garantías</span>
-                        <span class="company">EK Services (VGED)</span>
+                        <span class="job-title" data-i18n="job2Title">Jefe de Almacén / Analista de Garantías</span>
+                        <span class="company" data-i18n="job2Company">EK Services (VGED)</span>
                     </div>
-                    <span class="date">Febrero 2012 - Diciembre 2022</span>
+                    <span class="date" data-i18n="job2Date">Febrero 2012 - Diciembre 2022</span>
                 </div>
                 <ul>
-                    <li><strong>Gestión de Garantías:</strong> Análisis riguroso bajo protocolos del fabricante para asegurar criterios homogéneos.</li>
-                    <li><strong>Logística de Recambios:</strong> Gestión de stock, trazabilidad (QlikView) y logística inversa.</li>
-                    <li><strong>Liderazgo de Equipo:</strong> Coordinación de 8 personas, gestión de incidencias y control de productividad.</li>
-                    <li><strong>Reporting:</strong> Generación de informes de resultados para responsables de área y clientes clave.</li>
+                    <li data-i18n="job2Desc1"><strong>Gestión de Garantías:</strong> Análisis riguroso bajo protocolos del fabricante para asegurar criterios homogéneos.</li>
+                    <li data-i18n="job2Desc2"><strong>Logística de Recambios:</strong> Gestión de stock, trazabilidad (QlikView) y logística inversa.</li>
+                    <li data-i18n="job2Desc3"><strong>Liderazgo de Equipo:</strong> Coordinación de 8 personas, gestión de incidencias y control de productividad.</li>
+                    <li data-i18n="job2Desc4"><strong>Reporting:</strong> Generación de informes de resultados para responsables de área y clientes clave.</li>
                 </ul>
             </div>
         </section>
 
         <section id="skills">
-            <h2>Habilidades</h2>
+            <h2 data-i18n="skillsTitle">Habilidades</h2>
             <div class="skills-grid">
                 <div class="skills-column">
-                    <h3>Habilidades Técnicas (Hard Skills)</h3>
+                    <h3 data-i18n="hardSkillsTitle">Habilidades Técnicas (Hard Skills)</h3>
                     <ul>
                         <li>
                             <i class="fas fa-chart-pie skill-icon" style="color: #F2C811;"></i>
-                            Análisis de Datos y Reporting (Power BI, Excel).
+                            <span data-i18n="skill1">Análisis de Datos y Reporting (Power BI, Excel).</span>
                         </li>
                         <li>
                             <i class="fas fa-robot skill-icon" style="color: #0066FF;"></i>
-                            Automatización (Power Automate).
+                            <span data-i18n="skill2">Automatización (Power Automate).</span>
                         </li>
                         <li>
                             <i class="fas fa-server skill-icon" style="color: #707B7C;"></i>
-                            Gestión de Bases de Datos.
+                            <span data-i18n="skill3">Gestión de Bases de Datos.</span>
                         </li>
                         <li>
                             <i class="fas fa-boxes skill-icon" style="color: #A04000;"></i>
-                            Gestión de Logística y Recambios.
+                            <span data-i18n="skill4">Gestión de Logística y Recambios.</span>
                         </li>
                         <li>
                             <i class="fas fa-network-wired skill-icon" style="color: #008B8B;"></i>
-                            Digitalización de Procesos SAT.
+                            <span data-i18n="skill5">Digitalización de Procesos SAT.</span>
                         </li>
                     </ul>
                 </div>
                 <div class="skills-column">
-                    <h3>Habilidades Blandas (Soft Skills)</h3>
+                    <h3 data-i18n="softSkillsTitle">Habilidades Blandas (Soft Skills)</h3>
                     <ul>
                         <li>
                             <i class="fas fa-handshake skill-icon" style="color: #27AE60;"></i>
-                            Gestión y Resolución de Conflictos.
+                            <span data-i18n="skill6">Gestión y Resolución de Conflictos.</span>
                         </li>
                         <li>
                             <i class="fas fa-user-tie skill-icon" style="color: #2C3E50;"></i>
-                            Liderazgo y Coordinación Operativa.
+                            <span data-i18n="skill7">Liderazgo y Coordinación Operativa.</span>
                         </li>
                         <li>
                             <i class="fas fa-chess-knight skill-icon" style="color: #8E44AD;"></i>
-                            Toma de Decisiones.
+                            <span data-i18n="skill8">Toma de Decisiones.</span>
                         </li>
                         <li>
                             <i class="fas fa-chalkboard-teacher skill-icon" style="color: #E67E22;"></i>
-                            Capacidad Formativa.
+                            <span data-i18n="skill9">Capacidad Formativa.</span>
                         </li>
                         <li>
                             <i class="fas fa-comments skill-icon" style="color: #16A085;"></i>
-                            Comunicación y Colaboración Transversal.
+                            <span data-i18n="skill10">Comunicación y Colaboración Transversal.</span>
                         </li>
                     </ul>
                 </div>
@@ -491,76 +538,76 @@ ul { list-style-type: none; padding-left: 0; }
         </section>
 
         <section id="languages">
-            <h2>Idiomas</h2>
+            <h2 data-i18n="languagesTitle">Idiomas</h2>
             <div class="languages-grid">
                 
                 <div class="lang-card">
                     <img src="https://flagcdn.com/es.svg" alt="Bandera España" class="flag-img">
-                    <span class="lang-name">Español</span>
-                    <span class="lang-level">Nativo</span>
+                    <span class="lang-name" data-i18n="langEsName">Español</span>
+                    <span class="lang-level" data-i18n="langEsLevel">Nativo</span>
                 </div>
 
                 <div class="lang-card">
                     <div class="flag-ct">CT</div>
-                    <span class="lang-name">Catalán</span>
-                    <span class="lang-level">Nativo / Bilingüe</span>
+                    <span class="lang-name" data-i18n="langCtName">Catalán</span>
+                    <span class="lang-level" data-i18n="langCtLevel">Nativo / Bilingüe</span>
                 </div>
                 
                 <div class="lang-card">
                     <img src="https://flagcdn.com/pt.svg" alt="Bandera Portugal" class="flag-img">
-                    <span class="lang-name">Portugués</span>
-                    <span class="lang-level">Competencia Profesional</span>
+                    <span class="lang-name" data-i18n="langPtName">Portugués</span>
+                    <span class="lang-level" data-i18n="langPtLevel">Competencia Profesional</span>
                 </div>
 
                 <div class="lang-card">
                     <img src="https://flagcdn.com/gb.svg" alt="Bandera Reino Unido" class="flag-img">
-                    <span class="lang-name">Inglés</span>
-                    <span class="lang-level">Competencia Técnica</span>
+                    <span class="lang-name" data-i18n="langEnName">Inglés</span>
+                    <span class="lang-level" data-i18n="langEnLevel">Competencia Técnica</span>
                 </div>
 
             </div>
         </section>
 
         <section id="certifications">
-            <h2>Certificaciones y Formación</h2>
+            <h2 data-i18n="certsTitle">Certificaciones y Formación</h2>
             <ul style="padding-left: 0;">
                 
                 <li>
-                    <a href="cert_powerbi.jpg" target="_blank" class="cert-link">
+                    <a href="cert_powerbi.jpg" target="_blank" rel="noopener noreferrer" class="cert-link">
                         <i class="fas fa-chart-bar" style="color: #EA4335; margin-right: 15px; font-size: 1.2rem;"></i>
-                        <span style="flex-grow: 1;"><strong>Microsoft Power BI - Data Analysis & Dashboards</strong> | Udemy (2024)</span>
+                        <span style="flex-grow: 1;" data-i18n="cert1"><strong>Microsoft Power BI - Data Analysis & Dashboards</strong> | Udemy (2024)</span>
                         <i class="fas fa-external-link-alt" style="color: #cbd5e1; font-size: 0.9rem;"></i>
                     </a>
                 </li>
 
                 <li>
-                    <a href="cert_sql.jpg" target="_blank" class="cert-link">
+                    <a href="cert_sql.jpg" target="_blank" rel="noopener noreferrer" class="cert-link">
                         <i class="fas fa-database" style="color: #EA4335; margin-right: 15px; font-size: 1.2rem;"></i>
-                        <span style="flex-grow: 1;"><strong>Master SQL Server</strong> | Udemy (2025)</span>
+                        <span style="flex-grow: 1;" data-i18n="cert2"><strong>Master SQL Server</strong> | Udemy (2025)</span>
                         <i class="fas fa-external-link-alt" style="color: #cbd5e1; font-size: 0.9rem;"></i>
                     </a>
                 </li>
 
                 <li>
-                    <a href="cert_automate.jpg" target="_blank" class="cert-link">
+                    <a href="cert_automate.jpg" target="_blank" rel="noopener noreferrer" class="cert-link">
                         <i class="fas fa-robot" style="color: #EA4335; margin-right: 15px; font-size: 1.2rem;"></i>
-                        <span style="flex-grow: 1;"><strong>Microsoft Power Automate - Automatización de procesos</strong> | Udemy (2025)</span>
+                        <span style="flex-grow: 1;" data-i18n="cert3"><strong>Microsoft Power Automate - Automatización de procesos</strong> | Udemy (2025)</span>
                         <i class="fas fa-external-link-alt" style="color: #cbd5e1; font-size: 0.9rem;"></i>
                     </a>
                 </li>
 
                 <li>
-                    <a href="cert_conflictos.jpg" target="_blank" class="cert-link">
+                    <a href="cert_conflictos.jpg" target="_blank" rel="noopener noreferrer" class="cert-link">
                         <i class="fas fa-users" style="color: #EA4335; margin-right: 15px; font-size: 1.2rem;"></i>
-                        <span style="flex-grow: 1;"><strong>Gestión y Manejo de Conflictos</strong> | GoodHabitz (2024)</span>
+                        <span style="flex-grow: 1;" data-i18n="cert4"><strong>Gestión y Manejo de Conflictos</strong> | GoodHabitz (2024)</span>
                         <i class="fas fa-external-link-alt" style="color: #cbd5e1; font-size: 0.9rem;"></i>
                     </a>
                 </li>
 
                 <li>
-                     <a href="cert_web.jpg" target="_blank" class="cert-link">
+                     <a href="cert_web.jpg" target="_blank" rel="noopener noreferrer" class="cert-link">
                         <i class="fas fa-code" style="color: #EA4335; margin-right: 15px; font-size: 1.2rem;"></i>
-                        <span style="flex-grow: 1;"><strong>Creación y Diseño Web (HTML5, CSS, JS)</strong> | NtFor (2022)</span>
+                        <span style="flex-grow: 1;" data-i18n="cert5"><strong>Creación y Diseño Web (HTML5, CSS, JS)</strong> | NtFor (2022)</span>
                         <i class="fas fa-external-link-alt" style="color: #cbd5e1; font-size: 0.9rem;"></i>
                      </a>
                 </li>
@@ -568,20 +615,20 @@ ul { list-style-type: none; padding-left: 0; }
         </section>
 
         <section id="education">
-            <h2>Historial Académico</h2>
+            <h2 data-i18n="eduTitle">Historial Académico</h2>
             <div class="edu-item">
-                <div style="font-weight: 700; color: #0f172a; margin-bottom: 5px;">Grado Superior en Transporte y Logística</div>
-                <div>IFP Innovación en Formación Profesional (2018-2020).</div>
-                <div class="date" style="margin-top: 5px; display:inline-block;">Especialización en gestión de almacenamiento y procesos logísticos transversales.</div>
+                <div style="font-weight: 700; color: #0f172a; margin-bottom: 5px;" data-i18n="edu1Title">Grado Superior en Transporte y Logística</div>
+                <div data-i18n="edu1Place">IFP Innovación en Formación Profesional (2018-2020).</div>
+                <div class="date" style="margin-top: 5px; display:inline-block;" data-i18n="edu1Desc">Especialización en gestión de almacenamiento y procesos logísticos transversales.</div>
             </div>
             <div class="edu-item">
-                <div style="font-weight: 700; color: #0f172a; margin-bottom: 5px;">Grado Medio en Gestión Administrativa</div>
-                <div>La Salle BCN (2009-2010).</div>
+                <div style="font-weight: 700; color: #0f172a; margin-bottom: 5px;" data-i18n="edu2Title">Grado Medio en Gestión Administrativa</div>
+                <div data-i18n="edu2Place">La Salle BCN (2009-2010).</div>
             </div>
         </section>
 
         <section id="references">
-            <h2>Lo que dicen los clientes (Google Reviews)</h2>
+            <h2 data-i18n="refTitle">Lo que dicen los clientes (Google Reviews)</h2>
             
             <div class="carousel-wrapper">
                 <button class="nav-btn nav-prev" id="prevBtn">&#10094;</button>
@@ -591,35 +638,35 @@ ul { list-style-type: none; padding-left: 0; }
                     <div class="reference-card">
                         <img src="https://ui-avatars.com/api/?name=IsaBel+Ros&background=random&color=fff&size=128" alt="IsaBel Ros" class="ref-image">
                         <div class="ref-stars">★★★★★</div>
-                        <p class="ref-text">"Esta reseña va para David Artola, grácias por tu gestión, por tu ayuda, tu implicación y amabilidad, servicio post venta de 10 un gran profesional."</p>
+                        <p class="ref-text" data-i18n="ref1">"Esta reseña va para David Artola, grácias por tu gestión, por tu ayuda, tu implicación y amabilidad, servicio post venta de 10 un gran profesional."</p>
                         <span class="ref-author">IsaBel Ros</span>
                     </div>
 
                     <div class="reference-card">
                         <img src="https://ui-avatars.com/api/?name=Carlos+C&background=random&color=fff&size=128" alt="Carlos C" class="ref-image">
                         <div class="ref-stars">★★★★★</div>
-                        <p class="ref-text">"Hoy tuve el placer de ser atendido por David... Tenía varias preguntas sobre los diferentes planes de mantenimiento... Su interés personal y su paciencia me confirmaron que había tomado la decisión correcta."</p>
+                        <p class="ref-text" data-i18n="ref2">"Hoy tuve el placer de ser atendido por David... Tenía varias preguntas sobre los diferentes planes de mantenimiento... Su interés personal y su paciencia me confirmaron que había tomado la decisión correcta."</p>
                         <span class="ref-author">Carlos C</span>
                     </div>
 
                     <div class="reference-card">
                         <img src="https://ui-avatars.com/api/?name=Pedro+Ferreirinha&background=random&color=fff&size=128" alt="Pedro Ferreirinha" class="ref-image">
                         <div class="ref-stars">★★★★★</div>
-                        <p class="ref-text">"Gostaria de agradecer e elogiar o David pelo excelente atendimento! Ele está siempre disponible para tirar todas as minhas dúvidas... É muito atencioso, prestativo e demonstra grande conhecimento técnico."</p>
+                        <p class="ref-text" data-i18n="ref3">"Gostaria de agradecer e elogiar o David pelo excelente atendimento! Ele está siempre disponible para tirar todas as minhas dúvidas... É muito atencioso, prestativo e demonstra grande conhecimento técnico."</p>
                         <span class="ref-author">Pedro Ferreirinha</span>
                     </div>
 
                      <div class="reference-card">
                         <img src="https://ui-avatars.com/api/?name=Daniel+Magalhães&background=random&color=fff&size=128" alt="Daniel Magalhães" class="ref-image">
                         <div class="ref-stars">★★★★★</div>
-                        <p class="ref-text">"Recentemente solicitei ajuda após venda e fui atendido pelo David. Super prestável e feedback imediato. Recomendo."</p>
+                        <p class="ref-text" data-i18n="ref4">"Recentemente solicitei ajuda após venda e fui atendido pelo David. Super prestável e feedback imediato. Recomendo."</p>
                         <span class="ref-author">Daniel Magalhães</span>
                     </div>
 
                     <div class="reference-card">
                         <img src="https://ui-avatars.com/api/?name=Javier+Palacios&background=random&color=fff&size=128" alt="Javier Palacios Muñoz" class="ref-image">
                         <div class="ref-stars">★★★★★</div>
-                        <p class="ref-text">"Agradezco a David Artola como responsable, la comprensión y su disposición a resolver el problema. Una buena marca es la que sigue tratando bien al cliente después de la instalación."</p>
+                        <p class="ref-text" data-i18n="ref5">"Agradezco a David Artola como responsable, la comprensión y su disposición a resolver el problema. Una buena marca es la que sigue tratando bien al cliente después de la instalación."</p>
                         <span class="ref-author">Javier Palacios Muñoz</span>
                     </div>
 
@@ -628,16 +675,283 @@ ul { list-style-type: none; padding-left: 0; }
                 <button class="nav-btn nav-next" id="nextBtn">&#10095;</button>
             </div>
             
-            <p style="text-align: center; font-size: 0.8rem; color: #999; margin-top: 10px;">(Desliza para ver más reseñas)</p>
+            <p style="text-align: center; font-size: 0.8rem; color: #999; margin-top: 10px;" data-i18n="refFooter">(Desliza para ver más reseñas)</p>
         </section>
 
         <div class="footer">
-            <p>&copy; 2025 David Artola. CV Web Profesional.</p>
+            <p data-i18n="footer">&copy; 2025 David Artola. CV Web Profesional.</p>
         </div>
         
     </div> </div>
 
 <script>
+    const translations = {
+        es: {
+            title: "David Artola - Area Service Manager",
+            name: "David Artola",
+            subtitle: "AREA SERVICE MANAGER EN GROUPE ATLANTIC",
+            contact: "Contactar",
+            linkedin: "LinkedIn",
+            aboutTitle: "Sobre Mí",
+            aboutText: "Especialista en gestión de posventa para los mercados de <strong>España y Portugal</strong>, fusiono mi experiencia operativa con un fuerte interés por la <strong>Inteligencia Artificial y el Análisis de Datos</strong> para optimizar procesos. Me desenvuelvo con naturalidad en entornos de trabajo en equipo, facilitando la comunicación transversal entre departamentos para impulsar soluciones eficientes.",
+            achievementsTitle: "Hitos y Logros",
+            metric1: "-16,9%",
+            metric1Label: "Gasto en Garantías",
+            metric1Desc: "Reducción del gasto acumulado anual en la zona asignada, logrando un desacople positivo entre la bajada de actividad (-8,2%) y el ahorro total conseguido.",
+            metric2: "+9,5%",
+            metric2Label: "Eficiencia Operativa",
+            metric2Desc: "Mejora en la eficiencia económica del servicio (Coste Medio por Aviso), optimizando la gestión de recursos por intervención técnica.",
+            metric3: "-65,8%",
+            metric3Label: "Pico de Contención",
+            metric3Desc: "Récord de reducción de costes en periodos de alta exigencia (Noviembre) mediante la implementación de controles estrictos y auditoría.",
+            strategicNote: '"Para mejorar la eficiencia, hay que entender qué nos dicen los números y, sobre todo, saber traducirlos en soluciones reales. No se trata solo de ver dónde sube el gasto, sino de identificar si el problema es un cuello de botella o un proceso mal diseñado que está mermando nuestros resultados."',
+            portfolioTitle: "Portafolio de Proyectos",
+            project1Title: "HVAC Service 360º - Business Intelligence Dashboard",
+            project1Subtitle: "Power BI + DAX + Star Schema",
+            project1Desc: "Sistema integral de BI diseñado para auditar y optimizar la gestión de 2.000 órdenes de trabajo anuales. Integra un modelo de datos avanzado para analizar la evolución del <strong>Gasto en Garantías (vs Año Anterior)</strong>, la productividad técnica mediante la <strong>Tasa de First Time Fix (FTF)</strong> y la saturación operativa por zonas.",
+            project1Btn: "Ver Proyecto Completo",
+            project2Title: "EcoTransition Builder PRO - Calculadora de Aerotermia",
+            project2Subtitle: "HTML + CSS + JavaScript",
+            project2Desc: "Aplicación web interactiva desarrollada para simular y calcular la eficiencia energética, el ahorro de costes y el retorno de inversión (ROI) en la transición a sistemas de climatización por aerotermia. Diseñada como una herramienta ágil para facilitar la consultoría técnica y operativa.",
+            project2Btn: "Probar Calculadora",
+            experienceTitle: "Experiencia Laboral",
+            job1Title: "Area Services Manager",
+            job1Company: "Groupe Atlantic",
+            job1Date: "Enero 2023 - Actualidad",
+            job1Desc1: "<strong>Coordinación de Red SAT (CATO's):</strong> Gestión integral de la red de asistencia técnica en Andorra, Cataluña, Valencia, Murcia, Baleares y Portugal.",
+            job1Desc2: "<strong>Optimización de Procesos:</strong> Diseño de estrategias operativas para mejorar la atención técnica y flujos internos.",
+            job1Desc3: "<strong>Análisis de Datos:</strong> Elaboración de dashboards dinámicos para seguimiento de KPIs y costes operativos.",
+            job1Desc4: "<strong>Auditoría y Calidad:</strong> Realización de auditorías para asegurar cumplimiento de estándares de calidad.",
+            job1Desc5: "<strong>Formación:</strong> Ejecución de planes de formación operativa sobre plataformas digitales en España y Portugal.",
+            job1Desc6: "Impulso de acciones comerciales y soporte en la venta de servicios postventa.",
+            job2Title: "Jefe de Almacén / Analista de Garantías",
+            job2Company: "EK Services (VGED)",
+            job2Date: "Febrero 2012 - Diciembre 2022",
+            job2Desc1: "<strong>Gestión de Garantías:</strong> Análisis riguroso bajo protocolos del fabricante para asegurar criterios homogéneos.",
+            job2Desc2: "<strong>Logística de Recambios:</strong> Gestión de stock, trazabilidad (QlikView) y logística inversa.",
+            job2Desc3: "<strong>Liderazgo de Equipo:</strong> Coordinación de 8 personas, gestión de incidencias y control de productividad.",
+            job2Desc4: "<strong>Reporting:</strong> Generación de informes de resultados para responsables de área y clientes clave.",
+            skillsTitle: "Habilidades",
+            hardSkillsTitle: "Habilidades Técnicas (Hard Skills)",
+            skill1: "Análisis de Datos y Reporting (Power BI, Excel).",
+            skill2: "Automatización (Power Automate).",
+            skill3: "Gestión de Bases de Datos.",
+            skill4: "Gestión de Logística y Recambios.",
+            skill5: "Digitalización de Procesos SAT.",
+            softSkillsTitle: "Habilidades Blandas (Soft Skills)",
+            skill6: "Gestión y Resolución de Conflictos.",
+            skill7: "Liderazgo y Coordinación Operativa.",
+            skill8: "Toma de Decisiones.",
+            skill9: "Capacidad Formativa.",
+            skill10: "Comunicación y Colaboración Transversal.",
+            languagesTitle: "Idiomas",
+            langEsName: "Español",
+            langEsLevel: "Nativo",
+            langCtName: "Catalán",
+            langCtLevel: "Nativo / Bilingüe",
+            langPtName: "Portugués",
+            langPtLevel: "Competencia Profesional",
+            langEnName: "Inglés",
+            langEnLevel: "Competencia Técnica",
+            certsTitle: "Certificaciones y Formación",
+            cert1: "<strong>Microsoft Power BI - Data Analysis & Dashboards</strong> | Udemy (2024)",
+            cert2: "<strong>Master SQL Server</strong> | Udemy (2025)",
+            cert3: "<strong>Microsoft Power Automate - Automatización de procesos</strong> | Udemy (2025)",
+            cert4: "<strong>Gestión y Manejo de Conflictos</strong> | GoodHabitz (2024)",
+            cert5: "<strong>Creación y Diseño Web (HTML5, CSS, JS)</strong> | NtFor (2022)",
+            eduTitle: "Historial Académico",
+            edu1Title: "Grado Superior en Transporte y Logística",
+            edu1Place: "IFP Innovación en Formación Profesional (2018-2020).",
+            edu1Desc: "Especialización en gestión de almacenamiento y procesos logísticos transversales.",
+            edu2Title: "Grado Medio en Gestión Administrativa",
+            edu2Place: "La Salle BCN (2009-2010).",
+            refTitle: "Lo que dicen los clientes (Google Reviews)",
+            ref1: '"Esta reseña va para David Artola, grácias por tu gestión, por tu ayuda, tu implicación y amabilidad, servicio post venta de 10 un gran profesional."',
+            ref2: '"Hoy tuve el placer de ser atendido por David... Tenía varias preguntas sobre los diferentes planes de mantenimiento... Su interés personal y su paciencia me confirmaron que había tomado la decisión correcta."',
+            ref3: '"Gostaria de agradecer e elogiar o David pelo excelente atendimento! Ele está siempre disponible para tirar todas as minhas dúvidas... É muito atencioso, prestativo e demonstra grande conhecimento técnico."',
+            ref4: '"Recentemente solicitei ajuda após venda e fui atendido pelo David. Super prestável e feedback imediato. Recomendo."',
+            ref5: '"Agradezco a David Artola como responsable, la comprensión y su disposición a resolver el problema. Una buena marca es la que sigue tratando bien al cliente después de la instalación."',
+            refFooter: "(Desliza para ver más reseñas)",
+            footer: "&copy; 2025 David Artola. CV Web Profesional."
+        },
+        en: {
+            title: "David Artola - Area Service Manager",
+            name: "David Artola",
+            subtitle: "AREA SERVICE MANAGER AT GROUPE ATLANTIC",
+            contact: "Contact",
+            linkedin: "LinkedIn",
+            aboutTitle: "About Me",
+            aboutText: "After-sales management specialist for the <strong>Spain and Portugal</strong> markets, blending operational experience with a strong interest in <strong>Artificial Intelligence and Data Analysis</strong> to optimize processes. I naturally thrive in teamwork environments, facilitating cross-departmental communication to drive efficient solutions.",
+            achievementsTitle: "Milestones & Achievements",
+            metric1: "-16.9%",
+            metric1Label: "Warranty Expense",
+            metric1Desc: "Reduction of the accumulated annual expense in the assigned area, achieving a positive decoupling between the drop in activity (-8.2%) and the total savings achieved.",
+            metric2: "+9.5%",
+            metric2Label: "Operational Efficiency",
+            metric2Desc: "Improvement in the economic efficiency of the service (Average Cost per Request), optimizing the management of resources per technical intervention.",
+            metric3: "-65.8%",
+            metric3Label: "Containment Peak",
+            metric3Desc: "Record cost reduction in high-demand periods (November) through the implementation of strict controls and auditing.",
+            strategicNote: '"To improve efficiency, you have to understand what the numbers tell us and, above all, know how to translate them into real solutions. It\'s not just about seeing where expenses rise, but identifying if the problem is a bottleneck or a poorly designed process that is diminishing our results."',
+            portfolioTitle: "Project Portfolio",
+            project1Title: "HVAC Service 360º - Business Intelligence Dashboard",
+            project1Subtitle: "Power BI + DAX + Star Schema",
+            project1Desc: "Comprehensive BI system designed to audit and optimize the management of 2,000 annual work orders. It integrates an advanced data model to analyze the evolution of <strong>Warranty Expense (vs Previous Year)</strong>, technical productivity through the <strong>First Time Fix (FTF) Rate</strong>, and operational saturation by area.",
+            project1Btn: "View Full Project",
+            project2Title: "EcoTransition Builder PRO - Aerothermal Calculator",
+            project2Subtitle: "HTML + CSS + JavaScript",
+            project2Desc: "Interactive web application developed to simulate and calculate energy efficiency, cost savings, and return on investment (ROI) in the transition to aerothermal climate control systems. Designed as an agile tool to facilitate technical and operational consulting.",
+            project2Btn: "Try Calculator",
+            experienceTitle: "Work Experience",
+            job1Title: "Area Services Manager",
+            job1Company: "Groupe Atlantic",
+            job1Date: "January 2023 - Present",
+            job1Desc1: "<strong>SAT Network Coordination (CATOs):</strong> Comprehensive management of the technical assistance network in Andorra, Catalonia, Valencia, Murcia, Balearic Islands, and Portugal.",
+            job1Desc2: "<strong>Process Optimization:</strong> Design of operational strategies to improve technical support and internal workflows.",
+            job1Desc3: "<strong>Data Analysis:</strong> Development of dynamic dashboards to track KPIs and operational costs.",
+            job1Desc4: "<strong>Audit and Quality:</strong> Conducting audits to ensure compliance with quality standards.",
+            job1Desc5: "<strong>Training:</strong> Execution of operational training plans on digital platforms in Spain and Portugal.",
+            job1Desc6: "Promotion of commercial actions and support in the sale of after-sales services.",
+            job2Title: "Warehouse Manager / Warranty Analyst",
+            job2Company: "EK Services (VGED)",
+            job2Date: "February 2012 - December 2022",
+            job2Desc1: "<strong>Warranty Management:</strong> Rigorous analysis under manufacturer protocols to ensure homogeneous criteria.",
+            job2Desc2: "<strong>Spare Parts Logistics:</strong> Stock management, traceability (QlikView), and reverse logistics.",
+            job2Desc3: "<strong>Team Leadership:</strong> Coordination of 8 people, incident management, and productivity control.",
+            job2Desc4: "<strong>Reporting:</strong> Generation of performance reports for area managers and key clients.",
+            skillsTitle: "Skills",
+            hardSkillsTitle: "Hard Skills",
+            skill1: "Data Analysis and Reporting (Power BI, Excel).",
+            skill2: "Automation (Power Automate).",
+            skill3: "Database Management.",
+            skill4: "Logistics and Spare Parts Management.",
+            skill5: "Digitization of SAT Processes.",
+            softSkillsTitle: "Soft Skills",
+            skill6: "Conflict Management and Resolution.",
+            skill7: "Leadership and Operational Coordination.",
+            skill8: "Decision Making.",
+            skill9: "Training Ability.",
+            skill10: "Cross-functional Communication and Collaboration.",
+            languagesTitle: "Languages",
+            langEsName: "Spanish",
+            langEsLevel: "Native",
+            langCtName: "Catalan",
+            langCtLevel: "Native / Bilingual",
+            langPtName: "Portuguese",
+            langPtLevel: "Professional Working Proficiency",
+            langEnName: "English",
+            langEnLevel: "Technical Proficiency",
+            certsTitle: "Certifications and Training",
+            cert1: "<strong>Microsoft Power BI - Data Analysis & Dashboards</strong> | Udemy (2024)",
+            cert2: "<strong>Master SQL Server</strong> | Udemy (2025)",
+            cert3: "<strong>Microsoft Power Automate - Process Automation</strong> | Udemy (2025)",
+            cert4: "<strong>Conflict Management and Handling</strong> | GoodHabitz (2024)",
+            cert5: "<strong>Web Creation and Design (HTML5, CSS, JS)</strong> | NtFor (2022)",
+            eduTitle: "Academic History",
+            edu1Title: "Higher Degree in Transport and Logistics",
+            edu1Place: "IFP Innovation in Vocational Training (2018-2020).",
+            edu1Desc: "Specialization in storage management and transversal logistical processes.",
+            edu2Title: "Intermediate Degree in Administrative Management",
+            edu2Place: "La Salle BCN (2009-2010).",
+            refTitle: "What clients say (Google Reviews)",
+            ref1: '"This review is for David Artola, thank you for your management, for your help, your involvement and kindness, 10/10 after-sales service, a great professional."',
+            ref2: '"Today I had the pleasure of being assisted by David... I had several questions about the different maintenance plans... His personal interest and patience confirmed that I had made the right decision."',
+            ref3: '"I would like to thank and praise David for his excellent service! He is always available to answer all my questions... He is very attentive, helpful and demonstrates great technical knowledge."',
+            ref4: '"I recently requested after-sales help and was attended by David. Super helpful and immediate feedback. Highly recommended."',
+            ref5: '"I thank David Artola as manager, for his understanding and willingness to solve the problem. A good brand is one that continues to treat the client well after the installation."',
+            refFooter: "(Swipe to see more reviews)",
+            footer: "&copy; 2025 David Artola. Professional Web CV."
+        },
+        pt: {
+            title: "David Artola - Area Service Manager",
+            name: "David Artola",
+            subtitle: "AREA SERVICE MANAGER NA GROUPE ATLANTIC",
+            contact: "Contactar",
+            linkedin: "LinkedIn",
+            aboutTitle: "Sobre Mim",
+            aboutText: "Especialista em gestão de pós-venda para os mercados de <strong>Espanha e Portugal</strong>, unindo a minha experiência operacional a um forte interesse por <strong>Inteligência Artificial e Análise de Dados</strong> para otimizar processos. Desenvolvo-me com naturalidade em ambientes de trabalho em equipa, facilitando a comunicação transversal entre departamentos para impulsionar soluções eficientes.",
+            achievementsTitle: "Marcos e Conquistas",
+            metric1: "-16,9%",
+            metric1Label: "Despesa em Garantias",
+            metric1Desc: "Redução da despesa acumulada anual na zona atribuída, alcançando um desfasamento positivo entre a quebra de atividade (-8,2%) e a poupança total conseguida.",
+            metric2: "+9,5%",
+            metric2Label: "Eficiência Operacional",
+            metric2Desc: "Melhoria na eficiência económica do serviço (Custo Médio por Aviso), otimizando a gestão de recursos por intervenção técnica.",
+            metric3: "-65,8%",
+            metric3Label: "Pico de Contenção",
+            metric3Desc: "Recorde de redução de custos em períodos de alta exigência (Novembro) mediante a implementação de controlos estritos e auditoria.",
+            strategicNote: '"Para melhorar a eficiência, é preciso entender o que os números nos dizem e, sobretudo, saber traduzi-los em soluções reais. Não se trata apenas de ver onde a despesa sobe, mas identificar se o problema é um estrangulamento ou um processo mal desenhado que está a diminuir os nossos resultados."',
+            portfolioTitle: "Portfólio de Projetos",
+            project1Title: "HVAC Service 360º - Business Intelligence Dashboard",
+            project1Subtitle: "Power BI + DAX + Star Schema",
+            project1Desc: "Sistema integral de BI desenhado para auditar e otimizar a gestão de 2.000 ordens de trabalho anuais. Integra um modelo de dados avançado para analisar a evolução da <strong>Despesa em Garantias (vs Ano Anterior)</strong>, a produtividade técnica mediante a <strong>Taxa de First Time Fix (FTF)</strong> e a saturação operacional por zonas.",
+            project1Btn: "Ver Projeto Completo",
+            project2Title: "EcoTransition Builder PRO - Calculadora de Aerotermia",
+            project2Subtitle: "HTML + CSS + JavaScript",
+            project2Desc: "Aplicação web interativa desenvolvida para simular e calcular a eficiência energética, a poupança de custos e o retorno do investimento (ROI) na transição para sistemas de climatização por aerotermia. Desenhada como uma ferramenta ágil para facilitar a consultoria técnica e operacional.",
+            project2Btn: "Testar Calculadora",
+            experienceTitle: "Experiência Profissional",
+            job1Title: "Area Services Manager",
+            job1Company: "Groupe Atlantic",
+            job1Date: "Janeiro 2023 - Presente",
+            job1Desc1: "<strong>Coordenação de Rede SAT (CATO's):</strong> Gestão integral da rede de assistência técnica em Andorra, Catalunha, Valência, Múrcia, Baleares e Portugal.",
+            job1Desc2: "<strong>Otimização de Processos:</strong> Desenho de estratégias operacionais para melhorar o atendimento técnico e os fluxos internos.",
+            job1Desc3: "<strong>Análise de Dados:</strong> Elaboração de dashboards dinâmicos para acompanhamento de KPIs e custos operacionais.",
+            job1Desc4: "<strong>Auditoria e Qualidade:</strong> Realização de auditorias para assegurar o cumprimento de normas de qualidade.",
+            job1Desc5: "<strong>Formação:</strong> Execução de planos de formação operacional sobre plataformas digitais em Espanha e Portugal.",
+            job1Desc6: "Impulso de ações comerciais e apoio na venda de serviços pós-venda.",
+            job2Title: "Chefe de Armazém / Analista de Garantias",
+            job2Company: "EK Services (VGED)",
+            job2Date: "Fevereiro 2012 - Dezembro 2022",
+            job2Desc1: "<strong>Gestão de Garantias:</strong> Análise rigorosa sob protocolos do fabricante para assegurar critérios homogéneos.",
+            job2Desc2: "<strong>Logística de Peças de Reposição:</strong> Gestão de stock, rastreabilidade (QlikView) e logística inversa.",
+            job2Desc3: "<strong>Liderança de Equipa:</strong> Coordenação de 8 pessoas, gestão de incidentes e controlo de produtividade.",
+            job2Desc4: "<strong>Reporting:</strong> Geração de relatórios de resultados para responsáveis de área e clientes-chave.",
+            skillsTitle: "Habilidades",
+            hardSkillsTitle: "Habilidades Técnicas (Hard Skills)",
+            skill1: "Análise de Dados e Reporting (Power BI, Excel).",
+            skill2: "Automação (Power Automate).",
+            skill3: "Gestão de Bases de Dados.",
+            skill4: "Gestão de Logística e Peças de Reposição.",
+            skill5: "Digitalização de Processos SAT.",
+            softSkillsTitle: "Habilidades Interpessoais (Soft Skills)",
+            skill6: "Gestão e Resolução de Conflitos.",
+            skill7: "Liderança e Coordenação Operacional.",
+            skill8: "Tomada de Decisões.",
+            skill9: "Capacidade de Formação.",
+            skill10: "Comunicação e Colaboração Transversal.",
+            languagesTitle: "Idiomas",
+            langEsName: "Espanhol",
+            langEsLevel: "Nativo",
+            langCtName: "Catalão",
+            langCtLevel: "Nativo / Bilingue",
+            langPtName: "Português",
+            langPtLevel: "Proficiência Profissional",
+            langEnName: "Inglês",
+            langEnLevel: "Proficiência Técnica",
+            certsTitle: "Certificações e Formação",
+            cert1: "<strong>Microsoft Power BI - Data Analysis & Dashboards</strong> | Udemy (2024)",
+            cert2: "<strong>Master SQL Server</strong> | Udemy (2025)",
+            cert3: "<strong>Microsoft Power Automate - Automação de processos</strong> | Udemy (2025)",
+            cert4: "<strong>Gestão e Manejo de Conflitos</strong> | GoodHabitz (2024)",
+            cert5: "<strong>Criação e Design Web (HTML5, CSS, JS)</strong> | NtFor (2022)",
+            eduTitle: "Histórico Académico",
+            edu1Title: "Grau Superior em Transporte e Logística",
+            edu1Place: "IFP Inovação em Formação Profissional (2018-2020).",
+            edu1Desc: "Especialização em gestão de armazenamento e processos logísticos transversais.",
+            edu2Title: "Grau Médio em Gestão Administrativa",
+            edu2Place: "La Salle BCN (2009-2010).",
+            refTitle: "O que os clientes dizem (Google Reviews)",
+            ref1: '"Esta avaliação vai para o David Artola, obrigado pela sua gestão, pela sua ajuda, envolvimento e simpatia, serviço pós-venda nota 10, um grande profissional."',
+            ref2: '"Hoje tive o prazer de ser atendido pelo David... Tinha várias perguntas sobre os diferentes planos de manutenção... O seu interesse pessoal e a sua paciência confirmaram-me que tinha tomado a decisão certa."',
+            ref3: '"Gostaria de agradecer e elogiar o David pelo excelente atendimento! Ele está sempre disponível para tirar todas as minhas dúvidas... É muito atencioso, prestativo e demonstra grande conhecimento técnico."',
+            ref4: '"Recentemente solicitei ajuda após venda e fui atendido pelo David. Super prestável e feedback imediato. Recomendo."',
+            ref5: '"Agradeço ao David Artola como responsável, pela compreensão e disposição para resolver o problema. Uma boa marca é a que continua a tratar bem o cliente após a instalação."',
+            refFooter: "(Deslize para ver mais avaliações)",
+            footer: "&copy; 2025 David Artola. CV Web Profissional."
+        }
+    };
+
     const carousel = document.getElementById('carousel');
     const prevBtn = document.getElementById('prevBtn');
     const nextBtn = document.getElementById('nextBtn');
@@ -651,6 +965,24 @@ ul { list-style-type: none; padding-left: 0; }
             carousel.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
         });
     }
+
+    const languageSelect = document.getElementById('language-select');
+
+    function updateLanguage(lang) {
+        document.documentElement.lang = lang;
+        const elements = document.querySelectorAll('[data-i18n]');
+
+        elements.forEach(el => {
+            const key = el.getAttribute('data-i18n');
+            if (translations[lang] && translations[lang][key]) {
+                el.innerHTML = translations[lang][key];
+            }
+        });
+    }
+
+    languageSelect.addEventListener('change', (e) => {
+        updateLanguage(e.target.value);
+    });
 </script>
 
 </body>
