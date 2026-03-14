@@ -7,6 +7,10 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
 <style>
+.contact-input { width: 100%; padding: 15px; margin-bottom: 20px; border-radius: 8px; border: 1px solid var(--border-color); background: var(--bg-color); color: var(--heading-color); font-family: inherit; font-size: 1rem; box-sizing: border-box; transition: border-color var(--transition-speed); }
+.contact-input:focus { outline: none; border-color: var(--gmail-color); }
+.contact-form-container { transition: background-color var(--transition-speed), border-color var(--transition-speed), box-shadow var(--transition-speed); }
+
 /* --- ESTILOS GLOBALES --- */
 :root {
     --primary-color: #333;
@@ -632,14 +636,14 @@ ul { list-style-type: none; padding-left: 0; }
             </div>
         </section>
 
-        <section id="contact-section">
-            <h2 data-i18n="contactTitle">Contacto</h2>
-            <div style="background: var(--card-bg); padding: 30px; border-radius: 10px; border: 1px solid var(--border-color); box-shadow: var(--shadow-color);">
-                <form action="https://formspree.io/f/placeholder" method="POST">
+        <section id="contact-section" style="display: flex; flex-direction: column; align-items: center;">
+            <h2 data-i18n="contactTitle" style="margin-bottom: 30px;">Contacto</h2>
+            <div class="contact-form-container" style="background: var(--card-bg); padding: 40px; border-radius: 15px; border: 1px solid var(--border-color); box-shadow: var(--shadow-color); max-width: 600px; width: 100%; margin: 0 auto; box-sizing: border-box;">
+                <form action="https://formspree.io/f/placeholder" method="POST" style="display: flex; flex-direction: column;">
                     <input type="text" name="name" class="contact-input" placeholder="Tu Nombre" required data-i18n-placeholder="contactNamePlaceholder">
                     <input type="email" name="email" class="contact-input" placeholder="Tu Email" required data-i18n-placeholder="contactEmailPlaceholder">
-                    <textarea name="message" class="contact-input" placeholder="Tu Mensaje" rows="5" required data-i18n-placeholder="contactMessagePlaceholder"></textarea>
-                    <button type="submit" class="btn-contact btn-gmail" style="width: 100%; justify-content: center; font-size: 1.1rem; padding: 15px; border: none; cursor: pointer;">
+                    <textarea name="message" class="contact-input" placeholder="Tu Mensaje" rows="6" required data-i18n-placeholder="contactMessagePlaceholder"></textarea>
+                    <button type="submit" class="btn-contact btn-gmail" style="width: 100%; justify-content: center; font-size: 1.1rem; padding: 15px; border: none; cursor: pointer; border-radius: 8px;">
                         <i class="fas fa-paper-plane" style="margin-right: 10px;"></i> <span data-i18n="contactSubmit">Enviar Mensaje</span>
                     </button>
                 </form>
