@@ -639,7 +639,7 @@ ul { list-style-type: none; padding-left: 0; }
         <section id="contact-section" style="display: flex; flex-direction: column; align-items: center;">
             <h2 data-i18n="contactTitle" style="margin-bottom: 30px;">Contacto</h2>
             <div class="contact-form-container" style="background: var(--card-bg); padding: 40px; border-radius: 15px; border: 1px solid var(--border-color); box-shadow: var(--shadow-color); max-width: 600px; width: 100%; margin: 0 auto; box-sizing: border-box;">
-                <form action="https://formspree.io/f/placeholder" method="POST" style="display: flex; flex-direction: column;">
+                <form id="contact-form" style="display: flex; flex-direction: column;">
                     <input type="text" name="name" class="contact-input" placeholder="Tu Nombre" required data-i18n-placeholder="contactNamePlaceholder">
                     <input type="email" name="email" class="contact-input" placeholder="Tu Email" required data-i18n-placeholder="contactEmailPlaceholder">
                     <textarea name="message" class="contact-input" placeholder="Tu Mensaje" rows="6" required data-i18n-placeholder="contactMessagePlaceholder"></textarea>
@@ -1054,6 +1054,26 @@ ul { list-style-type: none; padding-left: 0; }
         });
         prevBtn.addEventListener('click', () => {
             carousel.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+        });
+    }
+
+    const contactForm = document.getElementById('contact-form');
+    if (contactForm) {
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const formData = new FormData(contactForm);
+            const name = formData.get('name');
+            const email = formData.get('email');
+            const message = formData.get('message');
+
+            const subject = encodeURIComponent(`Contacto de ${name} desde el CV Web`);
+            const body = encodeURIComponent(`Nombre: ${name}\nEmail: ${email}\n\nMensaje:\n${message}`);
+
+            // Obfuscated email to prevent scraping
+            const targetEmail = ['dartola3', 'gmail.com'].join('@');
+            window.location.href = `mailto:${targetEmail}?subject=${subject}&body=${body}`;
+
+            contactForm.reset();
         });
     }
 </script>
