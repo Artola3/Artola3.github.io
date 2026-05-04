@@ -323,7 +323,6 @@ ul { list-style-type: none; padding-left: 0; }
 
 <div class="container">
     
-
     <header>
         <div style="position: absolute; top: 20px; left: 20px; z-index: 20;">
             <button id="theme-toggle" aria-label="Toggle Dark Mode" style="background: rgba(255,255,255,0.1); color: white; border: 1px solid rgba(255,255,255,0.3); padding: 5px 10px; border-radius: 5px; cursor: pointer; display: flex; align-items: center; justify-content: center; width: 40px; height: 40px; font-size: 1.2rem; transition: background 0.3s ease;">
@@ -581,9 +580,6 @@ ul { list-style-type: none; padding-left: 0; }
             <h2 data-i18n="certsTitle">Certificaciones y Formación</h2>
             <ul style="padding-left: 0;">
 
-
-
-                
                  <li>
                      <a href="cert_web.jpg" target="_blank" rel="noopener noreferrer" class="cert-link">
                         <i class="fas fa-code" style="color: #EA4335; margin-right: 15px; font-size: 1.2rem;"></i>
@@ -592,7 +588,7 @@ ul { list-style-type: none; padding-left: 0; }
                      </a>
                 </li>
 
-                  <li>
+                 <li>
                     <a href="cert_conflictos.jpg" target="_blank" rel="noopener noreferrer" class="cert-link">
                         <i class="fas fa-users" style="color: #EA4335; margin-right: 15px; font-size: 1.2rem;"></i>
                         <span style="flex-grow: 1;" data-i18n="cert4"><strong>Gestión y Manejo de Conflictos</strong> | GoodHabitz (2024)</span>
@@ -627,11 +623,12 @@ ul { list-style-type: none; padding-left: 0; }
                  <li>
                     <a href="cert_Antigravity.jpg" target="_blank" rel="noopener noreferrer" class="cert-link">
                         <i class="fas fa-atom" style="color: #EA4335; margin-right: 15px; font-size: 1.2rem;"></i>
-                        <span style="flex-grow: 1;" data-i18n="cert1"><strong>Antigravity: Crea apps con IA y Vibe Coding</strong> | Udemy (2026)</span>
+                        <!-- AQUÍ ESTABA EL ERROR: Se usaba cert1 en lugar de cert6 -->
+                        <span style="flex-grow: 1;" data-i18n="cert6"><strong>Antigravity: Crea apps con IA y Vibe Coding</strong> | Udemy (2026)</span>
                         <i class="fas fa-external-link-alt" style="color: var(--secondary-color); font-size: 0.9rem;"></i>
                     </a>
                 </li>
-                               
+                                
             </ul>
         </section>
 
@@ -798,6 +795,7 @@ ul { list-style-type: none; padding-left: 0; }
             cert3: "<strong>Microsoft Power Automate - Automatización de procesos</strong> | Udemy (2025)",
             cert4: "<strong>Gestión y Manejo de Conflictos</strong> | GoodHabitz (2024)",
             cert5: "<strong>Creación y Diseño Web (HTML5, CSS, JS)</strong> | NtFor (2022)",
+            cert6: "<strong>Antigravity: Crea apps con IA y Vibe Coding</strong> | Udemy (2026)",
             eduTitle: "Historial Académico",
             edu1Title: "Grado Superior en Transporte y Logística",
             edu1Place: "IFP Innovación en Formación Profesional (2018-2020).",
@@ -807,7 +805,7 @@ ul { list-style-type: none; padding-left: 0; }
             refTitle: "Lo que dicen los clientes (Google Reviews)",
             ref1: '"Esta reseña va para David Artola, grácias por tu gestión, por tu ayuda, tu implicación y amabilidad, servicio post venta de 10 un gran profesional."',
             ref2: '"Hoy tuve el placer de ser atendido por David... Tenía varias preguntas sobre los diferentes planes de mantenimiento... Su interés personal y su paciencia me confirmaron que había tomado la decisión correcta."',
-            ref3: '"Gostaria de agradecer e elogiar o David pelo excelente atendimento! Ele está siempre disponible para tirar todas as minhas dúvidas... É muito atencioso, prestativo e demonstra grande conhecimento técnico."',
+            ref3: '"Gostaria de agradecer e elogiar o David pelo excelente atendimento! Ele está siempre disponible para tirar todas as minhas dúvidas... É muito atencioso, prestativo e demonstra grande conocimiento técnico."',
             ref4: '"Recentemente solicitei ajuda após venda e fui atendido pelo David. Super prestável e feedback imediato. Recomendo."',
             ref5: '"Agradezco a David Artola como responsable, la comprensión y su disposición a resolver el problema. Una buena marca es la que sigue tratando bien al cliente después de la instalación."',
             refFooter: "(Desliza para ver más reseñas)",
@@ -889,6 +887,7 @@ ul { list-style-type: none; padding-left: 0; }
             cert3: "<strong>Microsoft Power Automate - Process Automation</strong> | Udemy (2025)",
             cert4: "<strong>Conflict Management and Handling</strong> | GoodHabitz (2024)",
             cert5: "<strong>Web Creation and Design (HTML5, CSS, JS)</strong> | NtFor (2022)",
+            cert6: "<strong>Antigravity: Create apps with AI and Vibe Coding</strong> | Udemy (2026)",
             eduTitle: "Academic History",
             edu1Title: "Higher Degree in Transport and Logistics",
             edu1Place: "IFP Innovation in Vocational Training (2018-2020).",
@@ -980,6 +979,7 @@ ul { list-style-type: none; padding-left: 0; }
             cert3: "<strong>Microsoft Power Automate - Automação de Processos</strong> | Udemy (2025)",
             cert4: "<strong>Gestão e Tratamento de Conflitos</strong> | GoodHabitz (2024)",
             cert5: "<strong>Criação e Web Design (HTML5, CSS, JS)</strong> | NtFor (2022)",
+            cert6: "<strong>Antigravity: Criar apps com IA e Vibe Coding</strong> | Udemy (2026)",
             eduTitle: "Histórico Académico",
             edu1Title: "Grau Superior em Transporte e Logística",
             edu1Place: "IFP Inovação na Formação Profissional (2018-2020).",
@@ -1023,6 +1023,8 @@ ul { list-style-type: none; padding-left: 0; }
         languageSelect.addEventListener('change', (e) => {
             updateLanguage(e.target.value);
         });
+        // Sincronización inicial para prevenir bugs en recargas (cache de selección del navegador)
+        updateLanguage(languageSelect.value);
     }
 
     const carousel = document.getElementById('carousel');
